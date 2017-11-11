@@ -3,7 +3,7 @@
 
 <head>
   <title>World Countries and Capitals</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta placeholder="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
   <style>
@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="page-header">
-      <h1>World Countries and Capitals</h1>
+      <h1>Games collection</h1>
     </div>
     <div class="row">
       <div id="results" class="span8">
@@ -56,19 +56,28 @@
           <li>
             <form enctype='application/json' action="/post/json" method="post">
               <div class="field">
-                <input type="text" name="Country_code" placeholder="Country code">
+                <input type="text" placeholder="Game title" name="gameTitle">
               </div>
               <div class="field">
-                <input type="text" name="Region" placeholder="Region">
+                <input type="text" placeholder="Price" name="gamePrice">
               </div>
               <div class="field">
-                <input type="text" name="Name" placeholder="Name">
+                <input type="text" placeholder="Genre" name="gameGenre">
               </div>
               <div class="field">
-                <input type="text" name="Capital" placeholder="Capital">
+                <input type="text" placeholder="Console type" name="consoleType">
               </div>
               <div class="field">
-                <input type="text" name="Phone_code" placeholder="Phone code">
+                <input type="text" placeholder="Release Date" name="gameReleaseDate">
+              </div>
+               <div class="field">
+                <input type="text" placeholder="Number available" name="numAvailable">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Picture" name="gamePicture">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Description" name="gameDescription">
               </div>
               <div class="field">
                 <button type="submit">Submit</button>
