@@ -20,13 +20,14 @@
 			<body>
 				<table>
 					<tr>
+						<th>gameTitle</th>
 						<th>gamePrice</th>
 						<th>gameGenre</th>
 						<th>consoleType</th>
-						<th>gameReleaseDate</th>
-						<th>numAvailable</th>
-						<th>gamePicture</th>
-						<th>gameDescription</th>
+						<th>releaseDate</th>
+						<th>numAvail</th>
+						<th>gameImg</th>
+						<th>gameDescr</th>
 					</tr>
 					<xsl:for-each select="Games/Game">
 							<tr>
@@ -43,16 +44,16 @@
 									<xsl:value-of select="consoleType"/>
 								</td>
 								<td>
-									<xsl:value-of select="gameReleaseDate"/>
+									<xsl:value-of select="releaseDate"/>
 								</td>
 								<td>
-									<xsl:value-of select="numAvailable"/>
+									<xsl:value-of select="numAvail"/>
 								</td>
 								<td>
-									<xsl:value-of select="gamePicture"/>
+									<xsl:value-of select="gameImg"/>
 								</td>
 								<td>
-									<xsl:value-of select="gameDescription"/>
+									<xsl:value-of select="gameDescr"/>
 								</td>
 							</tr>
 					</xsl:for-each>
