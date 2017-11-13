@@ -2,6 +2,16 @@
     "Game": [
         {
             "gameTitle": "Skyrim"
+        },
+        {
+            "gameTitle": "",
+            "gamePrice": "",
+            "gameGenre": "",
+            "consoleType": "",
+            "releaseDate": "",
+            "numAvail": "",
+            "gameImg": "",
+            "gameDescr": ""
         }
     ]
 }

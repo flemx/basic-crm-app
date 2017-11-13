@@ -18,6 +18,14 @@ router.get('/', function(req, res) {
   res.render('index');
 });
 
+
+//Adding express routing to test response on test.html
+router.get('/hello', function(req, res) {
+  res.end('<h1>hello</h1>');
+});
+
+
+
 // HTML produced by XSL Transformation
 router.get('/get/html', function(req, res) {
   

@@ -3,6 +3,7 @@
 	<xsl:template match="/">
 		<html>
 			<head>
+				
 				<style>
 				  table {
 				    border-collapse: collapse;
@@ -16,6 +17,7 @@
 				    font-weight: bold;
 				  }
 			  </style>
+			
 			</head>
 			<body>
 				<table>

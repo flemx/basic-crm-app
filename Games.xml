@@ -3,4 +3,14 @@
     <Game>
         <gameTitle>Skyrim</gameTitle>
     </Game>
+    <Game>
+        <gameTitle></gameTitle>
+        <gamePrice></gamePrice>
+        <gameGenre></gameGenre>
+        <consoleType></consoleType>
+        <releaseDate></releaseDate>
+        <numAvail></numAvail>
+        <gameImg></gameImg>
+        <gameDescr></gameDescr>
+    </Game>
 </Games>
