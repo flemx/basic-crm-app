@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<Customers>
+    <Customer>
+        <custName>Boris</custName>
+        <custPhone></custPhone>
+        <custEmail></custEmail>
+        <custOwnedGamed></custOwnedGamed>
+    </Customer>
+    <Customer>
+        <custName>Damien</custName>
+        <custPhone></custPhone>
+        <custEmail></custEmail>
+        <custOwnedGamed></custOwnedGamed>
+    </Customer>
+</Customers>

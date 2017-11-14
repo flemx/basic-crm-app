@@ -27,7 +27,7 @@
   <script>
     function load() {
       $.ajax({
-        url: "/hello",
+        url: "/get/customers",
         cache: false,
         success: function(html) {
           $("#results").append(html);
@@ -56,30 +56,18 @@
       <div class="span4">
         <ul class="nav nav-list well">
           <li>
-            <form enctype='application/json' action="/post/json" method="post">
+            <form enctype='application/json' action="/post/customer" method="post">
               <div class="field">
-                <input type="text" placeholder="Game title" name="gameTitle">
+                <input type="text" placeholder="custName" name="custName">
               </div>
               <div class="field">
-                <input type="text" placeholder="Price" name="gamePrice">
+                <input type="text" placeholder="custPhone" name="custPhone">
               </div>
               <div class="field">
-                <input type="text" placeholder="Genre" name="gameGenre">
+                <input type="text" placeholder="custEmail" name="custEmail">
               </div>
               <div class="field">
-                <input type="text" placeholder="Console type" name="consoleType">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Release Date" name="releaseDate">
-              </div>
-               <div class="field">
-                <input type="text" placeholder="Number available" name="numAvail">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Picture" name="gameImg">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Description" name="gameDescr">
+                <input type="text" placeholder="custOwnedGamed" name="custOwnedGamed">
               </div>
               <div class="field">
                 <button type="submit">Submit</button>

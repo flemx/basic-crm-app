@@ -25,6 +25,26 @@ router.get('/hello', function(req, res) {
 });
 
 
+//Customer get router
+router.get('/get/customers', function(req, res) {
+  
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    
+    var docSource = fs.readFileSync('Customers.xml', 'utf8');
+    var stylesheetSource = fs.readFileSync('Customers.xsl', 'utf8');
+    
+    var doc = libxslt.libxmljs.parseXml(docSource);
+    var stylesheet = libxslt.parse(stylesheetSource);
+    
+    var result = stylesheet.apply(doc);
+    
+    res.end(result.toString());
+  
+});
+
+
+
+
 
 // HTML produced by XSL Transformation
 router.get('/get/html', function(req, res) {
@@ -79,6 +99,49 @@ router.post('/post/json', function(req, res) {
   res.redirect('back');
 
 });
+
+
+//Customer post router
+router.post('/post/customer', function(req, res) {
+
+  // Function to read in a JSON file, add to it & convert to XML
+  function appendJSON(obj) {
+
+    // Read in a JSON file
+    var JSONfile = fs.readFileSync('Customers.json', 'utf8');
+
+    // Parse the JSON file in order to be able to edit it 
+    var JSONparsed = JSON.parse(JSONfile);
+
+    // Add a new record into country array within the JSON file    
+    JSONparsed.Customer.push(obj);
+
+    // Beautify the resulting JSON file
+    var JSONformated = JSON.stringify(JSONparsed, null, 4);
+
+    // Write the updated JSON file back to the system 
+    fs.writeFileSync('Customers.json', JSONformated);
+
+    // Convert the updated JSON file to XML     
+    var XMLformated = js2xmlparser.parse("Customers", JSON.parse(JSONformated));
+
+    // Write the resulting XML back to the system
+    fs.writeFileSync('Customers.xml', XMLformated);
+
+  }
+
+  // Call appendJSON function and pass in body of the current POST request
+  appendJSON(req.body);
+  
+  // Re-direct the browser back to the page, where the POST request came from
+  res.redirect('back');
+
+});
+
+
+
+
+
 
 server.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function() {
   var addr = server.address();
