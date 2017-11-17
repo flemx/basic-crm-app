@@ -1,6 +1,9 @@
 module.exports = function(app,fs,js2xmlparser,libxslt,bodyParser,urlencodedParsers){
 
-
+ //Open Games link 
+ app.get('/games', function(req, res) {
+  res.render('games');
+});
 
 // HTML produced by XSL Transformation
 app.get('/get/games', function(req, res) {
@@ -14,7 +17,8 @@ app.get('/get/games', function(req, res) {
     var stylesheet = libxslt.parse(stylesheetSource);
     
     var result = stylesheet.apply(doc);
-    
+     console.log("Reading Games success");
+  
     res.end(result.toString());
   
 });

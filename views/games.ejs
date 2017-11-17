@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -17,7 +18,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 
     $(document).ready(function() {
-      loadCustomers();
+      loadGames();
     });
    
   </script>
@@ -48,10 +49,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <h5>Dashboard</h5>
   </div>
   <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
-		<a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>&nbsp; Home</a>
-  <a href="/customers" class="w3-bar-item w3-button w3-padding w3-blue" id="customers-button"><i class="fa fa-users fa-fw"></i>&nbsp; Customers</a>
-		<a href="/games" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>&nbsp; Views</a>
+
+    
+		<a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>&nbsp; Close Menu</a>
+				<a href="/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>&nbsp; Home</a>
+    <a href="/customers" class="w3-bar-item w3-button w3-padding " id="customers-button"><i class="fa fa-users fa-fw"></i>&nbsp; Customers</a>
+		<a href="/games" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-eye fa-fw"></i>&nbsp; Views</a>
 
   </div>
 </nav>
@@ -69,23 +72,35 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   
 
-  		<form enctype='application/json' action="/post/customer" method="post">
-    <div class="field">
-      <input type="text" placeholder="custName" name="custName">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="custPhone" name="custPhone">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="custEmail" name="custEmail">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="custOwnedGamed" name="custOwnedGamed">
-    </div>
-    <div class="field">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
+            <form enctype='application/json' action="/post/games" method="post">
+              <div class="field">
+                <input type="text" placeholder="Game title" name="gameTitle">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Price" name="gamePrice">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Genre" name="gameGenre">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Console type" name="consoleType">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Release Date" name="releaseDate">
+              </div>
+               <div class="field">
+                <input type="text" placeholder="Number available" name="numAvail">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Picture" name="gameImg">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Description" name="gameDescr">
+              </div>
+              <div class="field">
+                <button type="submit">Submit</button>
+              </div>
+            </form>
   
   
   <div class="w3-container">

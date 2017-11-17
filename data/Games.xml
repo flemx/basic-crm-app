@@ -23,4 +23,14 @@
         <gameImg></gameImg>
         <gameDescr></gameDescr>
     </Game>
+    <Game>
+        <gameTitle>Morrowind</gameTitle>
+        <gamePrice>20 euro</gamePrice>
+        <gameGenre></gameGenre>
+        <consoleType></consoleType>
+        <releaseDate></releaseDate>
+        <numAvail></numAvail>
+        <gameImg></gameImg>
+        <gameDescr></gameDescr>
+    </Game>
 </Games>

@@ -22,6 +22,16 @@
             "numAvail": "",
             "gameImg": "",
             "gameDescr": ""
+        },
+        {
+            "gameTitle": "Morrowind",
+            "gamePrice": "20 euro",
+            "gameGenre": "",
+            "consoleType": "",
+            "releaseDate": "",
+            "numAvail": "",
+            "gameImg": "",
+            "gameDescr": ""
         }
     ]
 }

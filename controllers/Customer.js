@@ -7,6 +7,11 @@ module.exports = function(app,fs,js2xmlparser,libxslt,bodyParser,urlencodedParse
 });
   
   
+ //Open customer link 
+ app.get('/customers', function(req, res) {
+  res.render('customers');
+});
+  
 //Customer get app
 app.get('/get/customer', function(req, res) {
   
@@ -21,6 +26,7 @@ app.get('/get/customer', function(req, res) {
     
     var result = stylesheet.apply(doc);
     
+  console.log("Reading customers success");
     res.end(result.toString());
   
 });

@@ -23,16 +23,14 @@ app.use(bodyParser.json());
 
 
 
-//Fire controllers
-customerController(app,fs,js2xmlparser,libxslt,bodyParser);
-gamesController(app,fs,js2xmlparser,libxslt,bodyParser);
-
 // GET request to dislay index.html located inside /views folder
 app.get('/', function(req, res) {
   res.render('index');
 });
 
-
+//Fire controllers
+customerController(app,fs,js2xmlparser,libxslt,bodyParser);
+gamesController(app,fs,js2xmlparser,libxslt,bodyParser);
 
 
 

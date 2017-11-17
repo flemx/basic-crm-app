@@ -3,24 +3,9 @@
 	<xsl:template match="/">
 		<html>
 			<head>
-				
-				<style>
-				  table {
-				    border-collapse: collapse;
-				  }
-				  td, th {
-				    border: 1px solid #999;
-				    padding: 0.5rem;
-				    text-align: left;
-				  }
-				  th {
-				    font-weight: bold;
-				  }
-			  </style>
-			
 			</head>
 			<body>
-				<table>
+				<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white customer-table">
 					<tr>
 						<th>gameTitle</th>
 						<th>gamePrice</th>
