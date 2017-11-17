@@ -1,4 +1,4 @@
-module.exports = function(app,fs,js2xmlparser,libxslt,bodyParser){
+module.exports = function(app,fs,js2xmlparser,libxslt,bodyParser,urlencodedParser){
 
   
   app.get('/get/test', function(req, res) {

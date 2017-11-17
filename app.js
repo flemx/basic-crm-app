@@ -8,10 +8,15 @@ var http = require('http'),
 
 var app = express();
 var server = http.createServer(app);
+//var urlencodedParser = bodyParser.urlencoded({extended: false});
 var customerController = require('./controllers/Customer');
 var gamesController = require('./controllers/Games');
 
-app.use(express.static(path.resolve(__dirname, 'views')));
+//set up template egine
+app.set('view engine', 'ejs');
+
+//static files
+app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
