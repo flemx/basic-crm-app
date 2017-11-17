@@ -1,0 +1,22 @@
+{
+    "Customer": [
+        {
+            "custName": "Boris",
+            "custPhone": "",
+            "custEmail": "",
+            "custOwnedGamed": ""
+        },
+        {
+            "custName": "Damien",
+            "custPhone": "",
+            "custEmail": "",
+            "custOwnedGamed": ""
+        },
+        {
+            "custName": "",
+            "custPhone": "",
+            "custEmail": "",
+            "custOwnedGamed": ""
+        }
+    ]
+}

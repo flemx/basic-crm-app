@@ -22,12 +22,12 @@
     }
   </style>
 
-  <script src="jquery.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <script>
     function load() {
       $.ajax({
-        url: "/get/customers",
+        url: "/get/html",
         cache: false,
         success: function(html) {
           $("#results").append(html);
@@ -56,18 +56,30 @@
       <div class="span4">
         <ul class="nav nav-list well">
           <li>
-            <form enctype='application/json' action="/post/customer" method="post">
+            <form enctype='application/json' action="/post/json" method="post">
               <div class="field">
-                <input type="text" placeholder="custName" name="custName">
+                <input type="text" placeholder="Game title" name="gameTitle">
               </div>
               <div class="field">
-                <input type="text" placeholder="custPhone" name="custPhone">
+                <input type="text" placeholder="Price" name="gamePrice">
               </div>
               <div class="field">
-                <input type="text" placeholder="custEmail" name="custEmail">
+                <input type="text" placeholder="Genre" name="gameGenre">
               </div>
               <div class="field">
-                <input type="text" placeholder="custOwnedGamed" name="custOwnedGamed">
+                <input type="text" placeholder="Console type" name="consoleType">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Release Date" name="releaseDate">
+              </div>
+               <div class="field">
+                <input type="text" placeholder="Number available" name="numAvail">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Picture" name="gameImg">
+              </div>
+              <div class="field">
+                <input type="text" placeholder="Description" name="gameDescr">
               </div>
               <div class="field">
                 <button type="submit">Submit</button>

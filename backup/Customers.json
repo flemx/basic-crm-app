@@ -29,6 +29,12 @@
             "custPhone": "",
             "custEmail": "",
             "custOwnedGamed": ""
+        },
+        {
+            "custName": "Peter",
+            "custPhone": "123",
+            "custEmail": "damien@email.com",
+            "custOwnedGamed": "5"
         }
     ]
 }

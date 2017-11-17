@@ -20,10 +20,11 @@
 			
 			</head>
 			<body>
+		
 				
 				
-				<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
-      	<tr>
+				<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white customer-table">
+      	<tr> 
 						<th>custName</th>
 						<th>custPhone</th>
 						<th>custEmail</th>

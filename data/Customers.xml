@@ -18,16 +18,4 @@
         <custEmail></custEmail>
         <custOwnedGamed></custOwnedGamed>
     </Customer>
-    <Customer>
-        <custName></custName>
-        <custPhone></custPhone>
-        <custEmail></custEmail>
-        <custOwnedGamed></custOwnedGamed>
-    </Customer>
-    <Customer>
-        <custName>test10</custName>
-        <custPhone></custPhone>
-        <custEmail></custEmail>
-        <custOwnedGamed></custOwnedGamed>
-    </Customer>
 </Customers>
