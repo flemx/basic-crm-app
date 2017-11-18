@@ -32,6 +32,16 @@
             "numAvail": "",
             "gameImg": "",
             "gameDescr": ""
+        },
+        {
+            "gameTitle": "dfasd",
+            "gamePrice": "fasdf",
+            "gameGenre": "fadsfa",
+            "consoleType": "",
+            "releaseDate": "",
+            "numAvail": "",
+            "gameImg": "",
+            "gameDescr": ""
         }
     ]
 }
