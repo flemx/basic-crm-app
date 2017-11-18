@@ -10,24 +10,29 @@
 				
 				<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white customer-table">
       	<tr> 
-						<th>custName</th>
-						<th>custPhone</th>
-						<th>custEmail</th>
-						<th>custOwnedGamed</th>
+						<th>Name</th>
+						<th>Title</th>
+						<th>Account</th>
+						<th>Phone</th>
+						<th>Email</th>
+						
 					</tr>
-					<xsl:for-each select="Customers/Customer">
+					<xsl:for-each select="contacts/contact">
 							<tr>
 								<td>
-									<xsl:value-of select="custName"/>
+									<xsl:value-of select="Name"/>
 								</td>
 								<td>
-									<xsl:value-of select="custPhone"/>
+									<xsl:value-of select="Title"/>
 								</td>
 								<td>
-									<xsl:value-of select="custEmail"/>
+									<xsl:value-of select="Account"/>
 								</td>
 								<td>
-									<xsl:value-of select="custOwnedGamed"/>
+									<xsl:value-of select="Phone"/>
+								</td>
+								<td>
+									<xsl:value-of select="Email"/>
 								</td>
 							</tr>
 					</xsl:for-each>

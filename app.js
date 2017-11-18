@@ -9,7 +9,7 @@ var http = require('http'),
 var app = express();
 var server = http.createServer(app);
 //var urlencodedParser = bodyParser.urlencoded({extended: false});
-var customerController = require('./controllers/Customer');
+var customerController = require('./controllers/contact');
 var gamesController = require('./controllers/Games');
 
 //set up template egine
@@ -27,6 +27,9 @@ app.use(bodyParser.json());
 app.get('/', function(req, res) {
   res.render('index');
 });
+
+
+  
 
 //Fire controllers
 customerController(app,fs,js2xmlparser,libxslt,bodyParser);
