@@ -28,6 +28,10 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+//Test router Boris
+app.get('/boris', function(req, res) {
+  res.render('borisTest');
+});
 
   
 
