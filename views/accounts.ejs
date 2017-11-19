@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>W3.CSS Template</title>
+	<title>Accounts</title>
 
 	<% include partials/head.ejs %>
 		<!-- Header with meta tags and references -->
@@ -30,22 +30,22 @@
 
   		
     <div class="field">
-      <input type="text" placeholder="Name" name="Name" id="contactName">
+      <input type="text" placeholder="Name" name="Name">
     </div>
     <div class="field">
-      <input type="text" placeholder="Title" name="Title">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Account" name="Account">
+      <input type="text" placeholder="Industry" name="Industry">
     </div>
     <div class="field">
       <input type="text" placeholder="Phone" name="Phone">
     </div>
+    <div class="field">
+      <input type="text" placeholder="Employees" name="Employees">
+    </div>
 		 <div class="field">
-      <input type="text" placeholder="Email" name="Email">
+      <input type="text" placeholder="Website" name="Website">
     </div>
     <div class="field">
-      <button type="button" onclick="postContacts()">Submit</button>
+      <button type="button" onclick="postAccounts()">Submit</button>
     </div>
   
   
@@ -56,10 +56,10 @@
 			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white customer-table" id="contact-table-container">
 				<thead>
 					<th>Name</th>
-					<th>Title</th>
-					<th>Account</th>
+					<th>Industry</th>
 					<th>Phone</th>
-					<th>Email</th>
+					<th>Employees</th>
+					<th>Website</th>
 				</thead>
 							
 			</table>
@@ -80,10 +80,10 @@
 				
 			$(document).ready(function() {
 				//Call Ajax function to load contacts table
-				loadContacts();
+				loadAccounts();
 				
 				//Highlights contacts button when active
-				$('#contacts-button').addClass('w3-blue');
+				$('#accounts-button').addClass('w3-blue');
 			});
 		</script>
 

@@ -11,6 +11,7 @@ var app = express();
 var server = http.createServer(app);
 //var urlencodedParser = bodyParser.urlencoded({extended: false});
 var customerController = require('./controllers/contact');
+var accountsController = require('./controllers/account');
 var gamesController = require('./controllers/Games');
 
 //set up template egine
@@ -38,6 +39,7 @@ app.get('/boris', function(req, res) {
 
 //Fire controllers
 customerController(app,fs,bodyParser);
+accountsController(app,fs,bodyParser);
 gamesController(app,fs,js2xmlparser,libxslt,bodyParser);
 
 

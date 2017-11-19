@@ -1,6 +1,74 @@
 
 
 
+/* ------------------------------------------------------------------------ */
+// Account handlers
+
+
+// Function to add rows to #account-table-container from JSON accounts object
+function accountTable(accounts){	
+	$('tbody').remove();
+	$.each(accounts, function(index, obj) {
+		$("#contact-table-container").append(
+			"<tr>" +
+					"<td>" + obj.Name + "</td>"+
+					"<td>" + obj.Industry + "</td>"+
+					"<td>" + obj.Phone + "</td>"+
+					"<td>" + obj.Employees + "</td>"+
+					"<td>" + obj.Website + "</td>"+
+			"</tr>"	
+		);
+	});
+}
+
+
+//Ajax function to load accounts and build table from accounts JSON object
+var loadAccounts = function() {
+	$.ajax({
+		url: "/get/accounts",
+		cache: false,
+		success: function(accounts) {
+			accountTable(accounts.account);
+		}
+	});
+};
+
+
+
+// Ajax function to post text from input fields to update accounts JSON obejct and rebuild table with new data
+var postAccounts = function() {
+	var $accountForm = {"Name": $("input[name='Name']").val(), 
+											"Title": $("input[name='Industry']").val(),
+											"Account": $("input[name='Phone']").val(),
+											"Phone": $("input[name='Employees']").val(),
+											"Email": $("input[name='Website']").val()
+												};
+	console.log($accountForm);
+
+
+		$.ajax({
+		 type: "POST",
+		 url: "/post/account",
+		 dataType: "application/json",
+		 data: $accountForm,
+		 success: function(contacts){
+			accountTable(accounts.account);
+			  }
+	});
+  
+};
+
+
+
+
+
+
+
+/* ------------------------------------------------------------------------ */
+// Contact handlers
+
+
+
 // Function to add rows to #contact-table-container from JSON contacts object
 function contactTable(contacts){	
 	$('tbody').remove();
@@ -18,7 +86,7 @@ function contactTable(contacts){
 }
 	
 
-
+//Ajax function to load contacts and build table from contacts JSON object
 var loadContacts = function() {
 	$.ajax({
 		url: "/get/contacts",
@@ -29,6 +97,8 @@ var loadContacts = function() {
 	});
 };
 
+
+// Ajax function to post text from input fields to update contacts JSON obejct and rebuild table with new data
 var postContacts = function() {
 	var $contactForm = {"Name": $("input[name='Name']").val(), 
 											"Title": $("input[name='Title']").val(),
@@ -48,9 +118,15 @@ var postContacts = function() {
 			contactTable(contacts.contact);
 			  }
 	});
-  loadContacts();
+  
 };
 
+
+
+
+
+/* ------------------------------------------------------------------------ */
+//Games handler
 
 
 var loadGames = function() {
