@@ -3,7 +3,7 @@
 
 // Function to add rows to #contact-table-container from JSON contacts object
 function contactTable(contacts){	
-
+	$('tbody').remove();
 	$.each(contacts, function(index, obj) {
 		$("#contact-table-container").append(
 			"<tr>" +
@@ -29,6 +29,28 @@ var loadContacts = function() {
 	});
 };
 
+var postContacts = function() {
+	var $contactForm = {"Name": $("input[name='Name']").val(), 
+											"Title": $("input[name='Title']").val(),
+											"Account": $("input[name='Account']").val(),
+											"Phone": $("input[name='Phone']").val(),
+											"Email": $("input[name='Email']").val()
+												};
+	console.log($contactForm);
+
+
+		$.ajax({
+		 type: "POST",
+		 url: "/post/contact",
+		 dataType: "application/json",
+		 data: $contactForm,
+		 success: function(contacts){
+			contactTable(contacts.contact);
+			  }
+	});
+  loadContacts();
+};
+
 
 
 var loadGames = function() {
@@ -36,6 +58,7 @@ var loadGames = function() {
 		url: "/get/games",
 		cache: false,
 		success: function(html) {
+			
 			$("#customer-table-container").append(html);
 		}
 	});

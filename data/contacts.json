@@ -15,58 +15,16 @@
             "Email": "Amira@salesforce.com"
         },
         {
-            "Name": "Amira Mahjoub",
-            "Title": "Success Specialist",
-            "Account": "Salesforce",
-            "Phone": "123",
-            "Email": "Amira@salesforce.com"
-        },
-        {
-            "Name": "",
-            "Title": "",
-            "Account": "",
-            "Phone": "",
-            "Email": ""
-        },
-        {
-            "Name": "",
-            "Title": "",
-            "Account": "",
-            "Phone": "",
-            "Email": ""
-        },
-        {
-            "Name": "",
-            "Title": "",
-            "Account": "",
-            "Phone": "",
-            "Email": ""
-        },
-        {
             "Name": "Test",
-            "Title": "",
+            "Title": "Engineer",
             "Account": "",
             "Phone": "",
             "Email": ""
         },
         {
-            "Name": "Boris ",
-            "Title": "Boooo",
+            "Name": "Henk",
+            "Title": "Engineer",
             "Account": "",
-            "Phone": "",
-            "Email": ""
-        },
-        {
-            "Name": "Bdfadsf",
-            "Title": "fafsdf",
-            "Account": "",
-            "Phone": "",
-            "Email": ""
-        },
-        {
-            "Name": "sdfasd",
-            "Title": "fadsfa",
-            "Account": "fadsfa",
             "Phone": "",
             "Email": ""
         }
