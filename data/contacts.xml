@@ -49,4 +49,25 @@
         <Phone></Phone>
         <Email></Email>
     </contact>
+    <contact>
+        <Name>Boris </Name>
+        <Title>Boooo</Title>
+        <Account></Account>
+        <Phone></Phone>
+        <Email></Email>
+    </contact>
+    <contact>
+        <Name>Bdfadsf</Name>
+        <Title>fafsdf</Title>
+        <Account></Account>
+        <Phone></Phone>
+        <Email></Email>
+    </contact>
+    <contact>
+        <Name>sdfasd</Name>
+        <Title>fadsfa</Title>
+        <Account>fadsfa</Account>
+        <Phone></Phone>
+        <Email></Email>
+    </contact>
 </contacts>

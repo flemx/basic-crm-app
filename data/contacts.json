@@ -13,27 +13,7 @@
             "Account": "Salesforce",
             "Phone": "123",
             "Email": "Amira@salesforce.com"
-        },
-        {
-            "Name": "Daniel Bakker",
-            "Title": "engineer",
-            "Account": "Salesforce",
-            "Phone": "1234",
-            "Email": "acd@me.comc"
-        },
-        {
-            "Name": "DAMIEN",
-            "Title": "TE",
-            "Account": "Salesforce",
-            "Phone": "123",
-            "Email": "jksjak.com"
-        },
-        {
-            "Name": "DAMIEN",
-            "Title": "TE",
-            "Account": "Salesforce",
-            "Phone": "123",
-            "Email": "jksjak.com"
         }
+       
     ]
 }
