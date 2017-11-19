@@ -1,22 +1,32 @@
-module.exports = function(app,fs,js2xmlparser,libxslt,bodyParser,urlencodedParser){
+module.exports = function(app,fs,bodyParser){
 var contactData = require('../models/contacts.js');
 myContacts = new contactData(fs);
 
   
   
- //Open customer link 
+ //Render contact.ejs when opening /contacts URL
 app.get('/contacts', function(req, res) {
+  console.log("Controller router '/contacts' is executing ");
   res.render('contacts');
 });
   
  
-
+//Router to send contacts JSON object when called
  app.get('/get/contacts', function(req, res) {
    var data = myContacts.getContacts();
-   console.log(data);
+   console.log("Controller router '/get/contacts' is executing ");
    res.send(data);
 });
   
+
+ // Post router to add new record to contacts.json 
+ app.post('/post/contact', function(req, res){
+    var data = myContacts.getContacts();
+    data.contact.push(req.body);
+    myContacts.setContacts(data);
+    console.log("Controller router '/post/contacts' is executing ");
+   
+  }); 
 
 
   

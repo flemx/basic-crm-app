@@ -1,4 +1,5 @@
 
+// Contact model with CRUD functions for the contact data in contacts.json
 
 module.exports = function (fs) {
   var module = {};

@@ -24,9 +24,32 @@ var loadContacts = function() {
 		url: "/get/contacts",
 		cache: false,
 		success: function(contacts) {
+			$('tbody').remove();
 			contactTable(contacts.contact);
 		}
 	});
+};
+
+var postContacts = function() {
+	var $contactForm = {"Name": $("input[name='Name']").val(), 
+											"Title": $("input[name='Title']").val(),
+											"Account": $("input[name='Account']").val(),
+											"Phone": $("input[name='Phone']").val(),
+											"Email": $("input[name='Email']").val()
+												};
+	console.log($contactForm);
+
+
+		$.ajax({
+		 type: "POST",
+		 url: "/post/contact",
+		 dataType: "application/json",
+		 data: $contactForm,
+		 success: function(){
+			
+			  }
+	});
+  loadContacts();
 };
 
 
@@ -36,6 +59,7 @@ var loadGames = function() {
 		url: "/get/games",
 		cache: false,
 		success: function(html) {
+			
 			$("#customer-table-container").append(html);
 		}
 	});

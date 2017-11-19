@@ -27,9 +27,9 @@
 
   
 
-  		<form enctype='application/json' action="/post/contact" method="post">
+  		
     <div class="field">
-      <input type="text" placeholder="Name" name="Name">
+      <input type="text" placeholder="Name" name="Name" id="contactName">
     </div>
     <div class="field">
       <input type="text" placeholder="Title" name="Title">
@@ -44,9 +44,9 @@
       <input type="text" placeholder="Email" name="Email">
     </div>
     <div class="field">
-      <button type="submit">Submit</button>
+      <button type="button" onclick="postContacts()">Submit</button>
     </div>
-  </form>
+  
   
   
   <div class="w3-container">

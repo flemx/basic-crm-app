@@ -4,7 +4,8 @@ var http = require('http'),
     bodyParser = require('body-parser'),
     fs = require('fs'),
     js2xmlparser = require('js2xmlparser'),
-    libxslt = require('libxslt');
+    libxslt = require('libxslt'),
+    urlencodedParser = bodyParser.urlencoded({extended: false});
 
 var app = express();
 var server = http.createServer(app);
@@ -36,7 +37,7 @@ app.get('/boris', function(req, res) {
   
 
 //Fire controllers
-customerController(app,fs,js2xmlparser,libxslt,bodyParser);
+customerController(app,fs,bodyParser);
 gamesController(app,fs,js2xmlparser,libxslt,bodyParser);
 
 
