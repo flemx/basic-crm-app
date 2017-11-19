@@ -42,6 +42,16 @@
             "numAvail": "",
             "gameImg": "",
             "gameDescr": ""
+        },
+        {
+            "gameTitle": "xxxxxxxxx",
+            "gamePrice": "",
+            "gameGenre": "",
+            "consoleType": "",
+            "releaseDate": "",
+            "numAvail": "",
+            "gameImg": "",
+            "gameDescr": ""
         }
     ]
 }

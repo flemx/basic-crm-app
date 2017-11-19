@@ -43,4 +43,14 @@
         <gameImg></gameImg>
         <gameDescr></gameDescr>
     </Game>
+    <Game>
+        <gameTitle>xxxxxxxxx</gameTitle>
+        <gamePrice></gamePrice>
+        <gameGenre></gameGenre>
+        <consoleType></consoleType>
+        <releaseDate></releaseDate>
+        <numAvail></numAvail>
+        <gameImg></gameImg>
+        <gameDescr></gameDescr>
+    </Game>
 </Games>
