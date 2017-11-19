@@ -3,7 +3,7 @@
 
 // Function to add rows to #contact-table-container from JSON contacts object
 function contactTable(contacts){	
-
+	$('tbody').remove();
 	$.each(contacts, function(index, obj) {
 		$("#contact-table-container").append(
 			"<tr>" +
@@ -24,7 +24,6 @@ var loadContacts = function() {
 		url: "/get/contacts",
 		cache: false,
 		success: function(contacts) {
-			$('tbody').remove();
 			contactTable(contacts.contact);
 		}
 	});
@@ -45,8 +44,8 @@ var postContacts = function() {
 		 url: "/post/contact",
 		 dataType: "application/json",
 		 data: $contactForm,
-		 success: function(){
-			
+		 success: function(contacts){
+			contactTable(contacts.contact);
 			  }
 	});
   loadContacts();
