@@ -1,79 +1,79 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>W3.CSS Template</title>
-	
+
 	<% include partials/head.ejs %>
-	<!-- Header with meta tags and references -->
-	
-</head> 
-	
+		<!-- Header with meta tags and references -->
+
+</head>
+
 <body class="w3-light-grey">
-  
-	
+
+
 	<% include partials/nav.ejs %>
-	<!-- Top container -->
-	<!-- Sidebar/menu -->
-	<!-- Overlay effect when opening sidebar on small screens -->
+		<!-- Top container -->
+		<!-- Sidebar/menu -->
+		<!-- Overlay effect when opening sidebar on small screens -->
 
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+		<!-- !PAGE CONTENT! -->
+		<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
- <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
-  </header>
+			<header class="w3-container" style="padding-top:22px">
+				<h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
+			</header>
 
-  
 
-  		<form enctype='application/json' action="/post/contact" method="post">
-    <div class="field">
-      <input type="text" placeholder="Name" name="Name">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Title" name="Title">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Account" name="Account">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Phone" name="Phone">
-    </div>
-		 <div class="field">
-      <input type="text" placeholder="Email" name="Email">
-    </div>
-    <div class="field">
-      <button type="submit">Submit</button>
-    </div>
-  </form>
-  
-  
-  <div class="w3-container">
-    <h5>Contacts</h5>
-		<div id="contact-table-container">
-    			
-			
-    </div>
-    <br>
-    <button class="w3-button w3-dark-grey">More Contacts &nbsp;<i class="fa fa-arrow-right"></i></button>
-  </div>
-  
-  //test
- 
+
+			<form enctype='application/json' action="/post/contact" method="post">
+				<div class="field">
+					<input type="text" placeholder="Name" name="Name">
+				</div>
+				<div class="field">
+					<input type="text" placeholder="Title" name="Title">
+				</div>
+				<div class="field">
+					<input type="text" placeholder="Account" name="Account">
+				</div>
+				<div class="field">
+					<input type="text" placeholder="Phone" name="Phone">
+				</div>
+				<div class="field">
+					<input type="text" placeholder="Email" name="Email">
+				</div>
+				<div class="field">
+					<button type="submit">Submit</button>
+				</div>
+			</form>
+
+
+			<div class="w3-container">
+				<h5>Contacts</h5>
+				<div id="contact-table-container">
+
+
+				</div>
+				<br>
+				<button class="w3-button w3-dark-grey">More Contacts &nbsp;<i class="fa fa-arrow-right"></i></button>
+			</div>
+
+
+
 			<% include partials/footer.ejs %>
-		<!-- Footer -->
+				<!-- Footer -->
 
 
-</div>
+		</div>
 
-<script>
-	
-//Call Ajax function to load contact table	
-$(document).ready(function() {
-    loadContacts();
-});
-</script>
+		<script>
+			//Call Ajax function to load contact table	
+			$(document).ready(function() {
+				loadContacts();
+			});
+		</script>
 
 </body>
+
 </html>

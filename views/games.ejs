@@ -3,77 +3,82 @@
 <html>
 <title>Games</title>
 <% include partials/head.ejs %>
-  
-  
-  <script>    
 
 
-    $(document).ready(function() {
-      loadGames();
-    });
-   
-  </script>
-  
-<body class="w3-light-grey">
+	<script>
+		$(document).ready(function() {
+			loadGames();
+		});
+	</script>
 
-<% include partials/nav.ejs %>
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+	<body class="w3-light-grey">
 
- <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Customers</b></h5>
-  </header>
+		<% include partials/nav.ejs %>
+			<!-- !PAGE CONTENT! -->
+			<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-  
-
-            <form enctype='application/json' action="/post/games" method="post">
-              <div class="field">
-                <input type="text" placeholder="Game title" name="gameTitle">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Price" name="gamePrice">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Genre" name="gameGenre">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Console type" name="consoleType">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Release Date" name="releaseDate">
-              </div>
-               <div class="field">
-                <input type="text" placeholder="Number available" name="numAvail">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Picture" name="gameImg">
-              </div>
-              <div class="field">
-                <input type="text" placeholder="Description" name="gameDescr">
-              </div>
-              <div class="field">
-                <button type="submit">Submit</button>
-              </div>
-            </form>
-  
-  
-  <div class="w3-container">
-    <h5>Countries</h5>
-		<div id="customer-table-container">
-      
-    </div>
-    <br>
-    <button class="w3-button w3-dark-grey">More Countries &nbsp;<i class="fa fa-arrow-right"></i></button>
-  </div>
-  
-  
- 
-
-  <!-- Footer -->
-<% include partials/footer.ejs %>
-  <!-- End page content -->
-</div>
+				<header class="w3-container" style="padding-top:22px">
+					<h5><b><i class="fa fa-dashboard"></i> Customers</b></h5>
+					<!--<style>
+						footer {
+							text-align: center;
+						}-->
+					</style>
 
 
+					<head>
+						
+					</head>
+				</header>
+
+
+
+				<form enctype='application/json' action="/post/games" method="post">
+					<div class="field">
+						<input type="text" placeholder="Game title" name="gameTitle">
+					</div>
+					<div class="field">
+						<input type="text" placeholder="Price" name="gamePrice">
+					</div>
+					<div class="field">
+						<input type="text" placeholder="Genre" name="gameGenre">
+					</div>
+					<div class="field">
+						<input type="text" placeholder="Console type" name="consoleType">
+					</div>
+					<div class="field">
+						<input type="text" placeholder="Release Date" name="releaseDate">
+					</div>
+					<div class="field">
+						<input type="text" placeholder="Number available" name="numAvail">
+					</div>
+					<div class="field">
+						<input type="text" placeholder="Picture" name="gameImg">
+					</div>
+					<div class="field">
+						<input type="text" placeholder="Description" name="gameDescr">
+					</div>
+					<div class="field">
+						<button type="submit">Submit</button>
+					</div>
+				</form>
+
+
+				<div class="w3-container">
+					<h5>Countries</h5>
+					<div id="customer-table-container">
+
+					</div>
+					<br>
+					<button class="w3-button w3-dark-grey">More Countries &nbsp;<i class="fa fa-arrow-right"></i></button>
+				</div>
+
+
+
+
+				<!-- Footer -->
+				<% include partials/footer.ejs %>
+					<!-- End page content -->
+			</div>
 </body>
 </html>
