@@ -10,20 +10,20 @@ app.get('/contacts', function(req, res) {
 });
   
  
-  /*
+
  app.get('/get/contacts', function(req, res) {
    var data = myContacts.getContacts();
    console.log(data);
    res.send(data);
 });
   
- //Open customer link 
-*/
+
+
   
   
  
- 
-// XML parser way
+ /*
+// Contact routers using XML parsing and returning data through table
   
 //Customer get app
 app.get('/get/contacts', function(req, res) {
@@ -82,7 +82,7 @@ app.post('/post/contact', function(req, res) {
   res.redirect('back');
 
 });
-
+*/
   
   
 };

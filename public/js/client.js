@@ -1,67 +1,30 @@
 
 
 
+// Function to add rows to #contact-table-container from JSON contacts object
+function contactTable(contacts){	
 
-var contactTable = function(contacts) {
-
-	/*
-	$(function() {
-    $.each(contacts, function(i, item) {
-        var $tr = $('<tr>').append(
-            $('<td>').contacts.contact(item.name),
-            $('<td>').contactscontact(item.Title),
-            $('<td>').contactscontact(item.Account),
-						$('<td>').contactscontact(item.Phone),
-						$('<td>').contactscontact(item.Email)
-        ); //.appendTo('#records_table');
-        console.log($tr.wrap('<p>').html());
-    });
-})*/
-
-	$.each(contacts, function(i) {
-    var tr = $('<tr/>');
-    tr.append("<td>" + contacts.contact[i].Name + "</td>");
-    tr.append("<td>" + contacts.contact[i].Title + "</td>");
-    tr.append("<td>" + contacts.contact[i].Account + "</td>");
-		tr.append("<td>" + contacts.contact[i].Phone + "</td>");
-		tr.append("<td>" + contacts.contact[i].Email + "</td>");
-    $(".customer-table").append(tr);
-  });
-
-};
+	$.each(contacts, function(index, obj) {
+		$("#contact-table-container").append(
+			"<tr>" +
+					"<td>" + obj.Name + "</td>"+
+					"<td>" + obj.Title + "</td>"+
+					"<td>" + obj.Account + "</td>"+
+					"<td>" + obj.Phone + "</td>"+
+					"<td>" + obj.Email + "</td>"+
+			"</tr>"	
+		);
+	});
+}
+	
 
 
-
-
-/*
-
-// Ajax functions to call the app through get routers
 var loadContacts = function() {
 	$.ajax({
 		url: "/get/contacts",
 		cache: false,
-		dataType: 'json',
 		success: function(contacts) {
-			
-			$(".customer-table").append(
-				"<td>"+contacts.contact[0].Name + "</td>"
-			);	
-				
-						
-			
-	  }
-	})
-};
-
-*/
-
-var loadContacts = function() {
-	$.ajax({
-		url: "/get/contacts",
-		cache: false,
-		success: function(html) {
-			console.log(html);
-			$("#contact-table-container").append(html);
+			contactTable(contacts.contact);
 		}
 	});
 };

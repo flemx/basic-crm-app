@@ -13,6 +13,7 @@
 
 
 	<% include partials/nav.ejs %>
+<<<<<<< HEAD
 		<!-- Top container -->
 		<!-- Sidebar/menu -->
 		<!-- Overlay effect when opening sidebar on small screens -->
@@ -61,6 +62,63 @@
 
 
 
+=======
+	<!-- Top container -->
+	<!-- Sidebar/menu -->
+	<!-- Overlay effect when opening sidebar on small screens -->
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+ <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
+  </header>
+
+  
+
+  		<form enctype='application/json' action="/post/contact" method="post">
+    <div class="field">
+      <input type="text" placeholder="Name" name="Name">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Title" name="Title">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Account" name="Account">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Phone" name="Phone">
+    </div>
+		 <div class="field">
+      <input type="text" placeholder="Email" name="Email">
+    </div>
+    <div class="field">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  
+  
+  <div class="w3-container">
+    <h5>Contacts</h5>
+		<div>
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white customer-table" id="contact-table-container">
+				<thead>
+					<th>Name</th>
+					<th>Title</th>
+					<th>Account</th>
+					<th>Phone</th>
+					<th>Email</th>
+				</thead>
+							
+			</table>
+    </div>
+    <br>
+    <button class="w3-button w3-dark-grey">More Contacts &nbsp;<i class="fa fa-arrow-right"></i></button>
+  </div>
+  
+  
+>>>>>>> 407f6c98f7494785ad7f9226b54146ac9b8d764a
 			<% include partials/footer.ejs %>
 				<!-- Footer -->
 
