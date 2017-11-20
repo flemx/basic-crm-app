@@ -1,1 +1,1 @@
-## App to manage video game store
+## Simple CRM application to manage your customers and collect leads for sales
