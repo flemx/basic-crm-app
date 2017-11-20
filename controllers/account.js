@@ -30,6 +30,12 @@ app.get('/accounts', function(req, res) {
   }); 
 
 
+   // Post router to add new record to contacts.json 
+ app.post('/post/test', function(req, res){
+   console.log(req.body); 
+   res.send("Hello Client");
+  }); 
+  
   
   
 };

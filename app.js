@@ -35,7 +35,11 @@ app.get('/boris', function(req, res) {
   res.render('borisTest');
 });
 
-  
+//Test Page
+app.get('/test', function(req, res) {
+  res.render('test');
+});  
+
 
 //Fire controllers
 customerController(app,fs,bodyParser);

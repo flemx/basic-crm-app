@@ -25,6 +25,7 @@ app.get('/contacts', function(req, res) {
     data.contact.push(req.body);
     myContacts.setContacts(data);
     console.log("Controller router '/post/contacts' is executing ");
+    console.log(req.body);
     res.send(data);
   }); 
 

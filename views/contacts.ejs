@@ -5,7 +5,7 @@
 	<title>W3.CSS Template</title>
 
 	<% include partials/head.ejs %>
-		<!-- Header with meta tags and references -->
+		<!-- Header with meta tags and references   -->
 
 </head>
 
@@ -19,18 +19,21 @@
 	<!-- Overlay effect when opening sidebar on small screens -->
 
 
-<!-- !PAGE CONTENT! -->
+<!-- !PAGE CONTENT!   -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
  <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
   </header>
 
-  
+	
+  <a class="btn btn-default" href="#" data-featherlight="#fl1">Add Contact</a>
+	
+	<div class="lightbox" id="fl1">
+		
 
-  		
     <div class="field">
-      <input type="text" placeholder="Name" name="Name" id="contactName">
+      <input type="text" placeholder="Name" name="Name">
     </div>
     <div class="field">
       <input type="text" placeholder="Title" name="Title">
@@ -47,7 +50,8 @@
     <div class="field">
       <button type="button" onclick="postContacts()">Submit</button>
     </div>
-  
+	
+	</div>
   
   
   <div class="w3-container">
@@ -86,7 +90,7 @@
 				$('#contacts-button').addClass('w3-blue');
 			});
 		</script>
-
+		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
