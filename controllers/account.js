@@ -12,7 +12,7 @@ app.get('/test', function(req, res) {
   
  //Render contact.ejs when opening /contacts URL
 app.get('/accounts', function(req, res) {
-  console.log("Controller router '/contacts' is executing ");
+  console.log("Controller router '/accounts' is executing ");
   var data = myAccountData.getAccounts();
   res.render('accounts', {accounts: data});
 });
@@ -22,7 +22,7 @@ app.get('/accounts', function(req, res) {
 //Router to send contacts JSON object when called
  app.get('/get/accounts', function(req, res) {
    var data = myAccountData.getAccounts();
-   console.log("Controller router '/get/contacts' is executing ");
+   console.log("Controller router '/get/accounts' is executing ");
    res.send(data);
 });
   

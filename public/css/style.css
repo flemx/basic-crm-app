@@ -1,7 +1,19 @@
 
 /* Lightbox Styling  */
-.lightbox { display: none; };
+.lightbox {display: none;};
 
-.featherlight {
-    background: rgba(0, 0, 0, 0.47);
+/* Make tables mobile friendly*/
+.table-responsive{overflow-x: auto;}
+
+/* CRM logo mobile friendly */
+@media screen and (max-width: 500px) {
+  .crm-logo{
+    display:none;  
+  }
+} 
+
+/* Object tables and buttons */
+.add-button{
+  margin-bottom:1%;
+  margin-top:1%;
 }

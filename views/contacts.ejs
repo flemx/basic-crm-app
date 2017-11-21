@@ -2,11 +2,10 @@
 <html>
 
 <head>
-	<title>W3.CSS Template</title>
+	<title>Contacts</title>
 
 	<% include partials/head.ejs %>
 		<!-- Header with meta tags and references   -->
-
 </head>
 
 <body class="w3-light-grey">
@@ -20,16 +19,16 @@
 
 
 <!-- !PAGE CONTENT!   -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<div class="w3-main" style="margin-left:300px;margin-top:43px;" >
 
  <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
   </header>
 
 	
-  <a class="btn btn-default" href="#" data-featherlight="#fl1">Add Contact</a>
+
 	
-	<div class="lightbox" id="fl1">
+	<div class="lightbox">
 		
 
     <div class="field">
@@ -55,9 +54,9 @@
   
   
   <div class="w3-container">
-    <h5>Contacts</h5>
-		<div>
-			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white customer-table" id="contact-table-container">
+	 <button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Contact &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
+    	<div class="w3-animate-left table-responsive">
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 				<thead>
 					<th>Name</th>
 					<th>Title</th>
@@ -65,7 +64,6 @@
 					<th>Phone</th>
 					<th>Email</th>
 				</thead>
-				
 				<% for(i=0;i<contacts.contact.length;i++){  %>
 							<tr>
 								<td><%= contacts.contact[i].Name %></td>
@@ -78,8 +76,7 @@
 								
 			</table>
     </div>
-    <br>
-    <button class="w3-button w3-dark-grey">More Contacts &nbsp;<i class="fa fa-arrow-right"></i></button>
+  
   </div>
   
   
@@ -93,9 +90,7 @@
 		<script>
 				
 			$(document).ready(function() {
-				//Call Ajax function to load contacts table
-				loadContacts();
-				
+																
 				//Highlights contacts button when active
 				$('#contacts-button').addClass('w3-blue');
 			});

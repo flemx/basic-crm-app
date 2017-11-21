@@ -59,10 +59,10 @@ var loadAccounts = function() {
 var postAccounts = function() {
 	$(':button[type="button"]').prop('disabled', true);  // Disable add until succesfull return from server to prevent dublicate records 
 	var $accountForm = {"Name": $(".featherlight-content input[name='Name']").val(), 
-											"Title": $(".featherlight-content input[name='Industry']").val(),
-											"Account": $(".featherlight-content input[name='Phone']").val(),
-											"Phone": $(".featherlight-content input[name='Employees']").val(),
-											"Email": $(".featherlight-content input[name='Website']").val()
+											"Industry": $(".featherlight-content input[name='Industry']").val(),
+											"Phone": $(".featherlight-content input[name='Phone']").val(),
+											"Employees": $(".featherlight-content input[name='Employees']").val(),
+											"Website": $(".featherlight-content input[name='Website']").val()
 												};
 	console.log("Receiving Account information: " + $accountForm);
 
@@ -72,10 +72,10 @@ var postAccounts = function() {
 		 data: $accountForm,
 		 success: function(accounts){
 		 	accountTable(accounts.account);
-			$("input[type=text]").val("");  //remove input values after successfull response 
-			$(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
-			$('.featherlight-close').click();
-			  }
+				$("input[type=text]").val("");  //remove input values after successfull response 
+				$('.featherlight-close').click();    // close pop-up form
+				$(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
+			}
 	});
   
 };
@@ -137,10 +137,10 @@ var postContacts = function() {
 		 data: $contactForm,
 		 success: function(contacts){
 			contactTable(contacts.contact);
-			 $("input[type=text]").val("");  //remove input values after successfull response 
-			 $(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server 
-			 $('.featherlight-close').click();
-			  }
+				 $("input[type=text]").val("");  //remove input values after successfull response 
+				 $('.featherlight-close').click(); // close pop-up form
+				 $(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server 
+			 }
 	});
   
 };
