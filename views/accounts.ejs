@@ -64,7 +64,15 @@
 					<th>Employees</th>
 					<th>Website</th>
 				</thead>
-							
+				<% for(i=0;i<accounts.account.length;i++){  %>
+							<tr>
+								<td><%= accounts.account[i].Name %></td>
+								<td><%= accounts.account[i].Industry %></td>
+								<td><%= accounts.account[i].Phone %></td>
+								<td><%= accounts.account[i].Employees %></td>
+								<td><%= accounts.account[i].Website %></td>
+							</tr>
+				<% } %>
 			</table>
     </div>
     <br>
@@ -83,7 +91,7 @@
 				
 			$(document).ready(function() {
 				//Call Ajax function to load contacts table
-				loadAccounts();
+				
 				
 				//Highlights contacts button when active
 				$('#accounts-button').addClass('w3-blue');

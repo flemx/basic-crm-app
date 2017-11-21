@@ -1,30 +1,103 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-	  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="/js/jquery.min.js"></script>
-		<link type="text/css" rel="stylesheet" href="/css/featherlight.min.css" />
-		<style type="text/css">
-			.lightbox { display: none; };
-		</style>
+	<title>Accounts</title>
+
+	<% include partials/head.ejs %>
+		<!-- Header with meta tags and references -->
+
 </head>
 
-<body>
-	
-	<a class="btn btn-default" href="#" data-featherlight="#fl1">Default</a>
+<body class="w3-light-grey">
 
-			<div class="lightbox" id="fl1">
-			<h2>Featherlight Default</h2>
-			<p>
-				This is a default featherlight lightbox.<br>
-				It's flexible in height and width.<br>
-				Everything that is used to display and style the box can be found in the <a href="https://github.com/noelboss/featherlight/blob/master/src/featherlight.css">featherlight.css</a> file which is pretty simple.</p>
+
+	<% include partials/nav.ejs %>
+
+	<!-- Top container -->
+	<!-- Sidebar/menu -->
+	<!-- Overlay effect when opening sidebar on small screens -->
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+ <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
+  </header>
+
+   <a class="btn btn-default" href="#" data-featherlight="#fl1">Add Contact</a>
+	
+	<div class="lightbox" id="fl1">
+
+  		
+    <div class="field">
+      <input type="text" placeholder="Name" name="Name">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Industry" name="Industry">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Phone" name="Phone">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Employees" name="Employees">
+    </div>
+		 <div class="field">
+      <input type="text" placeholder="Website" name="Website">
+    </div>
+    <div class="field">
+      <button type="button" onclick="postAccounts()">Submit</button>
+    </div>
+  
+	</div>
+  
+  
+  <div class="w3-container">
+    <h5>Contacts</h5>
+		<div>
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white customer-table" id="contact-table-container">
+				<thead>
+					<th>Name</th>
+					<th>Industry</th>
+					<th>Phone</th>
+					<th>Employees</th>
+					<th>Website</th>
+				</thead>
+				<% for(i=0;i<accounts.account.length;i++){  %>
+							<tr>
+								<td><%= accounts.account[i].Name %></td>
+								<td><%= accounts.account[i].Industry %></td>
+								<td><%= accounts.account[i].Phone %></td>
+								<td><%= accounts.account[i].Employees %></td>
+								<td><%= accounts.account[i].Website %></td>
+							</tr>
+				<% } %>
+			</table>
+    </div>
+    <br>
+    <button class="w3-button w3-dark-grey">More Contacts &nbsp;<i class="fa fa-arrow-right"></i></button>
+  </div>
+  
+  
+
+			<% include partials/footer.ejs %>
+				<!-- Footer -->
+
+
 		</div>
 
-		
+		<script>
+				
+			$(document).ready(function() {
+				//Call Ajax function to load contacts table
+				
+				
+				//Highlights contacts button when active
+				$('#accounts-button').addClass('w3-blue');
+			});
+		</script>
 		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
-	
-
 
 </html>

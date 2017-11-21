@@ -65,7 +65,17 @@
 					<th>Phone</th>
 					<th>Email</th>
 				</thead>
-							
+				
+				<% for(i=0;i<contacts.contact.length;i++){  %>
+							<tr>
+								<td><%= contacts.contact[i].Name %></td>
+								<td><%= contacts.contact[i].Title %></td>
+								<td><%= contacts.contact[i].Account %></td>
+								<td><%= contacts.contact[i].Phone %></td>
+								<td><%= contacts.contact[i].Email %></td>
+							</tr>
+				<% } %>
+								
 			</table>
     </div>
     <br>
