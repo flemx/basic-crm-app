@@ -17,6 +17,10 @@ module.exports = function (fs) {
   }
   
   
+  module.setIndex = function(){
+    
+  }
+  
   
   return module;
   

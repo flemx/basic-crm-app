@@ -2,9 +2,8 @@ module.exports = function(app,fs,bodyParser){
 var accountData = require('../models/accounts.js');
 myAccountData = new accountData(fs);
 
-  
 //Test Page
-app.get('/test', function(req, res) {
+app.post('/test', function(req, res) {
   var data = myAccountData.getAccounts();
   res.render('test', {accounts: data});
 });  
@@ -30,12 +29,20 @@ app.get('/accounts', function(req, res) {
  // Post router to add new record to contacts.json 
  app.post('/post/account', function(req, res){
     var data = myAccountData.getAccounts();
-    data.account.push(req.body);
+    var postData = req.body;
+    // Add unique Id to record from index integer in JSON file
+    postData.Id = "acc" + (data.index + 1);
+    data.index = data.index+1;
+    console.log("Adding new record to DB with ID: " + postData.Id);
+    //add new data to JSON and write it to the file
+    data.account.push(postData);
     myAccountData.setAccount(data);
     console.log("Controller router '/post/contacts' is executing ");
     res.send(data);
   }); 
 
+  
+  
 
    // Post router to add new record to contacts.json 
  app.post('/post/test', function(req, res){
