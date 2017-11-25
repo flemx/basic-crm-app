@@ -3,10 +3,16 @@ var accountData = require('../models/accounts.js');
 myAccountData = new accountData(fs);
 
 //Test Page
-app.post('/test', function(req, res) {
+app.get('/test', function(req, res) {
   var data = myAccountData.getAccounts();
   res.render('test', {accounts: data});
 });  
+  
+     // Post test 
+ app.post('/post/test', function(req, res){
+   console.log(req.body); 
+   res.send("Hello Client");
+  }); 
   
   
  //Render contact.ejs when opening /contacts URL
@@ -37,19 +43,14 @@ app.get('/accounts', function(req, res) {
     //add new data to JSON and write it to the file
     data.account.push(postData);
     myAccountData.setAccount(data);
-    console.log("Controller router '/post/contacts' is executing ");
+    console.log("Controller router '/post/account' is executing ");
     res.send(data);
   }); 
 
   
   
 
-   // Post router to add new record to contacts.json 
- app.post('/post/test', function(req, res){
-   console.log(req.body); 
-   res.send("Hello Client");
-  }); 
-  
+
   
   
 };

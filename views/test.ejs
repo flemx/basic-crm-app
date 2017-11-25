@@ -11,7 +11,7 @@
 
 <body class="w3-light-grey">
 
-<p id="myP">I am a paragraph.</p>
+
 	<% include partials/nav.ejs %>
 
 	<!-- Top container -->
@@ -22,11 +22,9 @@
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
- <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
-  </header>
 
-   <a class="btn btn-default" href="#" data-featherlight="#fl1">Add Contact</a>
+
+  
 	
 	<div class="lightbox" id="fl1">
 
@@ -54,10 +52,15 @@
   
   
   <div class="w3-container">
-    <h5>Contacts</h5>
-		<div>
-			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white customer-table" id="contact-table-container">
+		 <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
+  </header>
+		
+   <button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">New &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
+		<div class="w3-animate-left table-responsive" >
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 				<thead>
+					<th><input type="checkbox" id="selectAll"></th>
 					<th>Name</th>
 					<th>Industry</th>
 					<th>Phone</th>
@@ -66,6 +69,7 @@
 				</thead>
 				<% for(i=0;i<accounts.account.length;i++){  %>
 							<tr>
+								<td><input type="checkbox" value="<%= accounts.account[i].Id%>"></td>
 								<td><%= accounts.account[i].Name %></td>
 								<td><%= accounts.account[i].Industry %></td>
 								<td><%= accounts.account[i].Phone %></td>
@@ -76,8 +80,7 @@
 			</table>
     </div>
     <br>
-    <button class="w3-button w3-dark-grey">More Contacts &nbsp;<i class="fa fa-arrow-right"></i></button>
-  </div>
+   </div>
   
   
 
@@ -95,6 +98,11 @@
 				
 				//Highlights contacts button when active
 				$('#accounts-button').addClass('w3-blue');
+				
+				//Select all checkboxes
+				$('#selectAll').click(function (e) {
+    		$(this).closest('table').find('td input:checkbox').prop('checked', this.checked);
+});
 			});
 		</script>
 		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>

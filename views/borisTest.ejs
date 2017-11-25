@@ -37,7 +37,7 @@ function initialize() {
     map = new google.maps.Map(document.getElementById("map"), mapProp);
 
     //  $.getJSON(json, function(json1) {
-    var json1 = {
+   /* var json1 = {
        "universities": [
             {
                 "title": "Aberystwyth University",
@@ -58,7 +58,11 @@ function initialize() {
                 "lat": 51.482708,
                 "lng": -3.165881}
         ]
-    };
+    }; */
+          // Using  "<-%   %>" to get the data variable from app.js when redering the file and stringify it so it will be added to a new variable as an array  
+   				var json1 = <%- JSON.stringify(location) %>;
+
+    
     $.each(json1.universities, function (key, data) {
 
         var latLng = new google.maps.LatLng(data.lat, data.lng);

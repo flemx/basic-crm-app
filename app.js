@@ -32,7 +32,12 @@ app.get('/', function(req, res) {
 
 //Test router Boris
 app.get('/boris', function(req, res) {
-  res.render('borisTest');
+   //Reading JSON data from the data file and assigning it in a variable names readJson
+   var readJson =  fs.readFileSync('./data/location.json', 'utf8');
+   // Parsing the json data into a json object and assigning to variable data so it can be interpret by javascript as json object
+   var data = JSON.parse(readJson);
+   //When rendering the borisTest.ejs to html it will also send the data variable with the json object to the page
+  res.render('borisTest' , {location: data});
 });
 
 
