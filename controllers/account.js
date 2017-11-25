@@ -8,6 +8,25 @@ app.get('/test', function(req, res) {
   res.render('test', {accounts: data});
 });  
   
+  
+app.post('/delete/accounts', (req, res) => {
+    var data = myAccountData.getAccounts();
+    var test = req.body;
+     console.log(test);
+    for(var j in data){
+       for(var i in test.$data){
+         if(test.$data[i] == data.account[j].Id){
+            console.log("ID test : " + test.$data[i]);
+            console.log("\n ID JSON: " + data.account[j].Id);
+            }
+     }}
+      
+    //
+   
+});
+  
+  
+  
      // Post test 
  app.post('/post/test', function(req, res){
    console.log(req.body); 

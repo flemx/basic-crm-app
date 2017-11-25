@@ -1,6 +1,30 @@
 
 
 
+				var $deleteAccount = function() {
+					
+					var $data = [];
+					$('.inputID:checked').each(function () {
+						  $data.push($(this).val());										 
+					});
+					console.log($data);
+				  
+
+					$.ajax({
+						type: "POST",
+						url: "/delete/accounts",
+						data: {$data},
+						success: function(accounts) {
+							//accountTable(accounts.account);
+							
+						}
+					});
+					
+
+
+				};
+
+
 
 /* ------------------------------------------------------------------------ */
 // Account handlers

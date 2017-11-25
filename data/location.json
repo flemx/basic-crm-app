@@ -7,7 +7,7 @@
                 "phone": "+44 (0)1970 623 111",
                 "lat": 52.415524,
                 "lng": -4.063066},
-            {
+            {   "ID" : "id789",
                 "title": "Bangor University",
                 "website": "www.bangor.ac.uk",
                 "phone": "+44 (0)1248 351 151",

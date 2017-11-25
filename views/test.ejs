@@ -69,7 +69,7 @@
 				</thead>
 				<% for(i=0;i<accounts.account.length;i++){  %>
 							<tr>
-								<td><input type="checkbox" value="<%= accounts.account[i].Id%>"></td>
+								<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
 								<td><%= accounts.account[i].Name %></td>
 								<td><%= accounts.account[i].Industry %></td>
 								<td><%= accounts.account[i].Phone %></td>
@@ -95,6 +95,9 @@
 			$(document).ready(function() {
 				//Call Ajax function to load contacts table
 				
+				
+				
+			
 				
 				//Highlights contacts button when active
 				$('#accounts-button').addClass('w3-blue');
