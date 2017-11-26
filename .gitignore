@@ -1,2 +1,5 @@
-
+#Ignore installed node modules
 node_modules/
+
+#IntelliJ files
+.idea/workspace.xml
