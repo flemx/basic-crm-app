@@ -56,10 +56,13 @@
     <h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
   </header>
 		
-   <button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Account &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
-		<div class="w3-animate-left table-responsive" >
+    <button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
+	<button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+
+	  <div class="w3-animate-left table-responsive" >
 			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 				<thead>
+					<th><input type="checkbox" class="selectAll"></th>
 					<th>Name</th>
 					<th>Industry</th>
 					<th>Phone</th>
@@ -68,6 +71,7 @@
 				</thead>
 				<% for(i=0;i<accounts.account.length;i++){  %>
 							<tr>
+								<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
 								<td><%= accounts.account[i].Name %></td>
 								<td><%= accounts.account[i].Industry %></td>
 								<td><%= accounts.account[i].Phone %></td>
@@ -96,6 +100,7 @@
 				
 				//Highlights contacts button when active
 				$('#accounts-button').addClass('w3-blue');
+
 			});
 		</script>
 		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>

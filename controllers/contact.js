@@ -34,7 +34,35 @@ app.get('/contacts', function(req, res) {
     myContacts.setContacts(data);
     console.log("Controller router '/post/contacts' is executing ");
     res.send(data);
-  }); 
-  
+  });
+
+
+
+
+//Post route to delete contact records from the deleteContacts() ajax function
+    app.post('/delete/contacts', function(req, res){
+        var data = myContacts.getContacts();
+        var toDel = req.body;
+        for(var j in data.contact){
+            //console.log("var J = " + data.account[j].Id);
+            for(var i in toDel.$data){
+                //console.log("var i = " + test.$data[i]);
+                if(toDel.$data[i] == data.contact[j].Id){
+                    console.log("\n Deleting account: " + data.contact[j].Id);
+                    data.contact.splice(j,1);
+                    console.log("Deleted account: " + data.contact[j].Id);
+                }
+            }}
+
+        //myContacts.setContacts(data);
+        res.send(data);
+    });
+
+
+
+
+
+
+
   
 };

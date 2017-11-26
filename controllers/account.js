@@ -58,8 +58,8 @@ app.get('/accounts', function(req, res) {
                 //console.log("var i = " + test.$data[i]);
                 if(toDel.$data[i] === data.account[j].Id){
                     console.log("\n Deleting account: " + data.account[j].Id);
+                    console.log("Deleting account: " + data.account[j].Id);
                     data.account.splice(j,1);
-                    console.log("Deleted account: " + data.account[j].Id);
                 }
             }}
 

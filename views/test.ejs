@@ -60,8 +60,9 @@
 		<div class="w3-animate-left table-responsive" >
 			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 				<thead>
-					<th><input type="checkbox" id="selectAll"></th>
+					<th><input type="checkbox" class="selectAll"></th>
 					<th>Name</th>
+					<th>Industry</th>
 					<th>Industry</th>
 					<th>Phone</th>
 					<th>Employees</th>
@@ -95,17 +96,11 @@
 			$(document).ready(function() {
 				//Call Ajax function to load contacts table
 				
-				
-				
-			
-				
+
 				//Highlights contacts button when active
 				$('#accounts-button').addClass('w3-blue');
 				
-				//Select all checkboxes
-				$('#selectAll').click(function (e) {
-    		$(this).closest('table').find('td input:checkbox').prop('checked', this.checked);
-});
+
 			});
 		</script>
 		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
