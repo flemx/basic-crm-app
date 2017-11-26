@@ -8,8 +8,7 @@
     "ejs": "^2.5.7",
     "express": "^4.14.0",
     "fs": "0.0.1-security",
-    "js2xmlparser": "^2.0.2",
-    "libxslt": "^0.6.3"
+    "js2xmlparser": "^3.0.0"
   },
   "devDependencies": {},
   "scripts": {

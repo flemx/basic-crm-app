@@ -1,10 +1,10 @@
-module.exports = function(app,fs,js2xmlparser,libxslt,bodyParser,urlencodedParsers){
+module.exports = function(app,fs,js2xmlparser,bodyParser){
 
  //Open Games link 
  app.get('/games', function(req, res) {
   res.render('games');
 });
-
+/*
 // HTML produced by XSL Transformation
 app.get('/get/games', function(req, res) {
   
@@ -59,4 +59,6 @@ app.post('/post/games', function(req, res) {
   res.redirect('back');
 
 });
+*/
 };
+

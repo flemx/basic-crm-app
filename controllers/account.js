@@ -9,7 +9,7 @@ app.get('/test', function(req, res) {
 });  
   
   
-app.post('/delete/accounts', (req, res) => {
+app.post('/delete/accounts', function(req, res){
     var data = myAccountData.getAccounts();
     var test = req.body;
      console.log(test);
