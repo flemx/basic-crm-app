@@ -5,12 +5,24 @@
 
 
 
-//*****************************************************************************
-// Function to add rows to #account-table-container from JSON accounts object
+
+
+/* ------------------------------------------------------------------------ */
+// General javascript
+
+//Select all checkboxes in tables
+$(document).ready(function() {
+    $('.selectAll').click(function (e) {
+        $(this).closest('table').find('td input:checkbox').prop('checked', this.checked);
+    });
+});
 
 
 
-//********************************************************************************
+
+
+
+
 /* ------------------------------------------------------------------------ */
 // Account handlers
 
@@ -21,6 +33,7 @@ function accountTable(accounts){
 	$.each(accounts, function(index, obj) {
 		$("#contact-table-container").append(
 			"<tr>" +
+            		"<td><input type='checkbox' value='" + obj.Id + "' class='inputID'</td>"+
 					"<td>" + obj.Name + "</td>"+
 					"<td>" + obj.Industry + "</td>"+
 					"<td>" + obj.Phone + "</td>"+
@@ -51,7 +64,7 @@ var loadAccounts = function() {
 // Creating this function as a workaround to prevent the page from reloading by a normal form post
 
 var postAccounts = function() {
-	$(':button[type="button"]').prop('disabled', true);  // Disable add until succesfull return from server to prevent dublicate records 
+	$(':button[type="button"]').prop('disabled', true);  // Disable submit button until succesfull return from server to prevent dublicate records
 	var $accountForm = {"Name": $(".featherlight-content input[name='Name']").val(), 
 											"Industry": $(".featherlight-content input[name='Industry']").val(),
 											"Phone": $(".featherlight-content input[name='Phone']").val(),
@@ -66,9 +79,9 @@ var postAccounts = function() {
 		 data: $accountForm,
 		 success: function(accounts){
 		 	accountTable(accounts.account);
-				$("input[type=text]").val("");  //remove input values after successfull response 
-				$('.featherlight-close').click();    // close pop-up form
-				$(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
+		 	$('.featherlight-close').click();    // close pop-up form
+		 	$("input[type=text]").val("");  //remove input values after successfull response
+			$(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
 			}
 	});
   
@@ -78,18 +91,20 @@ var postAccounts = function() {
 // Collects the record id's assigned to the checkboxes if they are selected and post them through ajax to be deleted on server
 
 var deleteAccounts = function() {
+    $('.delete-button').prop('disabled', true);  // Disable delete button until succesfull return from server
     var $data = [];
     $('.inputID:checked').each(function () {
         $data.push($(this).val());
     });
-
+	console.log("To be deleted: " + $data);
     $.ajax({
         type: "POST",
         url: "/delete/accounts",
         data: {$data},
         success: function(accounts) {
-            console.log("New accounts: " + accounts.account[0].Name);
             accountTable(accounts.account);
+            $('.delete-button').prop('disabled', false);
+
         }
     });
 };
@@ -109,6 +124,7 @@ function contactTable(contacts){
 	$.each(contacts, function(index, obj) {
 		$("#contact-table-container").append(
 			"<tr>" +
+            		"<td><input type='checkbox' value='" + obj.Id + "'  class='inputID'</td>"+
 					"<td>" + obj.Name + "</td>"+
 					"<td>" + obj.Title + "</td>"+
 					"<td>" + obj.Account + "</td>"+
@@ -149,9 +165,9 @@ var postContacts = function() {
 		 data: $contactForm,
 		 success: function(contacts){
 			contactTable(contacts.contact);
+			     $('.featherlight-close').click(); // close pop-up form
 				 $("input[type=text]").val("");  //remove input values after successfull response 
-				 $('.featherlight-close').click(); // close pop-up form
-				 $(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server 
+				 $(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
 			 }
 	});
   
@@ -159,7 +175,7 @@ var postContacts = function() {
 
 
 // Delete accounts
-// Collects the record id's assigned to the checkboxes if they are selected and post them through ajax to be deleted on server
+// Collects the record id's assigned of the selected checkboxes and post them with ajax to be server and deleted
 
 var deleteContacts = function() {
     var $data = [];
