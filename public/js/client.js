@@ -1,28 +1,7 @@
 
 
 
-				var $deleteAccount = function() {
-					
-					var $data = [];
-					$('.inputID:checked').each(function () {
-						  $data.push($(this).val());										 
-					});
-					console.log($data);
-				  
 
-					$.ajax({
-						type: "POST",
-						url: "/delete/accounts",
-						data: {$data},
-						success: function(accounts) {
-							//accountTable(accounts.account);
-							
-						}
-					});
-					
-
-
-				};
 
 
 
@@ -67,7 +46,10 @@ var loadAccounts = function() {
 
 
 
-// Ajax function to post text from input fields to update accounts JSON obejct and rebuild table with new data
+// Add account function
+// Function posts text from input fields without using a form to update accounts JSON object and dynamically rebuild table with new data
+// Creating this function as a workaround to prevent the page from reloading by a normal form post
+
 var postAccounts = function() {
 	$(':button[type="button"]').prop('disabled', true);  // Disable add until succesfull return from server to prevent dublicate records 
 	var $accountForm = {"Name": $(".featherlight-content input[name='Name']").val(), 
@@ -92,7 +74,25 @@ var postAccounts = function() {
   
 };
 
+// Delete accounts
+// Collects the record id's assigned to the checkboxes if they are selected and post them through ajax to be deleted on server
 
+var deleteAccounts = function() {
+    var $data = [];
+    $('.inputID:checked').each(function () {
+        $data.push($(this).val());
+    });
+
+    $.ajax({
+        type: "POST",
+        url: "/delete/accounts",
+        data: {$data},
+        success: function(accounts) {
+            console.log("New accounts: " + accounts.account[0].Name);
+            accountTable(accounts.account);
+        }
+    });
+};
 
 
 
@@ -158,11 +158,23 @@ var postContacts = function() {
 };
 
 
-var testForm = function(){
-		
-	 var test = $(".featherlight-content").find("input[name='Name']").val();
-	 console.log(test);
-	 
+// Delete accounts
+// Collects the record id's assigned to the checkboxes if they are selected and post them through ajax to be deleted on server
+
+var deleteContacts = function() {
+    var $data = [];
+    $('.inputID:checked').each(function () {
+        $data.push($(this).val());
+    });
+
+    $.ajax({
+        type: "POST",
+        url: "/delete/contacts",
+        data: {$data},
+        success: function(contacts) {
+            contactTable(contacts.contact);
+        }
+    });
 };
 
 
