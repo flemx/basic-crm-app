@@ -41,20 +41,25 @@ app.get('/contacts', function(req, res) {
 
 //Post route to delete contact records from the deleteContacts() ajax function
     app.post('/delete/contacts', function(req, res){
+        console.log("/delete/contacts is executing");
         var data = myContacts.getContacts();
         var toDel = req.body;
+
         for(var j in data.contact){
             //console.log("var J = " + data.account[j].Id);
             for(var i in toDel.$data){
                 //console.log("var i = " + test.$data[i]);
                 if(toDel.$data[i] == data.contact[j].Id){
                     console.log("\n Deleting account: " + data.contact[j].Id);
-                    data.contact.splice(j,1);
-                    console.log("Deleted account: " + data.contact[j].Id);
+                    try{
+                        data.contact.splice(j,1);
+                    }catch(err){
+                        console.log("Error while deleting contact: \n" + err);
+                    }
                 }
             }}
 
-        //myContacts.setContacts(data);
+        myContacts.setContacts(data);
         res.send(data);
     });
 

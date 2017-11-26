@@ -182,7 +182,7 @@ var deleteContacts = function() {
     $('.inputID:checked').each(function () {
         $data.push($(this).val());
     });
-
+	console.log("To be deleted: " + $data);
     $.ajax({
         type: "POST",
         url: "/delete/contacts",

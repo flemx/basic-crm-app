@@ -53,13 +53,14 @@ app.get('/accounts', function(req, res) {
         var data = myAccountData.getAccounts();
         var toDel = req.body;
         for(var j in data.account){
-            //console.log("var J = " + data.account[j].Id);
             for(var i in toDel.$data){
-                //console.log("var i = " + test.$data[i]);
                 if(toDel.$data[i] === data.account[j].Id){
-                    console.log("\n Deleting account: " + data.account[j].Id);
                     console.log("Deleting account: " + data.account[j].Id);
-                    data.account.splice(j,1);
+                    try{
+                        data.account.splice(j,1);
+                    }catch(err){
+                        console.log("Error while deleting contact: \n" + err);
+                    }
                 }
             }}
 
