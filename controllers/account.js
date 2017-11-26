@@ -8,32 +8,11 @@ app.get('/test', function(req, res) {
   res.render('test', {accounts: data});
 });  
   
-  
-app.post('/delete/accounts', function(req, res){
-    var data = myAccountData.getAccounts();
-    var test = req.body;
-     console.log(test);
-    for(var j in data){
-       for(var i in test.$data){
-         if(test.$data[i] == data.account[j].Id){
-            console.log("ID test : " + test.$data[i]);
-            console.log("\n ID JSON: " + data.account[j].Id);
-            }
-     }}
-      
-    //
-   
-});
+
+
   
   
-  
-     // Post test 
- app.post('/post/test', function(req, res){
-   console.log(req.body); 
-   res.send("Hello Client");
-  }); 
-  
-  
+
  //Render contact.ejs when opening /contacts URL
 app.get('/accounts', function(req, res) {
   console.log("Controller router '/accounts' is executing ");
@@ -64,9 +43,29 @@ app.get('/accounts', function(req, res) {
     myAccountData.setAccount(data);
     console.log("Controller router '/post/account' is executing ");
     res.send(data);
-  }); 
+  });
 
-  
+
+
+
+//Post route to delete account records from the deleteAccounts() ajax function
+    app.post('/delete/accounts', function(req, res){
+        var data = myAccountData.getAccounts();
+        var toDel = req.body;
+        for(var j in data.account){
+            //console.log("var J = " + data.account[j].Id);
+            for(var i in toDel.$data){
+                //console.log("var i = " + test.$data[i]);
+                if(toDel.$data[i] === data.account[j].Id){
+                    console.log("\n Deleting account: " + data.account[j].Id);
+                    data.account.splice(j,1);
+                    console.log("Deleted account: " + data.account[j].Id);
+                }
+            }}
+
+        myAccountData.setAccount(data);
+        res.send(data);
+    });
   
 
 
