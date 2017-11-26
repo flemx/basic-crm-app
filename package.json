@@ -1,7 +1,7 @@
 {
-  "name": "wad-simple-demo",
+  "name": "simple-crm-app",
   "version": "1.0.0",
-  "description": "demo app to make AJAX requests to load results of XSL transformation and send POST requests to add new information to JSON and XML files",
+  "description": "Simple CRM application to manage your customers and business",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -16,8 +16,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mikhail-nci/wad-simple-demo.git"
+    "url": "https://github.com/flemx/ncirl-web-app.git"
   },
-  "author": "Mikhail",
-  "homepage": "https://github.com/mikhail-nci/wad-simple-demo#readme"
+  "author": "Damien and Boris",
+  "homepage": "https://github.com/flemx/ncirl-web-app.git#readme"
 }
