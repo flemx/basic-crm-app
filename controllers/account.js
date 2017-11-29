@@ -8,9 +8,6 @@ app.get('/test', function(req, res) {
   res.render('test', {accounts: data});
 });  
   
-
-
-  
   
 
  //Render contact.ejs when opening /contacts URL

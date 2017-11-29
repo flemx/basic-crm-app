@@ -18,7 +18,7 @@
       width: 100%;
       height: 40%;
     }
-     
+    	#name {color: red;} 
   </style>
 </head>
   <div id="main">
@@ -117,34 +117,66 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <!-- !PAGE CONTENT! -->
 		<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-
-
-
-
 			<div class="lightbox" id="fl1">
 
 
 				<div class="field">
-					<input type="text" placeholder="Name" name="Name">
+					<label for="firstname">Name</label>
+					<input id="name" type="text" placeholder="Name" name="Name"
+								 placeholder="John Doe">
 				</div>
 				<div class="field">
-					<input type="text" placeholder="Industry" name="Industry">
+					<label for="Industry">Industry</label>
+					<input type="text" placeholder="Industry" name="Industry" 
+								 placeholder="IT">
 				</div>
 				<div class="field">
-					<input type="text" placeholder="Phone" name="Phone">
+						<label for="Phone">Phone</label>
+					<input type="text" placeholder="Phone" name="Phone" 
+								 placeholder="tel">
 				</div>
 				<div class="field">
-					<input type="text" placeholder="Employees" name="Employees">
+						<label for="Employees">Employees</label>
+					<input type="text" placeholder="Employees" name="Employees" 
+								 placeholder="Emp">
 				</div>
 				<div class="field">
-					<input type="text" placeholder="Website" name="Website">
+					<label for="Website">Website</label>
+					<input type="text" placeholder="Website" name="Website" placeholder="www.nci.com">
 				</div>
 				<div class="field">
 					<button type="button" onclick="postAccounts()">Submit</button>
 				</div>
 
 			</div>
+<!--my code
+<div class="container">
+  <h2>Registration</h2>
+  <form action="" name="registration">
 
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" id="firstname" placeholder="John">
+
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" id="lastname" placeholder="Doe">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" id="email" placeholder="john@doe.com">
+
+    <label for="password">Password</label>
+    <input id="pass" type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
+
+    <button type="submit">Register</button>
+  </form>
+
+  <div class="article-reference">
+    This example is part of the article
+    <a href="https://www.sitepoint.com/basic-jquery-form-validation-tutorial/" target="_blank">Basic jQuery Form Validation Example</a> on <a href="http://sitepoint.com/" target="_blank">SitePoint</a> by
+    <a href="https://github.com/julmot" target="_blank">Julian Motz</a>.
+  </div>
+</div>
+			
+	<!--my code-->		
 
 			<div class="w3-container">
 				<header class="w3-container" style="padding-top:22px">
@@ -166,7 +198,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				</div>
 				<br>
 			</div>
-
 
 
 			<% include partials/footer.ejs %>
