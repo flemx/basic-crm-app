@@ -5,18 +5,26 @@
 	<title>Accounts</title>
 
 	<% include partials/head.ejs %>
-		<!-- Header with meta tags and references -->
+	<!-- Header with meta tags and references -->
+
+	<style>
+
+
+
+
+	</style>
+
 
 </head>
 
 <body class="w3-light-grey">
 
 
-	<% include partials/nav.ejs %>
+<% include partials/nav.ejs %>
 
-	<!-- Top container -->
-	<!-- Sidebar/menu -->
-	<!-- Overlay effect when opening sidebar on small screens -->
+<!-- Top container -->
+<!-- Sidebar/menu -->
+<!-- Overlay effect when opening sidebar on small screens -->
 
 
 <!-- !PAGE CONTENT! -->
@@ -24,86 +32,144 @@
 
 
 
-  
-	
+
+
+
+
+
+
+	<form class="lightbox">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="inputEmail4">Email</label>
+				<input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="inputPassword4">Password</label>
+				<input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputAddress">Address</label>
+			<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+		</div>
+		<div class="form-group">
+			<label for="inputAddress2">Address 2</label>
+			<input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="inputCity">City</label>
+				<input type="text" class="form-control" id="inputCity">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="inputState">State</label>
+				<select id="inputState" class="form-control">
+					<option selected>Choose...</option>
+					<option>...</option>
+				</select>
+			</div>
+			<div class="form-group col-md-2">
+				<label for="inputZip">Zip</label>
+				<input type="text" class="form-control" id="inputZip">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-check">
+				<label class="form-check-label">
+					<input class="form-check-input" type="checkbox"> Check me out
+				</label>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary">Sign in</button>
+	</form>
+
+
+
+	<!--
+
 	<div class="lightbox" id="fl1">
 
-  		
-    <div class="field">
-      <input type="text" placeholder="Name" name="Name">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Industry" name="Industry">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Phone" name="Phone">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Employees" name="Employees">
-    </div>
-		 <div class="field">
-      <input type="text" placeholder="Website" name="Website">
-    </div>
-    <div class="field">
-      <button type="button" onclick="postAccounts()">Submit</button>
-    </div>
-  
+
+		<div class="field">
+			<input type="text" placeholder="Name" name="Name">
+		</div>
+		<div class="field">
+			<input type="text" placeholder="Industry" name="Industry">
+		</div>
+		<div class="field">
+			<input type="text" placeholder="Phone" name="Phone">
+		</div>
+		<div class="field">
+			<input type="text" placeholder="Employees" name="Employees">
+		</div>
+		<div class="field">
+			<input type="text" placeholder="Website" name="Website">
+		</div>
+		<div class="field">
+			<button type="button" onclick="postAccounts()">Submit</button>
+		</div>
+
 	</div>
-  
-  
-  <div class="w3-container">
-		 <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
-  </header>
-		
-   <button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">New &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
+-->
+
+
+
+
+
+	<div class="w3-container">
+		<header class="w3-container" style="padding-top:22px">
+			<h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
+		</header>
+
+		<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
+		<button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+
 		<div class="w3-animate-left table-responsive" >
 			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 				<thead>
-					<th><input type="checkbox" class="selectAll"></th>
-					<th>Name</th>
-					<th>Industry</th>
-					<th>Industry</th>
-					<th>Phone</th>
-					<th>Employees</th>
-					<th>Website</th>
+				<th><input type="checkbox" class="selectAll"></th>
+				<th>Name</th>
+				<th>Industry</th>
+				<th>Phone</th>
+				<th>Employees</th>
+				<th>Website</th>
 				</thead>
 				<% for(i=0;i<accounts.account.length;i++){  %>
-							<tr>
-								<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
-								<td><%= accounts.account[i].Name %></td>
-								<td><%= accounts.account[i].Industry %></td>
-								<td><%= accounts.account[i].Phone %></td>
-								<td><%= accounts.account[i].Employees %></td>
-								<td><%= accounts.account[i].Website %></td>
-							</tr>
+				<tr>
+					<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
+					<td><%= accounts.account[i].Name %></td>
+					<td><%= accounts.account[i].Industry %></td>
+					<td><%= accounts.account[i].Phone %></td>
+					<td><%= accounts.account[i].Employees %></td>
+					<td><%= accounts.account[i].Website %></td>
+				</tr>
 				<% } %>
 			</table>
-    </div>
-    <br>
-   </div>
-  
-  
-
-			<% include partials/footer.ejs %>
-				<!-- Footer -->
-
-
 		</div>
+		<br>
+	</div>
 
-		<script>
-				
-			$(document).ready(function() {
-				//Call Ajax function to load contacts table
-				
 
-				//Highlights contacts button when active
-				$('#accounts-button').addClass('w3-blue');
-				
 
-			});
-		</script>
-		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+	<% include partials/footer.ejs %>
+	<!-- Footer -->
+
+
+</div>
+
+<script>
+
+    $(document).ready(function() {
+        //Call Ajax function to load contacts table
+
+
+        //Highlights contacts button when active
+        $('#accounts-button').addClass('w3-blue');
+
+    });
+</script>
+<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
