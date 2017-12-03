@@ -2,10 +2,17 @@ module.exports = function(app,fs,bodyParser){
 var contactData = require('../models/contacts.js');
 myContacts = new contactData(fs);
 
- 
-  
-  
- //Render contact.ejs when opening /contacts URL
+
+
+    //Test Page
+    app.get('/test', function(req, res) {
+        var data = myContacts.getContacts();
+        console.log("Controller router '/test' is executing ");
+        res.render('test', {contacts: data});
+    });
+
+
+    //Render contact.ejs when opening /contacts URL
 app.get('/contacts', function(req, res) {
   console.log("Controller router '/contacts' is executing ");
   var data = myContacts.getContacts();

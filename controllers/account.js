@@ -2,11 +2,6 @@ module.exports = function(app,fs,bodyParser){
 var accountData = require('../models/accounts.js');
 myAccountData = new accountData(fs);
 
-//Test Page
-app.get('/test', function(req, res) {
-  var data = myAccountData.getAccounts();
-  res.render('test', {accounts: data});
-});  
   
   
 
