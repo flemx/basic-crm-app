@@ -1,13 +1,44 @@
 {
     "contact": [
         {
-            "Name": "Damien",
+            "FirstName": "Damien",
+            "LastName": "Fleminks",
             "Title": "Engineer",
+            "Account": "Salesforce",
+            "Phone": "871932517",
+            "Email": "damien@fleminks.com",
+            "Address": "14 Temple Square",
+            "State": "Dublin",
+            "Zipcode": "",
+            "Country": "Ireland",
+            "Id": "con12"
+        },
+        {
+            "FirstName": "Test",
+            "LastName": "",
+            "Title": "",
             "Account": "",
-            "Phone": "123",
+            "Phone": "",
             "Email": "",
-            "Id": "con7"
+            "Address": "",
+            "State": "",
+            "Zipcode": "",
+            "Country": "",
+            "Id": "con13"
+        },
+        {
+            "FirstName": "Henk",
+            "LastName": "",
+            "Title": "",
+            "Account": "",
+            "Phone": "",
+            "Email": "",
+            "Address": "",
+            "State": "",
+            "Zipcode": "",
+            "Country": "",
+            "Id": "con14"
         }
     ],
-    "index": 9
+    "index": 14
 }
