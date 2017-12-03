@@ -46,3 +46,16 @@
 .table-responsive a:hover{
   color:#2196F3;
 }
+
+.required-input{
+  color: rgb(194, 57, 52);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 1.5em;
+  float: left;
+  padding-right: 2px;
+  margin-bottom: -10px;
+}
