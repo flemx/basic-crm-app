@@ -2,17 +2,49 @@ module.exports = function(app,fs,bodyParser){
 var contactData = require('../models/contacts.js');
 myContacts = new contactData(fs);
 
- 
-  
-  
- //Render contact.ejs when opening /contacts URL
+
+
+    //Test Page
+    app.get('/test', function(req, res) {
+        var data = myContacts.getContacts();
+        console.log("Controller router '/test' is executing ");
+        res.render('test', {contacts: data});
+    });
+
+
+    //Render contact.ejs when opening /contacts URL
 app.get('/contacts', function(req, res) {
   console.log("Controller router '/contacts' is executing ");
   var data = myContacts.getContacts();
   res.render('contacts', {contacts: data});
 });
-  
-  
+
+
+    //Open contact ID
+    app.get('/contact/:id', function(req, res) {
+        var data = myContacts.getContacts();
+        var result;
+        console.log("Id is: " + req.params.id);
+
+        for(var i in data.contact){
+
+            //console.log("Name: " + data.contact[i].Name);
+
+            if(data.contact[i].Id ==  req.params.id){
+                console.log("Found name: " + data.contact[i].Name);
+                result = data.contact[i];
+            }
+
+        }
+
+        console.log("Final result: " + result.Name);
+
+        res.render('contact', {contact: result});
+
+    });
+
+
+
 //Router to send contacts JSON object when called
  app.get('/get/contacts', function(req, res) {
    var data = myContacts.getContacts();

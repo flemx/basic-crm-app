@@ -118,23 +118,27 @@ var deleteAccounts = function() {
 
 
 
+
+
 // Function to add rows to #contact-table-container from JSON contacts object
-function contactTable(contacts){	
-	$('tbody').remove();
-	$.each(contacts, function(index, obj) {
-		$("#contact-table-container").append(
-			"<tr>" +
-            		"<td><input type='checkbox' value='" + obj.Id + "'  class='inputID'</td>"+
-					"<td>" + obj.Name + "</td>"+
-					"<td>" + obj.Title + "</td>"+
-					"<td>" + obj.Account + "</td>"+
-					"<td>" + obj.Phone + "</td>"+
-					"<td>" + obj.Email + "</td>"+
-			"</tr>"	
-		);
-	});
+function contactTable(contacts){
+    $('tbody').remove();
+    $.each(contacts, function(index, obj) {
+        $("#contact-table-container").append(
+            "<tr>" +
+            "<td><input type='checkbox' value='" + obj.Id + "'  class='inputID'</td>"+
+            "<td><a href='/contact/" + obj.Id + "'>" + obj.FirstName + " " + obj.LastName + " </a></td>"+
+            "<td>" + obj.Title + "</td>"+
+            "<td>" + obj.Account + "</td>"+
+            "<td>" + obj.Phone + "</td>"+
+            "<td>" + obj.Email + "</td>"+
+            "</tr>"
+        );
+    });
 }
-	
+
+
+
 
 //Ajax function to load contacts and build table from contacts JSON object
 var loadContacts = function() {
@@ -149,29 +153,42 @@ var loadContacts = function() {
 
 
 // Ajax function to post text from input fields to update contacts JSON obejct and rebuild table with new data
-var postContacts = function() {
-	$(':button[type="button"]').prop('disabled', true);  // Disable add until succesfull return from server to prevent dublicate records 
-	var $contactForm = {"Name": $(".featherlight-content input[name='Name']").val(), 
-											"Title": $(".featherlight-content input[name='Title']").val(),
-											"Account": $(".featherlight-content input[name='Account']").val(),
-											"Phone": $(".featherlight-content input[name='Phone']").val(),
-											"Email": $(".featherlight-content input[name='Email']").val()
-												};
-	 console.log("Receiving Contact information from form: " + $contactForm);
+var postContact = function() {
+    $(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
+    var $contactForm = {
+        "FirstName": $(".featherlight-content input[name='FirstName']").val(),
+        "LastName": $(".featherlight-content input[name='LastName']").val(),
+        "Title": $(".featherlight-content input[name='Title']").val(),
+        "Account": $(".featherlight-content input[name='Account']").val(),
+        "Phone": $(".featherlight-content input[name='Phone']").val(),
+        "Email": $(".featherlight-content input[name='Email']").val(),
+        "Address": $(".featherlight-content input[name='Address']").val(),
+        "City": $(".featherlight-content input[name='City']").val(),
+        "State": $(".featherlight-content input[name='State']").val(),
+        "Zipcode": $(".featherlight-content input[name='Zipcode']").val(),
+        "Country": $(".featherlight-content input[name='Country']").val(),
+        "Description": $(".featherlight-content input[name='Description']").val()
+    };
+    console.log("Adding Contact information with Name : " + $contactForm.FirstName);
 
-		$.ajax({
-		 type: "POST",
-		 url: "/post/contact",
-		 data: $contactForm,
-		 success: function(contacts){
-			contactTable(contacts.contact);
-			     $('.featherlight-close').click(); // close pop-up form
-				 $("input[type=text]").val("");  //remove input values after successfull response 
-				 $(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
-			 }
-	});
-  
-};
+
+    $.ajax({
+        type: "POST",
+        url: "/post/contact",
+        data: $contactForm,
+        success: function(contacts){
+            contactTable(contacts.contact);
+            $('.featherlight-close').click(); // close pop-up form
+            $("input[type=text]").val("");  //remove input values after successful response
+            $(':button[type="button"]').prop('disabled', false);  //Enable add button after successful return from server
+        }
+    });
+
+
+}
+
+
+
 
 
 // Delete accounts

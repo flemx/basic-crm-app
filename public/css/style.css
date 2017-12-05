@@ -17,3 +17,45 @@
   margin-bottom:1%;
   margin-top:1%;
 }
+
+
+/* Form styling for adding new records */
+
+.form-container{
+  font-weight: 300;
+  color: rgb(112, 110, 107);
+}
+.form-header{
+  border-bottom: 2px solid rgb(221, 219, 218);
+  margin-bottom: 3%;
+
+
+
+}
+.form-header h2{
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  text-align: center;
+  color: rgb(112, 110, 107);
+}
+
+.table-responsive a{
+  text-decoration: underline;
+}
+.table-responsive a:hover{
+  color:#2196F3;
+}
+
+.required-input{
+  color: rgb(194, 57, 52);
+  font-weight: 700;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 1.5em;
+  float: left;
+  padding-right: 2px;
+  margin-bottom: -10px;
+}

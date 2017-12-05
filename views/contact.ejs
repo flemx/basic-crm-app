@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contacts</title>
+
+    <% include partials/head.ejs %>
+    <!-- Header with meta tags and references   -->
+</head>
+
+<body class="w3-light-grey">
+
+
+<% include partials/nav.ejs %>
+
+<!-- Top container -->
+<!-- Sidebar/menu -->
+<!-- Overlay effect when opening sidebar on small screens -->
+
+
+<!-- !PAGE CONTENT!   -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;" >
+
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> Contact </b></h5>
+    </header>
+
+
+
+
+
+
+    <div class="w3-container">
+
+
+        <div class="w3-animate-left table-responsive">
+            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
+                <thead>
+                <th><input type="checkbox" class="selectAll"></th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Account</th>
+                <th>Phone</th>
+                <th>Email</th>
+                </thead>
+
+                <tr>
+                    <td><input type="checkbox" value="<%= contact.Id%>" class="inputID"></td>
+                    <td><%= contact.FirstName + " " + contact.LastName %></td>
+                    <td><%= contact.Title %></td>
+                    <td><%= contact.Account %></td>
+                    <td><%= contact.Phone %></td>
+                    <td><%= contact.Email %></td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+
+
+    <% include partials/footer.ejs %>
+    <!-- Footer -->
+
+
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+        //Highlights contacts button when active
+        $('#contacts-button').addClass('w3-blue');
+    });
+</script>
+<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
