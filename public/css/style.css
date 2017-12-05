@@ -19,6 +19,12 @@
 }
 
 
+/* test CSS for highlighting selected row */
+.selected-row{background-color:#ccc}
+
+
+
+
 /* Form styling for adding new records */
 
 .form-container{

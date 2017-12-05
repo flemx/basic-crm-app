@@ -153,7 +153,7 @@
 				<% for(i=0;i<accounts.account.length;i++){  %>
 							<tr>
 								<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
-								<td><%= accounts.account[i].AccountName %></td>
+								<td><a href="/account/<%=accounts.account[i].Id%>"><%= accounts.account[i].AccountName %></a></td>
 								<td><%= accounts.account[i].Industry %></td>
 								<td><%= accounts.account[i].Phone %></td>
 								<td><%= accounts.account[i].Employees %></td>

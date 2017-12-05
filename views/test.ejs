@@ -176,7 +176,18 @@
 		<script>
 				
 			$(document).ready(function() {
-				//Call Ajax function to load contacts table
+			
+				
+			
+				// Highlight selected row
+				jQuery("input[type='checkbox']").change(function(){
+					if(jQuery(this).is(":checked")){
+							jQuery(this).parent().parent().addClass("selected-row"); 
+					}
+					else{
+							jQuery(this).parent().parent().removeClass("selected-row");  
+					} });
+				
 				
 				
 				//Highlights contacts button when active

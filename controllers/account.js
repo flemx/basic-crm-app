@@ -23,6 +23,32 @@ app.get('/accounts', function(req, res) {
     });
   
   
+      //Open Account ID
+    app.get('/account/:id', function(req, res) {
+        var data = myAccountData.getAccounts();
+        var result;
+        console.log("Id is: " + req.params.id);
+
+        for(var i in data.account){
+
+            //console.log("Name: " + data.contact[i].Name);
+
+            if(data.account[i].Id ==  req.params.id){
+                console.log("Found name: " + data.account[i].AccountName);
+                result = data.account[i];
+            }
+
+        }
+
+        console.log("Will open Account: " + result.AccountName);
+
+        res.render('account', {account: result});
+
+    });
+  
+  
+  
+  
  
 //Router to send contacts JSON object when called
  app.get('/get/accounts', function(req, res) {

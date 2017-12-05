@@ -35,7 +35,7 @@ function accountTable(accounts){
 		$("#contact-table-container").append(
 			"<tr>" +
             		"<td><input type='checkbox' value='" + obj.Id + "' class='inputID'</td>"+
-					"<td>" + obj.AccountName + "</td>"+
+					"<td><a href='/account/" + obj.Id + "'>" + obj.AccountName + "</a></td>"+
 					"<td>" + obj.Industry + "</td>"+
 					"<td>" + obj.Phone + "</td>"+
 					"<td>" + obj.Employees + "</td>"+
