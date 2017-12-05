@@ -13,6 +13,16 @@ app.get('/accounts', function(req, res) {
 });
 
   
+  
+  
+    //Test Page
+    app.get('/test', function(req, res) {
+        var data = myAccountData.getAccounts();
+        console.log("Controller router '/test' is executing ");
+        res.render('test', {accounts: data});
+    });
+  
+  
  
 //Router to send contacts JSON object when called
  app.get('/get/accounts', function(req, res) {

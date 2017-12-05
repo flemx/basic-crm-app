@@ -4,12 +4,7 @@ myContacts = new contactData(fs);
 
 
 
-    //Test Page
-    app.get('/test', function(req, res) {
-        var data = myContacts.getContacts();
-        console.log("Controller router '/test' is executing ");
-        res.render('test', {contacts: data});
-    });
+  
 
 
     //Render contact.ejs when opening /contacts URL

@@ -2,61 +2,79 @@
 <html>
 
 <head>
-	<title>Contacts</title>
+	<title>Accounts</title>
 
 	<% include partials/head.ejs %>
-	<!-- Header with meta tags and references -->
-
-
+		<!-- Header with meta tags and references -->
 
 </head>
 
 <body class="w3-light-grey">
 
 
-<% include partials/nav.ejs %>
+	<% include partials/nav.ejs %>
 
-<!-- Top container -->
-<!-- Sidebar/menu -->
-<!-- Overlay effect when opening sidebar on small screens -->
+	<!-- Top container -->
+	<!-- Sidebar/menu -->
+	<!-- Overlay effect when opening sidebar on small screens -->
 
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-	<header class="w3-container" style="padding-top:22px">
-		<h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
-	</header>
 
 
+  
+	<!--
+	<div class="lightbox" id="fl1">
+
+  		
+    <div class="field">
+      <input type="text" placeholder="Name" name="Name">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Industry" name="Industry">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Phone" name="Phone">
+    </div>
+    <div class="field">
+      <input type="text" placeholder="Employees" name="Employees">
+    </div>
+		 <div class="field">
+      <input type="text" placeholder="Website" name="Website">
+    </div>
+    <div class="field">
+      <button type="button" onclick="postAccounts()">Submit</button>
+    </div>
+  
+	</div>
+  -->
 
 
-
-
-	<div class="lightbox">
-	<form>
-		<div class="form-header"> <h2>New Contact</h2></div>
+	<form class="lightbox">
+		<div class="form-header"> <h2>New Account</h2></div>
 		<div class="form-container">
 
-
+			
 			<div class="form-row">
 				<div class="form-group col-sm-6">
-					<label for="inputFirstName">First Name</label>
-					<input type="text" class="form-control" id="inputFirstName" name="FirstName" placeholder="First Name">
+					<label for="inputAccountName"><span class="required-input">*</span>Account Name</label>
+					<input type="text" class="form-control" id="inputAccountName" name="AccountName" placeholder="Account Name">
 				</div>
 				<div class="form-group col-sm-6">
-					<label for="inputLastName">Last Name</label>
-					<input type="text" class="form-control" id="inputLastName" name="LastName" placeholder="Last Name">
+					<label for="inputIndustry">Industry</label>
+					<input type="text" class="form-control" id="inputIndustry" name="Industry" placeholder="Industry">
 				</div>
-			</div>
+			</div>	
 			<div class="form-row">
 				<div class="form-group col-sm-6">
-					<label for="inputTitle">Title</label>
-					<input type="text" class="form-control" id="inputTitle" name="Title" placeholder="Title">
+					<label for="inputEmployees">Number of Employees</label>
+					<input type="text" class="form-control" id="inputEmployees" name="Employees" placeholder="Employees">
 				</div>
 				<div class="form-group col-sm-6">
-					<label for="inputAccount">Account</label>
-					<input type="text" class="form-control" id="inputAccount" name="Account" placeholder="Account">
+					<label for="inputRevenue">Annual Revenue</label>
+					<input type="text" class="form-control" id="inputRevenue" name="Revenue" placeholder="Revenue">
 				</div>
 			</div>
 			<div class="form-row">
@@ -65,8 +83,8 @@
 					<input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
 				</div>
 				<div class="form-group col-sm-6">
-					<label for="inputEmail">Email</label>
-					<input type="text" class="form-control" id="inputEmail" name="Email" placeholder="Email">
+					<label for="inputWebsite">Website</label>
+					<input type="text" class="form-control" id="inputWebsite" name="Website" placeholder="Website">
 				</div>
 			</div>
 			<div class="form-row">
@@ -103,93 +121,70 @@
 			</div>
 			<div class="form-row">
 				<div class="form-group col-sm-2">
-					<button type="button" class="btn btn-primary" onclick="postContactsTest()">Sign in</button>
+					<button type="button" class="btn btn-primary" onclick="postAccount()">Submit</button>
 				</div>
 
 			</div>
 		</div>
-	</form>
-	</div>
+	</form><q></q>
+	
+	
+	
+	
+  
+  <div class="w3-container">
+		 <header class="w3-container" style="padding-top:22px">
+    <h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
+  </header>
+		
+    <button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
+	<button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
 
-
-	<!--
-
-	<div class="lightbox" id="fl1">
-
-
-		<div class="field">
-			<input type="text" placeholder="Name" name="Name">
-		</div>
-		<div class="field">
-			<input type="text" placeholder="Industry" name="Industry">
-		</div>
-		<div class="field">
-			<input type="text" placeholder="Phone" name="Phone">
-		</div>
-		<div class="field">
-			<input type="text" placeholder="Employees" name="Employees">
-		</div>
-		<div class="field">
-			<input type="text" placeholder="Website" name="Website">
-		</div>
-		<div class="field">
-			<button type="button" onclick="postAccounts()">Submit</button>
-		</div>
-
-	</div>
--->
-
-
-
-
-
-	<div class="w3-container">
-		<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Contact &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
-		<button class="w3-button w3-dark-grey delete-button" onclick="deleteContacts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
-
-		<div class="w3-animate-left table-responsive">
+	  <div class="w3-animate-left table-responsive" >
 			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 				<thead>
-				<th><input type="checkbox" class="selectAll"></th>
-				<th>Name</th>
-				<th>Title</th>
-				<th>Account</th>
-				<th>Phone</th>
-				<th>Email</th>
+					<th><input type="checkbox" class="selectAll"></th>
+					<th>Account Name</th>
+					<th>Industry</th>
+					<th>Phone</th>
+					<th>Employees</th>
+					<th>Website</th>
 				</thead>
-                <% for(i=0;i<contacts.contact.length;i++){  %>
-				<tr>
-					<td><input type="checkbox" value="<%= contacts.contact[i].Id%>" class="inputID"></td>
-					<td><a href="/contact/<%=contacts.contact[i].Id%>"><%= contacts.contact[i].FirstName + " " + contacts.contact[i].LastName %></a></td>
-					<td><%= contacts.contact[i].Title %></td>
-					<td><%= contacts.contact[i].Account %></td>
-					<td><%= contacts.contact[i].Phone %></td>
-					<td><%= contacts.contact[i].Email %></td>
-				</tr>
-                <% } %>
-
+				<% for(i=0;i<accounts.account.length;i++){  %>
+							<tr>
+								<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
+								<td><%= accounts.account[i].AccountName %></td>
+								<td><%= accounts.account[i].Industry %></td>
+								<td><%= accounts.account[i].Phone %></td>
+								<td><%= accounts.account[i].Employees %></td>
+								<td><%= accounts.account[i].Website %></td>
+							</tr>
+				<% } %>
 			</table>
+    </div>
+    <br>
+   </div>
+  
+  
+
+			<% include partials/footer.ejs %>
+				<!-- Footer -->
+
+
 		</div>
 
-	</div>
+		<script>
+				
+			$(document).ready(function() {
+				//Call Ajax function to load contacts table
+				
+				
+				//Highlights contacts button when active
+				$('#accounts-button').addClass('w3-blue');
 
-
-
-    <% include partials/footer.ejs %>
-	<!-- Footer -->
-
-
-</div>
-
-<script>
-
-    $(document).ready(function() {
-
-        //Highlights contacts button when active
-        $('#contacts-button').addClass('w3-blue');
-    });
-</script>
-<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+			});
+		</script>
+		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>

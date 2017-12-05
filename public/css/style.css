@@ -54,8 +54,9 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-size: 1.5em;
+  font-size: 1.4em;
   float: left;
   padding-right: 2px;
   margin-bottom: -10px;
 }
+
