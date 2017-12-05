@@ -20,6 +20,25 @@ app.get('/contacts', function(req, res) {
    res.send(data);
 });
 
+  
+  
+  //Test Router to get contact ID 
+  app.get('/contact/:id', function(req, res){
+    var data = myContacts.getContacts();
+    console.log("Paramater = " + req.params.id);
+    //var contact = lodash.filter(data.contact, { 'id': req.params.id } );
+    var contact = data.contact.filter(function( obj ) {
+      return obj.id == req.params.id; 
+    })
+    
+    console.log("Name  = " + contact[0].name);
+});
+    
+   
+    
+
+  
+  
 
  // Post router to add new record to contacts.json 
  app.post('/post/contact', function(req, res){
@@ -62,9 +81,6 @@ app.get('/contacts', function(req, res) {
         myContacts.setContacts(data);
         res.send(data);
     });
-
-
-
 
 
 
