@@ -2,200 +2,204 @@
 <html>
 
 <head>
-	<title>Accounts</title>
+	<title>Contacts</title>
 
-	<% include partials/head.ejs %>
-		<!-- Header with meta tags and references -->
+    <% include partials/head.ejs %>
+	<!-- Header with meta tags and references   -->
+
+
+	<style>
+
+		.contact-container{
+			margin-left: 4%;
+			width: 91.66666%;
+
+		}
+
+		@media (max-width: 500px){
+			.contact-container {
+				margin-left: 0.5%;
+				margin-right: 0.5%;
+				width: 99%;
+			}
+		}
+
+		.contact-container .contact-label{
+			display: inline-block;
+			color: rgb(112, 110, 107);
+			font-size: .80rem;
+			line-height: 1.5;
+			margin-right: .75rem;
+			margin-bottom: .125rem;
+
+		}
+
+		.contact-container .contact-data{
+			font-weight: 600;
+			color: rgb(43, 40, 38);
+			font-size: 1.2rem;
+		}
+
+
+	</style>
 
 </head>
 
 <body class="w3-light-grey">
 
 
-	<% include partials/nav.ejs %>
+<% include partials/nav.ejs %>
 
-	<!-- Top container -->
-	<!-- Sidebar/menu -->
-	<!-- Overlay effect when opening sidebar on small screens -->
-
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<!-- Top container -->
+<!-- Sidebar/menu -->
+<!-- Overlay effect when opening sidebar on small screens -->
 
 
+<!-- !PAGE CONTENT!   -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;" >
 
-  
-	<!--
-	<div class="lightbox" id="fl1">
-
-  		
-    <div class="field">
-      <input type="text" placeholder="Name" name="Name">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Industry" name="Industry">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Phone" name="Phone">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Employees" name="Employees">
-    </div>
-		 <div class="field">
-      <input type="text" placeholder="Website" name="Website">
-    </div>
-    <div class="field">
-      <button type="button" onclick="postAccounts()">Submit</button>
-    </div>
-  
-	</div>
-  -->
+	<header class="w3-container" style="padding-top:22px">
+		<h5><b><i class="fa fa-dashboard"></i> Contact </b></h5>
+	</header>
 
 
-	<form class="lightbox">
-		<div class="form-header"> <h2>New Account</h2></div>
-		<div class="form-container">
 
-			
-			<div class="form-row">
-				<div class="form-group col-sm-6">
-					<label for="inputAccountName"><span class="required-input">*</span>Account Name</label>
-					<input type="text" class="form-control" id="inputAccountName" name="AccountName" placeholder="Account Name">
-				</div>
-				<div class="form-group col-sm-6">
-					<label for="inputIndustry">Industry</label>
-					<input type="text" class="form-control" id="inputIndustry" name="Industry" placeholder="Industry">
-				</div>
-			</div>	
-			<div class="form-row">
-				<div class="form-group col-sm-6">
-					<label for="inputEmployees">Number of Employees</label>
-					<input type="text" class="form-control" id="inputEmployees" name="Employees" placeholder="Employees">
-				</div>
-				<div class="form-group col-sm-6">
-					<label for="inputRevenue">Annual Revenue</label>
-					<input type="text" class="form-control" id="inputRevenue" name="Revenue" placeholder="Revenue">
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-group col-sm-6">
-					<label for="inputPhone">Phone number</label>
-					<input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
-				</div>
-				<div class="form-group col-sm-6">
-					<label for="inputWebsite">Website</label>
-					<input type="text" class="form-control" id="inputWebsite" name="Website" placeholder="Website">
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-group col-sm-6">
-					<label for="inputAddress">Address</label>
-					<input type="text" class="form-control" id="inputAddress" name="Address" placeholder="Address">
-				</div>
-				<div class="form-group col-sm-6">
-					<label for="inputCity">City</label>
-					<input type="text" class="form-control" id="inputCity" name="FirstName" placeholder="City">
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-group col-sm-6">
-					<label for="inputState">State/County</label>
-					<input type="text" class="form-control" id="inputState" name="State" placeholder="State/County">
-				</div>
-				<div class="form-group col-sm-2">
-					<label for="inputZip">Zip Code</label>
-					<input type="text" class="form-control" id="inputZip" name="Zipcode" placeholder="Zip">
 
-				</div>
-				<div class="form-group col-sm-4">
-					<label for="inputCountry">Country</label>
-					<input type="text" class="form-control" id="inputCountry" name="Country" placeholder="Country">
-				</div>
-			</div>
-			<div class="form-row">
-				<div class="form-group col-sm-12">
-					<label for="inputDescription">Description</label>
-					<textarea class="form-control" rows="3" id="inputDescription" name="Description"></textarea>
+
+	<div class="w3-container w3-col m11 contact-container">
+		<div class="w3-card w3-round w3-white">
+			<div class="w3-container">
+				<h4 class="w3-center"><%= contact.FirstName + " " + contact.LastName %></h4>
+				<hr>
+
+				<div class="form-row">
+					<div class="form-group col-xs-6">
+						<div>
+							<div class="contact-label">First Name</div>
+							<div class="contact-data"><p><%= contact.FirstName %></p></div>
+						</div>
+					</div>
+					<div class="form-group col-xs-6">
+						<div class="contact-label">Last st Name</div>
+						<div class="contact-data"><p><%= contact.LastName %></p></div>
+					</div>
 				</div>
 
-			</div>
-			<div class="form-row">
-				<div class="form-group col-sm-2">
-					<button type="button" class="btn btn-primary" onclick="postAccount()">Submit</button>
+				<div class="form-row">
+					<div class="form-group col-sm-6">
+						<div>
+							<div class="contact-label">Job Title</div>
+							<div class="contact-data"><p><%= contact.Title %></p></div>
+						</div>
+					</div>
+					<div class="form-group col-sm-6">
+						<div class="contact-label">Account working for</div>
+						<div class="contact-data"><p><%= contact.Account %></p></div>
+					</div>
 				</div>
 
 			</div>
 		</div>
-	</form><q></q>
-	
-	
-	
-	
-  
-  <div class="w3-container">
-		 <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
-  </header>
-		
-    <button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
-	<button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+	</div>
 
-	  <div class="w3-animate-left table-responsive" >
+
+	<!--
+	<div class="w3-container w3-col m8">
+		<div class="w3-card w3-round w3-white">
+	<div class="profile-about">
+		<h4>Basic Information</h4>
+
+		<div class="table-responsive about-table">
+			<table class="table">
+				<tbody>
+				<tr>
+					<th>Web</th>
+					<td><a href="#">www.domain.com</a> <span class="icon-pencil pull-right"></span></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><a href="#">jdoe@domain.com</a> <span class="icon-pencil pull-right"></span></td>
+				</tr>
+				<tr>
+					<th>Phone</th>
+					<td>+639-151-2345 <span class="icon-pencil pull-right"></span></td>
+				</tr>
+				<tr>
+					<th>Position</th>
+					<td>Web Designer <span class="icon-pencil pull-right"></span></td>
+				</tr>
+				<tr>
+					<th>Status</th>
+					<td>Employee <span class="icon-pencil pull-right"></span></td>
+				</tr>
+				<tr>
+					<th>Social</th>
+					<td>
+						<ul class="list-inline social">
+							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						</ul>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+		</div>
+	</div>
+-->
+
+
+	<!--
+	<div class="w3-container">
+
+
+		<div class="w3-animate-left table-responsive">
 			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 				<thead>
-					<th><input type="checkbox" class="selectAll"></th>
-					<th>Account Name</th>
-					<th>Industry</th>
-					<th>Phone</th>
-					<th>Employees</th>
-					<th>Website</th>
+				<th><input type="checkbox" class="selectAll"></th>
+				<th>Name</th>
+				<th>Title</th>
+				<th>Account</th>
+				<th>Phone</th>
+				<th>Email</th>
 				</thead>
-				<% for(i=0;i<accounts.account.length;i++){  %>
-							<tr>
-								<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
-								<td><%= accounts.account[i].AccountName %></td>
-								<td><%= accounts.account[i].Industry %></td>
-								<td><%= accounts.account[i].Phone %></td>
-								<td><%= accounts.account[i].Employees %></td>
-								<td><%= accounts.account[i].Website %></td>
-							</tr>
-				<% } %>
+
+				<tr>
+					<td><input type="checkbox" value="<%= contact.Id%>" class="inputID"></td>
+					<td><%= contact.FirstName + " " + contact.LastName %></td>
+					<td><%= contact.Title %></td>
+					<td><%= contact.Account %></td>
+					<td><%= contact.Phone %></td>
+					<td><%= contact.Email %></td>
+				</tr>
+
 			</table>
-    </div>
-    <br>
-   </div>
-  
-  
-
-			<% include partials/footer.ejs %>
-				<!-- Footer -->
-
-
 		</div>
 
-		<script>
-				
-			$(document).ready(function() {
-			
-				
-			
-				// Highlight selected row
-				jQuery("input[type='checkbox']").change(function(){
-					if(jQuery(this).is(":checked")){
-							jQuery(this).parent().parent().addClass("selected-row"); 
-					}
-					else{
-							jQuery(this).parent().parent().removeClass("selected-row");  
-					} });
-				
-				
-				
-				//Highlights contacts button when active
-				$('#accounts-button').addClass('w3-blue');
+	</div>
+-->
 
-			});
-		</script>
-		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <% include partials/footer.ejs %>
+	<!-- Footer -->
+
+
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+        //Highlights contacts button when active
+        $('#contacts-button').addClass('w3-blue');
+    });
+</script>
+<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>

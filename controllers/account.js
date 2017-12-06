@@ -14,14 +14,7 @@ app.get('/accounts', function(req, res) {
 
   
   
-  
-    //Test Page
-    app.get('/test', function(req, res) {
-        var data = myAccountData.getAccounts();
-        console.log("Controller router '/test' is executing ");
-        res.render('test', {accounts: data});
-    });
-  
+
   
       //Open Account ID
     app.get('/account/:id', function(req, res) {
