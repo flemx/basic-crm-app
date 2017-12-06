@@ -103,10 +103,7 @@ function bindInfoWindow(marker, map, infowindow, strDescription) {
 google.maps.event.addDomListener(window, 'load', initialize);
   </script>
 
- 
-  
-  
-  </script>
+
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3m_4_-3nSH9_JrDQN621VvNfpNF7NQpg&callback=initMap">
     </script>
@@ -184,6 +181,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				</header>
 
 				<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Account &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
+					<button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
 				<div class="w3-animate-left table-responsive">
 					<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 						<thead>
