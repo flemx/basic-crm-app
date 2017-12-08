@@ -36,7 +36,7 @@
         console.log("Id is: " + req.params.id);
 
         for(var i in data.contact){
-            if(data.contact[i].Id ==  req.params.id){
+            if(data.contact[i].Id ===  req.params.id){
                 console.log("Found name: " + data.contact[i].FirstName);
                 result = data.contact[i];
             }
@@ -62,7 +62,7 @@
         console.log("Paramater = " + req.params.id);
         //var contact = lodash.filter(data.contact, { 'id': req.params.id } );
         var contact = data.contact.filter(function( obj ) {
-          return obj.id == req.params.id;
+          return obj.id === req.params.id;
         })
 
         console.log("Name  = " + contact[0].name);

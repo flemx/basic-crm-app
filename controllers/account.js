@@ -23,7 +23,7 @@ app.get('/accounts', function(req, res) {
 
             //console.log("Name: " + data.contact[i].Name);
 
-            if(data.account[i].Id ==  req.params.id){
+            if(data.account[i].Id ===  req.params.id){
                 console.log("Found name: " + data.account[i].AccountName);
                 result = data.account[i];
             }
@@ -49,7 +49,7 @@ app.get('/accounts', function(req, res) {
 
             //console.log("Name: " + data.contact[i].Name);
 
-            if(data.account[i].Id ==  req.params.id){
+            if(data.account[i].Id ===  req.params.id){
                 console.log("Found name: " + data.account[i].AccountName);
                 result = data.account[i];
             }
