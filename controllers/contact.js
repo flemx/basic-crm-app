@@ -52,11 +52,11 @@
 
         for(var i in data.contact){
             if(data.contact[i].Id ==  req.params.id){
-                console.log("Found name: " + data.contact[i].Name);
+                console.log("Found name: " + data.contact[i].FirstName);
                 result = data.contact[i];
             }
         }
-        console.log("Opening Contact: " + result.Name);
+        console.log("Opening Contact: " + result.FirstName);
         res.render('contact', {contact: result});
     });
 
