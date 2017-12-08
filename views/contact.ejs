@@ -6,6 +6,7 @@
 
     <% include partials/head.ejs %>
     <!-- Header with meta tags and references   -->
+
 </head>
 
 <body class="w3-light-grey">
@@ -30,33 +31,89 @@
 
 
 
-    <div class="w3-container">
+    <div class="container record-container">
 
 
-        <div class="w3-animate-left table-responsive">
-            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
-                <thead>
-                <th><input type="checkbox" class="selectAll"></th>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Account</th>
-                <th>Phone</th>
-                <th>Email</th>
-                </thead>
+        <h4 class="w3-center"><span class="glyphicon glyphicon-user"></span><%= contact.FirstName + " " + contact.LastName %></h4>
 
-                <tr>
-                    <td><input type="checkbox" value="<%= contact.Id%>" class="inputID"></td>
-                    <td><%= contact.FirstName + " " + contact.LastName %></td>
-                    <td><%= contact.Title %></td>
-                    <td><%= contact.Account %></td>
-                    <td><%= contact.Phone %></td>
-                    <td><%= contact.Email %></td>
-                </tr>
+        <div class="col-xs-12"><hr class="horizontal-line" /></div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row mgbt-xs-0">
+                    <label class="col-xs-4 control-label">First Name:</label>
+                    <div class="col-xs-8 controls"><%= contact.FirstName %></div>
 
-            </table>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row mgbt-xs-0">
+                    <label class="col-xs-4 control-label">Last Name:</label>
+                    <div class="col-xs-8 controls"><%= contact.LastName %></div>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row mgbt-xs-0">
+                    <label class="col-xs-4 control-label">Title</label>
+                    <div class="col-xs-8 controls"><%= contact.Title %></div>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row mgbt-xs-0">
+                    <label class="col-xs-4 control-label">Account</label>
+                    <div class="col-xs-8 controls"><%= contact.Account %></div>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-6">
+                <div class="row mgbt-xs-0">
+                    <label class="col-xs-4 control-label">Phone</label>
+                    <div class="col-xs-8 controls"><%= contact.Phone %></div>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row mgbt-xs-0">
+                    <label class="col-xs-4 control-label">Email</label>
+                    <div class="col-xs-8 controls"><%= contact.Email %></div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12"><hr class="horizontal-inline" /></div>
+            <div class="col-sm-6">
+                <div class="row mgbt-xs-0">
+                    <label class="col-xs-4 control-label">Address:</label>
+                    <div class="col-xs-8 controls">
+                        <%= contact.Address %> <%if(contact.Address !== ""){%>, <br /><%}%>
+                        <%= contact.Zipcode %> <%= contact.City %><%if(contact.City !== ""){%>, <br /><%}%>
+                        <%= contact.State %> <%if(contact.State !== ""){%>, <br /><%}%>
+                        <%= contact.Country %>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row mgbt-xs-0">
+                    <label class="col-xs-4 control-label">Description</label>
+                    <div class="col-xs-8 controls"><%= contact.Description %></div>
+
+                </div>
+            </div>
+
         </div>
 
     </div>
+
+
+
+
+
+
 
 
 
