@@ -2,34 +2,10 @@
 <html>
 
 <head>
-	<title>Accounts</title>
+	<title>Account</title>
 
-	<% include partials/head.ejs %>
-	<!-- Header with meta tags and references -->
-
-	<style>
-
-		.form-container{
-			font-weight: 300;
-			color: rgb(112, 110, 107);
-		}
-		.form-header{
-			border-bottom: 2px solid rgb(221, 219, 218);
-			margin-bottom: 3%;
-
-
-
-		}
-		.form-header h2{
-			font-weight: 300;
-			font-size: 1.4rem;
-			line-height: 1.25;
-			text-align: center;
-		}
-
-	</style>
-
-
+    <% include partials/head.ejs %>
+	<!-- Header with meta tags and references   -->
 </head>
 
 <body class="w3-light-grey">
@@ -42,128 +18,136 @@
 <!-- Overlay effect when opening sidebar on small screens -->
 
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<!-- !PAGE CONTENT!   -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;" >
+
+	<header class="w3-container" style="padding-top:22px">
+		<h5><b><i class="fa fa-dashboard"></i> Account </b></h5>
+	</header>
 
 
 
 
 
+	<div class="container record-container">
 
 
+		<h4 class="w3-center"><span class="glyphicon glyphicon-user"></span><%= contact.FirstName + " " + contact.LastName %></h4>
 
+		<div class="col-xs-12"><hr class="horizontal-line" /></div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">First Name:</label>
+					<div class="col-xs-8 controls"><%= contact.FirstName %></div>
 
-	<form class="lightbox">
-		<div class="form-header"> <h2>New Contact</h2></div>
-		<div class="form-container">
-
-
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="firstName">First Name</label>
-					<input type="text" class="form-control" id="firstName" placeholder="First Name">
 				</div>
-				<div class="form-group col-md-6">
-					<label for="lastName">Password</label>
-					<input type="text" class="form-control" id="lastName" placeholder="Last Name">
+			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Last Name:</label>
+					<div class="col-xs-8 controls"><%= contact.LastName %></div>
+
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Title</label>
+					<div class="col-xs-8 controls"><%= contact.Title %></div>
+
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Account</label>
+					<div class="col-xs-8 controls"><%= contact.Account %></div>
+
 				</div>
 			</div>
 
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label for="inputCity">City</label>
-					<input type="text" class="form-control" id="inputCity">
-				</div>
-				<div class="form-group col-md-4">
-					<label for="inputState">State</label>
-					<select id="inputState" class="form-control">
-						<option selected>Choose...</option>
-						<option>...</option>
-					</select>
-				</div>
-				<div class="form-group col-md-2">
-					<label for="inputZip">Zip</label>
-					<input type="text" class="form-control" id="inputZip">
+
+
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Phone</label>
+					<div class="col-xs-8 controls"><%= contact.Phone %></div>
+
 				</div>
 			</div>
-			<div class="form-row">
-				<div class="form-group col-md-2">
-					<button type="submit" class="btn btn-primary">Sign in</button>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Email</label>
+					<div class="col-xs-8 controls"><%= contact.Email %></div>
+
 				</div>
-
 			</div>
-		</div>
-	</form>
 
+			<div class="col-xs-12"><hr class="horizontal-inline" /></div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Address:</label>
+					<div class="col-xs-8 controls">
+                        <%= contact.Address %> <%if(contact.Address !== ""){%>, <br /><%}%>
+                        <%= contact.Zipcode %> <%= contact.City %><%if(contact.City !== ""){%>, <br /><%}%>
+                        <%= contact.State %> <%if(contact.State !== ""){%>, <br /><%}%>
+                        <%= contact.Country %>
+					</div>
 
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Description</label>
+					<div class="col-xs-8 controls"><%= contact.Description %></div>
 
-	<!--
+				</div>
+			</div>
 
-	<div class="lightbox" id="fl1">
-
-
-		<div class="field">
-			<input type="text" placeholder="Name" name="Name">
-		</div>
-		<div class="field">
-			<input type="text" placeholder="Industry" name="Industry">
-		</div>
-		<div class="field">
-			<input type="text" placeholder="Phone" name="Phone">
-		</div>
-		<div class="field">
-			<input type="text" placeholder="Employees" name="Employees">
-		</div>
-		<div class="field">
-			<input type="text" placeholder="Website" name="Website">
-		</div>
-		<div class="field">
-			<button type="button" onclick="postAccounts()">Submit</button>
 		</div>
 
 	</div>
--->
-
 
 
 
 
 	<div class="w3-container">
-		<header class="w3-container" style="padding-top:22px">
-			<h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
-		</header>
 
-		<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
-		<button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
 
-		<div class="w3-animate-left table-responsive" >
-			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
+		<div class="w3-animate-left table-responsive">
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="account-table-container">
 				<thead>
 				<th><input type="checkbox" class="selectAll"></th>
-				<th>Name</th>
+				<th>Account Name</th>
 				<th>Industry</th>
 				<th>Phone</th>
 				<th>Employees</th>
 				<th>Website</th>
 				</thead>
-				<% for(i=0;i<accounts.account.length;i++){  %>
+
 				<tr>
-					<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
-					<td><%= accounts.account[i].Name %></td>
-					<td><%= accounts.account[i].Industry %></td>
-					<td><%= accounts.account[i].Phone %></td>
-					<td><%= accounts.account[i].Employees %></td>
-					<td><%= accounts.account[i].Website %></td>
+					<td><input type="checkbox" value="<%= account.Id%>" class="inputID"></td>
+					<td><%= account.AccountName %></td>
+					<td><%= account.Industry %></td>
+					<td><%= account.Phone %></td>
+					<td><%= account.Employees %></td>
+					<td><%= account.Website %></td>
 				</tr>
-				<% } %>
+				</tr>
+
 			</table>
 		</div>
-		<br>
+
 	</div>
 
 
 
-	<% include partials/footer.ejs %>
+
+
+
+
+
+
+    <% include partials/footer.ejs %>
 	<!-- Footer -->
 
 
@@ -172,12 +156,9 @@
 <script>
 
     $(document).ready(function() {
-        //Call Ajax function to load contacts table
-
 
         //Highlights contacts button when active
-        $('#accounts-button').addClass('w3-blue');
-
+        //  $('#contacts-button').addClass('w3-blue');
     });
 </script>
 <script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>

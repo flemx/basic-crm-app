@@ -28,13 +28,14 @@ $(document).ready(function() {
 
 
 // Function to add rows to #account-table-container from JSON accounts object
+
 function accountTable(accounts){	
 	$('tbody').remove();
 	$.each(accounts, function(index, obj) {
 		$("#contact-table-container").append(
 			"<tr>" +
             		"<td><input type='checkbox' value='" + obj.Id + "' class='inputID'</td>"+
-					"<td>" + obj.Name + "</td>"+
+					"<td><a href='/account/" + obj.Id + "'>" + obj.AccountName + "</a></td>"+
 					"<td>" + obj.Industry + "</td>"+
 					"<td>" + obj.Phone + "</td>"+
 					"<td>" + obj.Employees + "</td>"+
@@ -43,6 +44,8 @@ function accountTable(accounts){
 		);
 	});
 }
+
+
 
 
 //Ajax function to load accounts and build table from accounts JSON object
@@ -63,17 +66,26 @@ var loadAccounts = function() {
 // Function posts text from input fields without using a form to update accounts JSON object and dynamically rebuild table with new data
 // Creating this function as a workaround to prevent the page from reloading by a normal form post
 
-var postAccounts = function() {
-	$(':button[type="button"]').prop('disabled', true);  // Disable submit button until succesfull return from server to prevent dublicate records
-	var $accountForm = {"Name": $(".featherlight-content input[name='Name']").val(), 
-											"Industry": $(".featherlight-content input[name='Industry']").val(),
-											"Phone": $(".featherlight-content input[name='Phone']").val(),
-											"Employees": $(".featherlight-content input[name='Employees']").val(),
-											"Website": $(".featherlight-content input[name='Website']").val()
-												};
-	console.log("Receiving Account information: " + $accountForm);
 
-		$.ajax({
+var postAccount = function() {
+    //$(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
+    var $accountForm = {
+        "AccountName": $(".featherlight-content input[name='AccountName']").val(),
+        "Industry": $(".featherlight-content input[name='Industry']").val(),
+        "Employees": $(".featherlight-content input[name='Employees']").val(),
+        "Revenue": $(".featherlight-content input[name='Revenue']").val(),
+        "Phone": $(".featherlight-content input[name='Phone']").val(),
+        "Website": $(".featherlight-content input[name='Website']").val(),
+        "Address": $(".featherlight-content input[name='Address']").val(),
+        "City": $(".featherlight-content input[name='City']").val(),
+        "State": $(".featherlight-content input[name='State']").val(),
+        "Zipcode": $(".featherlight-content input[name='Zipcode']").val(),
+        "Country": $(".featherlight-content input[name='Country']").val(),
+        "Description": $(".featherlight-content textarea[name='Description']").val()
+    };
+    console.log("Adding Account information with Name : " + $accountForm.AccountName);
+	
+			$.ajax({
 		 type: "POST",
 		 url: "/post/account",
 		 data: $accountForm,
@@ -84,8 +96,7 @@ var postAccounts = function() {
 			$(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
 			}
 	});
-  
-};
+}
 
 // Delete accounts
 // Collects the record id's assigned to the checkboxes if they are selected and post them through ajax to be deleted on server
@@ -113,28 +124,38 @@ var deleteAccounts = function() {
 
 
 
+
+
+
+
+
+
 /* ------------------------------------------------------------------------ */
 // Contact handlers
 
 
 
+
+
 // Function to add rows to #contact-table-container from JSON contacts object
-function contactTable(contacts){	
-	$('tbody').remove();
-	$.each(contacts, function(index, obj) {
-		$("#contact-table-container").append(
-			"<tr>" +
-            		"<td><input type='checkbox' value='" + obj.Id + "'  class='inputID'</td>"+
-					"<td>" + obj.Name + "</td>"+
-					"<td>" + obj.Title + "</td>"+
-					"<td>" + obj.Account + "</td>"+
-					"<td>" + obj.Phone + "</td>"+
-					"<td>" + obj.Email + "</td>"+
-			"</tr>"	
-		);
-	});
+function contactTable(contacts){
+    $('tbody').remove();
+    $.each(contacts, function(index, obj) {
+        $("#contact-table-container").append(
+            "<tr>" +
+            "<td><input type='checkbox' value='" + obj.Id + "'  class='inputID'</td>"+
+            "<td><a href='/contact/" + obj.Id + "'>" + obj.FirstName + " " + obj.LastName + " </a></td>"+
+            "<td>" + obj.Title + "</td>"+
+            "<td>" + obj.Account + "</td>"+
+            "<td>" + obj.Phone + "</td>"+
+            "<td>" + obj.Email + "</td>"+
+            "</tr>"
+        );
+    });
 }
-	
+
+
+
 
 //Ajax function to load contacts and build table from contacts JSON object
 var loadContacts = function() {
@@ -149,29 +170,42 @@ var loadContacts = function() {
 
 
 // Ajax function to post text from input fields to update contacts JSON obejct and rebuild table with new data
-var postContacts = function() {
-	$(':button[type="button"]').prop('disabled', true);  // Disable add until succesfull return from server to prevent dublicate records 
-	var $contactForm = {"Name": $(".featherlight-content input[name='Name']").val(), 
-											"Title": $(".featherlight-content input[name='Title']").val(),
-											"Account": $(".featherlight-content input[name='Account']").val(),
-											"Phone": $(".featherlight-content input[name='Phone']").val(),
-											"Email": $(".featherlight-content input[name='Email']").val()
-												};
-	 console.log("Receiving Contact information from form: " + $contactForm);
+var postContact = function() {
+    $(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
+    var $contactForm = {
+        "FirstName": $(".featherlight-content input[name='FirstName']").val(),
+        "LastName": $(".featherlight-content input[name='LastName']").val(),
+        "Title": $(".featherlight-content input[name='Title']").val(),
+        "Account": $(".featherlight-content input[name='Account']").val(),
+        "Phone": $(".featherlight-content input[name='Phone']").val(),
+        "Email": $(".featherlight-content input[name='Email']").val(),
+        "Address": $(".featherlight-content input[name='Address']").val(),
+        "City": $(".featherlight-content input[name='City']").val(),
+        "State": $(".featherlight-content input[name='State']").val(),
+        "Zipcode": $(".featherlight-content input[name='Zipcode']").val(),
+        "Country": $(".featherlight-content input[name='Country']").val(),
+        "Description": $(".featherlight-content textarea[name='Description']").val()
+    };
+    console.log("Adding Contact information with Name : " + $contactForm.FirstName + "\n Desciption: " + $contactForm.Description);
 
-		$.ajax({
-		 type: "POST",
-		 url: "/post/contact",
-		 data: $contactForm,
-		 success: function(contacts){
-			contactTable(contacts.contact);
-			     $('.featherlight-close').click(); // close pop-up form
-				 $("input[type=text]").val("");  //remove input values after successfull response 
-				 $(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
-			 }
-	});
-  
-};
+
+    $.ajax({
+        type: "POST",
+        url: "/post/contact",
+        data: $contactForm,
+        success: function(contacts){
+            contactTable(contacts.contact);
+            $('.featherlight-close').click(); // close pop-up form
+            $("input[type=text]").val("");  //remove input values after successful response
+            $(':button[type="button"]').prop('disabled', false);  //Enable add button after successful return from server
+        }
+    });
+
+
+}
+
+
+
 
 
 // Delete accounts

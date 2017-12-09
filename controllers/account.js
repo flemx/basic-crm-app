@@ -2,11 +2,6 @@ module.exports = function(app,fs,bodyParser){
 var accountData = require('../models/accounts.js');
 myAccountData = new accountData(fs);
 
-//Test Page
-app.get('/test', function(req, res) {
-  var data = myAccountData.getAccounts();
-  res.render('test', {accounts: data});
-});  
   
   
 
@@ -17,6 +12,58 @@ app.get('/accounts', function(req, res) {
   res.render('accounts', {accounts: data});
 });
 
+
+    //Test Page
+    app.get('/test/:id', function(req, res) {
+        var data = myAccountData.getAccounts();
+        var result;
+        console.log("Id is: " + req.params.id);
+
+        for(var i in data.account){
+
+            //console.log("Name: " + data.contact[i].Name);
+
+            if(data.account[i].Id ===  req.params.id){
+                console.log("Found name: " + data.account[i].AccountName);
+                result = data.account[i];
+            }
+
+        }
+
+        console.log("Will open Account: " + result.AccountName);
+
+        res.render('account', {account: result});
+    });
+
+  
+  
+
+  
+      //Open Account ID
+    app.get('/account/:id', function(req, res) {
+        var data = myAccountData.getAccounts();
+        var result;
+        console.log("Id is: " + req.params.id);
+
+        for(var i in data.account){
+
+            //console.log("Name: " + data.contact[i].Name);
+
+            if(data.account[i].Id ===  req.params.id){
+                console.log("Found name: " + data.account[i].AccountName);
+                result = data.account[i];
+            }
+
+        }
+
+        console.log("Will open Account: " + result.AccountName);
+
+        res.render('account', {account: result});
+
+    });
+  
+  
+  
   
  
 //Router to send contacts JSON object when called

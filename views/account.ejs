@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Account</title>
+
+    <% include partials/head.ejs %>
+    <!-- Header with meta tags and references   -->
+</head>
+
+<body class="w3-light-grey">
+
+
+<% include partials/nav.ejs %>
+
+<!-- Top container -->
+<!-- Sidebar/menu -->
+<!-- Overlay effect when opening sidebar on small screens -->
+
+
+<!-- !PAGE CONTENT!   -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;" >
+
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> Account </b></h5>
+    </header>
+
+
+
+
+
+
+    <div class="w3-container">
+
+
+        <div class="w3-animate-left table-responsive">
+            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="account-table-container">
+                <thead>
+                <th><input type="checkbox" class="selectAll"></th>
+                  <th>Account Name</th>
+                  <th>Industry</th>
+                  <th>Phone</th>
+                  <th>Employees</th>
+                  <th>Website</th>
+                </thead>
+
+                <tr>
+  								<td><input type="checkbox" value="<%= account.Id%>" class="inputID"></td>
+								<td><%= account.AccountName %></td>
+								<td><%= account.Industry %></td>
+								<td><%= account.Phone %></td>
+								<td><%= account.Employees %></td>
+								<td><%= account.Website %></td>
+							</tr>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+
+
+    <% include partials/footer.ejs %>
+    <!-- Footer -->
+
+
+</div>
+
+<script>
+
+    $(document).ready(function() {
+
+        //Highlights contacts button when active
+      //  $('#contacts-button').addClass('w3-blue');
+    });
+</script>
+<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

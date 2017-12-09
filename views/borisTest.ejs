@@ -46,7 +46,7 @@ function initialize() {
     map = new google.maps.Map(document.getElementById("map"), mapProp);
 
     //  $.getJSON(json, function(json1) {
-   /* var json1 = {
+   var json1 = {
        "universities": [
             {
                 "title": "Aberystwyth University",
@@ -67,9 +67,9 @@ function initialize() {
                 "lat": 51.482708,
                 "lng": -3.165881}
         ]
-    }; */
+    }; 
           // Using  "<-%   %>" to get the data variable from app.js when redering the file and stringify it so it will be added to a new variable as an array  
-   				var json1 = <%- JSON.stringify(location) %>;
+   				var json2 = <%- JSON.stringify(location) %>;
 
     
     $.each(json1.universities, function (key, data) {
@@ -103,10 +103,7 @@ function bindInfoWindow(marker, map, infowindow, strDescription) {
 google.maps.event.addDomListener(window, 'load', initialize);
   </script>
 
- 
-  
-  
-  </script>
+
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3m_4_-3nSH9_JrDQN621VvNfpNF7NQpg&callback=initMap">
     </script>
@@ -184,6 +181,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				</header>
 
 				<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Account &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
+					<button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+				<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 				<div class="w3-animate-left table-responsive">
 					<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
 						<thead>
