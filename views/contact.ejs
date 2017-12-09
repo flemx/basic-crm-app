@@ -125,6 +125,10 @@
 
 <script>
 
+    //Adding contact object in variable for easy editing
+    var contactRecord = <%= contact%>;
+    console.log("Saving Contact in variable,\n Adding Contact: " + contact.FirstName);
+
     $(document).ready(function() {
 
         //Highlights contacts button when active
