@@ -2,7 +2,8 @@ module.exports = function(app,fs,bodyParser){
 var accountData = require('../models/accounts.js');
 myAccountData = new accountData(fs);
 
-  
+
+
   
 
  //Render contact.ejs when opening /contacts URL
@@ -14,48 +15,28 @@ app.get('/accounts', function(req, res) {
 
 
     //Test Page
-    app.get('/test/:id', function(req, res) {
+    app.get('/test', function(req, res) {
+        console.log("Controller router '/accounts' is executing ");
         var data = myAccountData.getAccounts();
-        var result;
-        console.log("Id is: " + req.params.id);
-
-        for(var i in data.account){
-
-            //console.log("Name: " + data.contact[i].Name);
-
-            if(data.account[i].Id ===  req.params.id){
-                console.log("Found name: " + data.account[i].AccountName);
-                result = data.account[i];
-            }
-
-        }
-
-        console.log("Will open Account: " + result.AccountName);
-
-        res.render('test', {account: result});
+        res.render('test', {accounts: data});
     });
 
-  
-  
 
-  
-      //Open Account ID
+    // Get account by id
+    app.get('/get/account/:id', function(req, res) {
+        //Calling getAccount() function from models which returns the Account object by is
+        var result = myAccountData.getAccount( req.params.id);
+        console.log("Will open Account: " + result.AccountName);
+        //Sending requested account back to client
+        res.send(result);
+    });
+
+
+
+
+    //Open Account ID
     app.get('/account/:id', function(req, res) {
-        var data = myAccountData.getAccounts();
-        var result;
-        console.log("Id is: " + req.params.id);
-
-        for(var i in data.account){
-
-            //console.log("Name: " + data.contact[i].Name);
-
-            if(data.account[i].Id ===  req.params.id){
-                console.log("Found name: " + data.account[i].AccountName);
-                result = data.account[i];
-            }
-
-        }
-
+        var result = myAccountData.getAccount( req.params.id);
         console.log("Will open Account: " + result.AccountName);
 
         res.render('account', {account: result});

@@ -13,6 +13,8 @@
             "Zipcode": "",
             "Country": "Ireland",
             "Description": "Working as salesforce in enterprise department",
+            "lat": 53.229520,
+            "lng": -4.129987,
             "Id": "con12"
         },
         {
@@ -28,6 +30,8 @@
             "Zipcode": "",
             "Country": "",
             "Description": "Working as salesforce in enterprise department",
+            "lat": 53.229520,
+            "lng": -4.129987,
             "Id": "con15"
         },
         {
@@ -43,6 +47,8 @@
             "Zipcode": "",
             "Country": "",
             "Description": "",
+            "lat": 53.229520,
+            "lng": -4.129987,
             "Id": "con21"
         },
         {

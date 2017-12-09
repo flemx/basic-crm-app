@@ -7,6 +7,60 @@
 
 
 
+// Function to populate
+var updateAccountForm = function(){
+    var id =  $('.inputID:checked').val();
+    console.log("Opening account ID: " + id);
+
+        $.ajax({
+        url: "/get/account/" + id,
+        cache: false,
+        success: function(account) {
+           console.log("Returned account: " + account.AccountName);
+
+           $(".update-account-form input[name='Id']").val(account.Id);
+           $(".update-account-form input[name='AccountName']").val(account.AccountName);
+           $(".update-account-form input[name='Industry']").val(account.Industry);
+           $(".update-account-form input[name='Employees']").val(account.Employees);
+           $(".update-account-form input[name='Revenue']").val(account.Revenue);
+           $(".update-account-form input[name='Phone']").val(account.Website);
+           $(".update-account-form  input[name='Website']").val(account.Website);
+           $(".update-account-form  input[name='Address']").val(account.Address);
+           $(".update-account-form  input[name='City']").val(account.City);
+           $(".update-account-form  input[name='State']").val(account.State);
+           $(".update-account-form  input[name='Zipcode']").val(account.Zipcode);
+           $(".update-account-form  input[name='Country']").val(account.Country);
+           $(".update-account-form  textarea[name='Description']").val(account.Description);
+        }
+    });
+};
+
+
+var updateAccount = function(){
+
+    var $accountForm = {
+        "AccountName": $(".featherlight-content .update-account-form input[name='AccountName']").val(),
+        "Industry": $(".featherlight-content .update-account-form input[name='Industry']").val(),
+        "Employees": $(".featherlight-content .update-account-form input[name='Employees']").val(),
+        "Revenue": $(".featherlight-content .update-account-form input[name='Revenue']").val(),
+        "Phone": $(".featherlight-content .update-account-form input[name='Phone']").val(),
+        "Website": $(".featherlight-content .update-account-form input[name='Website']").val(),
+        "Address": $(".featherlight-content .update-account-form input[name='Address']").val(),
+        "City": $(".featherlight-content .update-account-form input[name='City']").val(),
+        "State": $(".featherlight-content .update-account-form input[name='State']").val(),
+        "Zipcode": $(".featherlight-content .update-account-form input[name='Zipcode']").val(),
+        "Country": $(".featherlight-content .update-account-form input[name='Country']").val(),
+        "Description": $(".featherlight-content .update-account-form textarea[name='Description']").val()
+    };
+
+    console.log("Updating account: " + $accountForm.AccountName);
+
+
+}
+
+
+
+
 /* ------------------------------------------------------------------------ */
 // General javascript
 
@@ -62,30 +116,30 @@ var loadAccounts = function() {
 
 
 
+
 // Add account function
 // Function posts text from input fields without using a form to update accounts JSON object and dynamically rebuild table with new data
 // Creating this function as a workaround to prevent the page from reloading by a normal form post
 
-
 var postAccount = function() {
     //$(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
     var $accountForm = {
-        "AccountName": $(".featherlight-content input[name='AccountName']").val(),
-        "Industry": $(".featherlight-content input[name='Industry']").val(),
-        "Employees": $(".featherlight-content input[name='Employees']").val(),
-        "Revenue": $(".featherlight-content input[name='Revenue']").val(),
-        "Phone": $(".featherlight-content input[name='Phone']").val(),
-        "Website": $(".featherlight-content input[name='Website']").val(),
-        "Address": $(".featherlight-content input[name='Address']").val(),
-        "City": $(".featherlight-content input[name='City']").val(),
-        "State": $(".featherlight-content input[name='State']").val(),
-        "Zipcode": $(".featherlight-content input[name='Zipcode']").val(),
-        "Country": $(".featherlight-content input[name='Country']").val(),
-        "Description": $(".featherlight-content textarea[name='Description']").val()
+        "AccountName": $(".featherlight-content .add-account-form input[name='AccountName']").val(),
+        "Industry": $(".featherlight-content .add-account-form input[name='Industry']").val(),
+        "Employees": $(".featherlight-content .add-account-form input[name='Employees']").val(),
+        "Revenue": $(".featherlight-content .add-account-form input[name='Revenue']").val(),
+        "Phone": $(".featherlight-content .add-account-form input[name='Phone']").val(),
+        "Website": $(".featherlight-content .add-account-form input[name='Website']").val(),
+        "Address": $(".featherlight-content .add-account-form input[name='Address']").val(),
+        "City": $(".featherlight-content .add-account-form input[name='City']").val(),
+        "State": $(".featherlight-content .add-account-form input[name='State']").val(),
+        "Zipcode": $(".featherlight-content .add-account-form input[name='Zipcode']").val(),
+        "Country": $(".featherlight-content .add-account-form input[name='Country']").val(),
+        "Description": $(".featherlight-content .add-account-form textarea[name='Description']").val()
     };
     console.log("Adding Account information with Name : " + $accountForm.AccountName);
 	
-			$.ajax({
+        $.ajax({
 		 type: "POST",
 		 url: "/post/account",
 		 data: $accountForm,
@@ -173,18 +227,17 @@ var loadContacts = function() {
 var postContact = function() {
     $(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
     var $contactForm = {
-        "FirstName": $(".featherlight-content input[name='FirstName']").val(),
-        "LastName": $(".featherlight-content input[name='LastName']").val(),
-        "Title": $(".featherlight-content input[name='Title']").val(),
-        "Account": $(".featherlight-content input[name='Account']").val(),
-        "Phone": $(".featherlight-content input[name='Phone']").val(),
-        "Email": $(".featherlight-content input[name='Email']").val(),
-        "Address": $(".featherlight-content input[name='Address']").val(),
-        "City": $(".featherlight-content input[name='City']").val(),
-        "State": $(".featherlight-content input[name='State']").val(),
-        "Zipcode": $(".featherlight-content input[name='Zipcode']").val(),
-        "Country": $(".featherlight-content input[name='Country']").val(),
-        "Description": $(".featherlight-content textarea[name='Description']").val()
+        "FirstName": $(".featherlight-content .add-contact-form input[name='FirstName']").val(),
+        "LastName": $(".featherlight-content .add-contact-form input[name='LastName']").val(),
+        "Title": $(".featherlight-content .add-contact-form input[name='Title']").val(),
+        "Account": $(".featherlight-content .add-contact-form input[name='Account']").val(),
+        "Phone": $(".featherlight-content .add-contact-form input[name='Phone']").val(),
+        "Email": $(".featherlight-content .add-contact-form input[name='Email']").val(),
+        "Address": $(".featherlight-content .add-contact-form input[name='Address']").val(),
+        "City": $(".featherlight-content .add-contact-form input[name='City']").val(),
+        "State": $(".featherlight-content .add-contact-form input[name='State']").val(),
+        "Zipcode": $(".featherlight-content .add-contact-form input[name='Zipcode']").val(),
+        "Country": $(".featherlight-content .add-contact-form input[name='Country']").val(),
     };
     console.log("Adding Contact information with Name : " + $contactForm.FirstName + "\n Desciption: " + $contactForm.Description);
 

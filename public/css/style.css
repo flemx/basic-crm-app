@@ -1,6 +1,6 @@
 
 /* Lightbox Styling  */
-.lightbox {display: none;};
+.add-lightbox, .update-lightbox {display: none;};
 
 /* Make tables mobile friendly*/
 .table-responsive{overflow-x: auto;}

@@ -17,8 +17,19 @@ module.exports = function (fs) {
   }
   
   
-  module.setIndex = function(){
-    
+  module.getAccount = function(id){
+      var readJson =  fs.readFileSync('./data/accounts.json', 'utf8');
+      var data = JSON.parse(readJson);
+      var result;
+
+      //Loops through accounts to find the account and return the account object
+      for(var i in data.account){
+          if(data.account[i].Id ===  id){
+              console.log("Found name: " + data.account[i].AccountName);
+              result = data.account[i];
+          }
+      }
+      return result;
   }
   
   
