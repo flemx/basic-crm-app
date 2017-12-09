@@ -16,15 +16,14 @@ $(document).ready(function(){
 
     /*
         Function to validate that only 1 record is selected when update button is clicked
+
      */
 
     $("#table-update-button").click(function(){
         console.log("Checkboxes checked: " + $('.inputID:checked').length);
         if ($('.inputID:checked').length > 1) {
-
             var popup = document.getElementById("myPopup");
             popup.classList.toggle("show");
-
         }
         else if ($('.inputID:checked').length === 0) {
             var popup = document.getElementById("myPopup");
@@ -32,7 +31,9 @@ $(document).ready(function(){
         }
         else if ($('.inputID:checked').length === 1) {
             $.featherlight($('.update-lightbox'), {});
-            updateAccountForm()
+            updateAccountForm();
+            var popup = document.getElementById("myPopup");
+            popup.remove("show");
         }
     });
 });
