@@ -1,65 +1,72 @@
+// controller
+
 module.exports = function(app,fs,bodyParser){
 var accountData = require('../models/accounts.js');
 myAccountData = new accountData(fs);
 
-  
+
+
   
 
- //Render contact.ejs when opening /contacts URL
-app.get('/accounts', function(req, res) {
-  console.log("Controller router '/accounts' is executing ");
-  var data = myAccountData.getAccounts();
-  res.render('accounts', {accounts: data});
-});
+    //Render contact.ejs when opening /contacts URL
+    app.get('/accounts', function(req, res) {
+      console.log("Controller router '/accounts' is executing ");
+      var data = myAccountData.getAccounts();
+      res.render('accounts', {accounts: data});
+    });
 
 
     //Test Page
-    app.get('/test/:id', function(req, res) {
+    app.get('/test', function(req, res) {
+        console.log("Controller router '/accounts' is executing ");
         var data = myAccountData.getAccounts();
-        var result;
-        console.log("Id is: " + req.params.id);
-
-        for(var i in data.account){
-
-            //console.log("Name: " + data.contact[i].Name);
-
-            if(data.account[i].Id ===  req.params.id){
-                console.log("Found name: " + data.account[i].AccountName);
-                result = data.account[i];
-            }
-
-        }
-
-        console.log("Will open Account: " + result.AccountName);
-
-        res.render('account', {account: result});
+        res.render('test', {accounts: data});
     });
 
-  
-  
 
-  
-      //Open Account ID
-    app.get('/account/:id', function(req, res) {
+
+    // Get Account by id
+    app.get('/get/account/:id', function(req, res) {
+        //Calling getAccount() function from models which returns the Account object by is
+        var result = myAccountData.getAccount( req.params.id);
+        console.log("Will open Account: " + result.AccountName);
+        //Sending requested account back to client
+        res.send(result);
+    });
+
+
+    // Update Account
+    app.post('/post/account', function(req, res){
         var data = myAccountData.getAccounts();
-        var result;
-        console.log("Id is: " + req.params.id);
+        var updateData = req.body;
 
-        for(var i in data.account){
-
-            //console.log("Name: " + data.contact[i].Name);
-
-            if(data.account[i].Id ===  req.params.id){
-                console.log("Found name: " + data.account[i].AccountName);
-                result = data.account[i];
+        //Finding the
+        var indexNum;
+        for(var j in data.account){
+            if(updateData.Id === data.account[j].Id){
+                    console.log("Updating account: " + data.account[j].Id);
+                    indexNum = j;
             }
-
         }
 
+
+
+        //add new data to JSON and write it to the file
+        data.account.push(postData);
+        myAccountData.setAccount(data);
+        console.log("Controller router '/post/account' is executing ");
+        res.send(data);
+    });
+
+
+
+
+    //Open Account ID
+    app.get('/account/:id', function(req, res) {
+        var result = myAccountData.getAccount( req.params.id);
         console.log("Will open Account: " + result.AccountName);
 
         res.render('account', {account: result});
-
     });
   
   
@@ -77,14 +84,14 @@ app.get('/accounts', function(req, res) {
  // Post router to add new record to contacts.json 
  app.post('/post/account', function(req, res){
     var data = myAccountData.getAccounts();
-    var postData = req.body;
+    var postData = req.body; // all the new data created from the form 
     // Add unique Id to record from index integer in JSON file
-    postData.Id = "acc" + (data.index + 1);
+    postData.Id = "acc" + (data.index + 1); // creates an unique ID and appends acc+1 + to a new account
     data.index = data.index+1;
     console.log("Adding new record to DB with ID: " + postData.Id);
     //add new data to JSON and write it to the file
-    data.account.push(postData);
-    myAccountData.setAccount(data);
+    data.account.push(postData);//adds the new object to the file
+    myAccountData.setAccount(data); // writes it back to the jason file
     console.log("Controller router '/post/account' is executing ");
     res.send(data);
   });
@@ -105,7 +112,7 @@ app.get('/accounts', function(req, res) {
                     }catch(err){
                         console.log("Error while deleting contact: \n" + err);
                     }
-                }
+            }
             }}
 
         myAccountData.setAccount(data);

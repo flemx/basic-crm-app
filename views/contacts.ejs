@@ -34,9 +34,9 @@
 
 
 
-	<form class="lightbox">
+	<form class="add-lightbox">
 		<div class="form-header"> <h2>New Contact</h2></div>
-		<div class="form-container">
+		<div class="form-container add-account-form">
 
 
 			<div class="form-row">
@@ -117,11 +117,12 @@
 
 
 	<div class="w3-container">
-		<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Contact &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
+		<button class="w3-button w3-dark-grey add-button" data-featherlight=".add-lightbox">Add <i class="glyphicon glyphicon-plus"></i></button>
 		<button class="w3-button w3-dark-grey delete-button" onclick="deleteContacts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
 
 		<div class="w3-animate-left table-responsive">
-			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="records-table-container">
 				<thead>
 				<th><input type="checkbox" class="selectAll"></th>
 				<th>Name</th>
@@ -129,6 +130,7 @@
 				<th>Account</th>
 				<th>Phone</th>
 				<th>Email</th>
+				
 				</thead>
                 <% for(i=0;i<contacts.contact.length;i++){  %>
 				<tr>
@@ -147,6 +149,11 @@
 	</div>
 
 
+	
+	
+	
+	
+	
 
     <% include partials/footer.ejs %>
 	<!-- Footer -->

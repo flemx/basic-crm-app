@@ -1,226 +1,330 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My Google Map</title>
-  <style>
-   
-    html, body, #map {
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    padding: 0px
-      
-}
-    #main {
-      width: 100%;
-      height: 40%;
-    }
-    	#name {color: red;} 
-  </style>
+	<title>Contacts</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="/css/featherlight.min.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/client.js"></script>
+	<style>
+		html,
+		body,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			font-family: "Raleway", sans-serif
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		#myInput {
+			background-image: url('/images/searchicon.png');
+			background-position: 10px 10px;
+			background-repeat: no-repeat;
+			width: 100% auto;
+			font-size: 11px;
+			padding: 12px 16px 12px 60px;
+			border: 1px solid #ddd;
+			margin-bottom: 12px;
+		}
+
+		#contact-table-container {
+			border-collapse: collapse;
+			width: 100%;
+			border: 1px solid #ddd;
+			font-size: 18px;
+		}
+
+		#myTable th,
+		#myTable td {
+			text-align: left;
+			padding: 12px;
+		}
+
+		#myTable tr {
+			border-bottom: 1px solid #ddd;
+		}
+
+		#myTable tr.header,
+		#myTable tr:hover {
+			background-color: #f1f1f1;
+		}
+	</style>
 </head>
-  <div id="main">
-   
-<body>
-  	<% include partials/head.ejs %>
-  
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js"></script>
-<div id="map" style="border: 2px solid #3872ac;"></div>
-  <script>
-  var map;
-var icon = "http://path/to/icon.png";
-var json = "http://path/to/universities.json";
-var infowindow = new google.maps.InfoWindow();
-function initialize() {
 
-    var mapProp = {
-        center: new google.maps.LatLng(52.4550, -3.3833), //LLANDRINDOD WELLS
-        zoom: 8,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    map = new google.maps.Map(document.getElementById("map"), mapProp);
-
-    //  $.getJSON(json, function(json1) {
-   var json1 = {
-       "universities": [
-            {
-                "title": "Aberystwyth University",
-                "website": "www.aber.ac.uk",
-                "phone": "+44 (0)1970 623 111",
-                "lat": 52.415524,
-                "lng": -4.063066},
-            {
-                "title": "Bangor University",
-                "website": "www.bangor.ac.uk",
-                "phone": "+44 (0)1248 351 151",
-                "lat": 53.229520,
-                "lng": -4.129987},
-            {
-                "title": "Cardiff Metropolitan University",
-                "website": "www.cardiffmet.ac.uk",
-                "phone": "+44 (0)2920 416 138",
-                "lat": 51.482708,
-                "lng": -3.165881}
-        ]
-    }; 
-          // Using  "<-%   %>" to get the data variable from app.js when redering the file and stringify it so it will be added to a new variable as an array  
-   				var json2 = <%- JSON.stringify(location) %>;
-
-    
-    $.each(json1.universities, function (key, data) {
-
-        var latLng = new google.maps.LatLng(data.lat, data.lng);
-
-        var marker = new google.maps.Marker({
-            position: latLng,
-            map: map,
-            // icon: icon,
-            title: data.title
-        });
-
-        var details = data.website + ", " + data.phone + ".";
-
-        bindInfoWindow(marker, map, infowindow, details);
-
-        //  });
-
-    });
-
-}
-
-function bindInfoWindow(marker, map, infowindow, strDescription) {
-    google.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent(strDescription);
-        infowindow.open(map, marker);
-    });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-  </script>
-
- 
-  
-  
-  </script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3m_4_-3nSH9_JrDQN621VvNfpNF7NQpg&callback=initMap">
-    </script>
-  <script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-   </div>
-  <div id='user_data'>
-  
-    <!-- !PAGE CONTENT! -->
-		<div class="w3-main" style="margin-left:300px;margin-top:43px;">
-
-			<div class="lightbox" id="fl1">
+<body class="w3-light-grey">
 
 
-				<div class="field">
-					<label for="firstname">Name</label>
-					<input id="name" type="text" placeholder="Name" name="Name"
-								 placeholder="John Doe">
-				</div>
-				<div class="field">
-					<label for="Industry">Industry</label>
-					<input type="text" placeholder="Industry" name="Industry" 
-								 placeholder="IT">
-				</div>
-				<div class="field">
-						<label for="Phone">Phone</label>
-					<input type="text" placeholder="Phone" name="Phone" 
-								 placeholder="tel">
-				</div>
-				<div class="field">
-						<label for="Employees">Employees</label>
-					<input type="text" placeholder="Employees" name="Employees" 
-								 placeholder="Emp">
-				</div>
-				<div class="field">
-					<label for="Website">Website</label>
-					<input type="text" placeholder="Website" name="Website" placeholder="www.nci.com">
-				</div>
-				<div class="field">
-					<button type="button" onclick="postAccounts()">Submit</button>
-				</div>
+	<!-- Top container -->
+	<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+		<button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> &nbsp;Menu</button>
+		<span class="w3-bar-item w3-right">CRM <span class="crm-logo">database system applicaton</span</span>
+	</div>
 
+	<!-- Sidebar/menu -->
+	<nav class="w3-sidebar w3-collapse w3-white" style="z-index:3;width:300px;" id="mySidebar"><br>
+		<div class="w3-container w3-row">
+			<div class="w3-col s4">
+				<img src="/images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
 			</div>
-<!--my code
-<div class="container">
-  <h2>Registration</h2>
-  <form action="" name="registration">
-
-    <label for="firstname">First Name</label>
-    <input type="text" name="firstname" id="firstname" placeholder="John">
-
-    <label for="lastname">Last Name</label>
-    <input type="text" name="lastname" id="lastname" placeholder="Doe">
-
-    <label for="email">Email</label>
-    <input id="email" type="email" name="email" id="email" placeholder="john@doe.com">
-
-    <label for="password">Password</label>
-    <input id="pass" type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;">
-
-    <button type="submit">Register</button>
-  </form>
-
-  <div class="article-reference">
-    This example is part of the article
-    <a href="https://www.sitepoint.com/basic-jquery-form-validation-tutorial/" target="_blank">Basic jQuery Form Validation Example</a> on <a href="http://sitepoint.com/" target="_blank">SitePoint</a> by
-    <a href="https://github.com/julmot" target="_blank">Julian Motz</a>.
-  </div>
-</div>
-			
-	<!--my code-->		
-
-			<div class="w3-container">
-				<header class="w3-container" style="padding-top:22px">
-					<h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
-				</header>
-
-				<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Account &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
-				<div class="w3-animate-left table-responsive">
-					<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
-						<thead>
-							<th>Name</th>
-							<th>Industry</th>
-							<th>Phone</th>
-							<th>Employees</th>
-							<th>Website</th>
-						</thead>
-		
-					</table>
-				</div>
-				<br>
+			<div class="w3-col s8 w3-bar">
+				<span>Welcome, <strong>Mike</strong></span><br>
+				<a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
+				<a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+				<a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
 			</div>
+		</div>
+		<hr>
+		<div class="w3-container">
+			<h5>Dashboard</h5>
+		</div>
+		<div class="w3-bar-block">
+			<a href="/" class="w3-bar-item w3-button w3-padding" id="home-button"><i class="fa fa-bullseye fa-fw"></i>&nbsp; Dashboard</a>
+			<a href="/contacts" class="w3-bar-item w3-button w3-padding" id="contacts-button"><i class="fa fa-users fa-fw"></i>&nbsp; Contacts</a>
+			<a href="/accounts" class="w3-bar-item w3-button w3-padding" id="accounts-button"><i class="fa fa-bank fa-fw"></i>&nbsp; Accounts</a>
+
+		</div>
+	</nav>
 
 
-			<% include partials/footer.ejs %>
-				<!-- Footer -->
+	<!-- Overlay effect when opening sidebar on small screens -->
+	<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
+
+	<!-- Top container -->
+	<!-- Sidebar/menu -->
+	<!-- Overlay effect when opening sidebar on small screens -->
+
+
+	<!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+		<header class="w3-container" style="padding-top:22px">
+			<h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
+		</header>
+
+
+
+
+
+
+
+		<form class="lightbox add-lightbox">
+			<div class="form-header">
+				<h2>New Contact</h2>
+			</div>
+			<div class="form-container">
+
+
+				<div class="form-row">
+					<div class="form-group col-sm-6">
+						<label for="inputFirstName">First Name</label>
+						<input type="text" class="form-control" id="inputFirstName" name="FirstName" placeholder="First Name">
+					</div>
+					<div class="form-group col-sm-6">
+						<label for="inputLastName"> <span class="required-input">*</span>Last Name</label>
+						<input type="text" class="form-control" id="inputLastName" name="LastName" placeholder="Last Name">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-sm-6">
+						<label for="inputTitle">Title</label>
+						<input type="text" class="form-control" id="inputTitle" name="Title" placeholder="Title">
+					</div>
+					<div class="form-group col-sm-6">
+						<label for="inputAccount">Account</label>
+						<input type="text" class="form-control" id="inputAccount" name="Account" placeholder="Account">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-sm-6">
+						<label for="inputPhone">Phone number</label>
+						<input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
+					</div>
+					<div class="form-group col-sm-6">
+						<label for="inputEmail">Email</label>
+						<input type="text" class="form-control" id="inputEmail" name="Email" placeholder="Email">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-sm-6">
+						<label for="inputAddress">Address</label>
+						<input type="text" class="form-control" id="inputAddress" name="Address" placeholder="Address">
+					</div>
+					<div class="form-group col-sm-6">
+						<label for="inputCity">City</label>
+						<input type="text" class="form-control" id="inputCity" name="City" placeholder="City">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-sm-6">
+						<label for="inputState">State/County</label>
+						<input type="text" class="form-control" id="inputState" name="State" placeholder="State/County">
+					</div>
+					<div class="form-group col-sm-2">
+						<label for="inputZip">Zip Code</label>
+						<input type="text" class="form-control" id="inputZip" name="Zipcode" placeholder="Zip">
+
+					</div>
+					<div class="form-group col-sm-4">
+						<label for="inputCountry">Country</label>
+						<input type="text" class="form-control" id="inputCountry" name="Country" placeholder="Country">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-sm-12">
+						<label for="inputDescription">Description</label>
+						<textarea class="form-control" rows="3" id="inputDescription" name="Description"></textarea>
+					</div>
+
+				</div>
+				<div class="form-row">
+					<div class="form-group col-sm-2">
+						<button type="button" class="btn btn-primary" onclick="postContact()">Submit</button>
+					</div>
+
+				</div>
+			</div>
+		</form>
+
+
+		<div class="w3-container">
+
+			<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Contact &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
+			<button class="w3-button w3-dark-grey delete-button" onclick="deleteContacts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+
+			<div class="w3-animate-left table-responsive">
+				<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
+					<thead>
+						<th><input type="checkbox" class="selectAll"></th>
+						<th style="width: 20%;"> Name</th>
+						<th style="width: 20%;">Title</th>
+						<th style="width: 20%;">Account</th>
+						<th style="width: 20%;">Phone</th>
+						<th style="width: 20%;">Email</th>
+
+					</thead>
+
+					<tr>
+						<td><input type="checkbox" value="con12" class="inputID"></td>
+						<td><a href="/contact/con12">Damien Fleminks</a></td>
+						<td>Engineer</td>
+						<td>Salesforce</td>
+						<td>871932517</td>
+						<td>damien@fleminks.com</td>
+					</tr>
+
+					<tr>
+						<td><input type="checkbox" value="con15" class="inputID"></td>
+						<td><a href="/contact/con15">Damien Fleminks</a></td>
+						<td></td>
+						<td></td>
+						<td>871932517</td>
+						<td>damien@fleminks.com</td>
+					</tr>
+				</table>
+			</div>
 
 		</div>
 
-		<script>
-			$(document).ready(function() {
-				//Call Ajax function to load contacts table
 
-        
-        //load accouts form client js file
-        loadAccounts();
-				//Highlights contacts button when active
-				$('#accounts-button').addClass('w3-blue');
-			});
+		<script>
+			function myFunction() {
+				var input, filter, table, tr, td, i;
+				input = document.getElementById("myInput");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("contact-table-container");
+				tr = table.getElementsByTagName("tr");
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[1]; //skips the first field and gets the second with the name
+					if (td) {
+						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
 		</script>
-		<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-  
+
+		<!--
+<h2>My Customers</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:60%;">Name</th>
+    <th style="width:40%;">Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Berglunds snabbkop</td>
+    <td>Sweden</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Koniglich Essen</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Italy</td>
+  </tr>
+  <tr>
+    <td>North/South</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Paris specialites</td>
+    <td>France</td>
+  </tr>
+</table>
+-->
+
+
+		<footer class="w3-container w3-padding-16 w3-light-grey">
+			<!-- <h4>Designed by Damian &amp; Boris </h4>-->
+		</footer>
+
+		<!-- Footer -->
+
+
+	</div>
+
+	<script>
+		$(document).ready(function() {
+
+			//Highlights contacts button when active
+			$('#contacts-button').addClass('w3-blue');
+		});
+	</script>
+	<script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
-    
-    </div>
-</body>
+
 </html>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ncirl-web-app.iml" filepath="$PROJECT_DIR$/.idea/ncirl-web-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ncirl-web-app.iml" filepath="$PROJECT_DIR$/ncirl-web-app.iml" />
     </modules>
   </component>
 </project>

@@ -24,37 +24,9 @@
 
 
 
-  
-	<!--
-	<div class="lightbox" id="fl1">
-
-  		
-    <div class="field">
-      <input type="text" placeholder="Name" name="Name">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Industry" name="Industry">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Phone" name="Phone">
-    </div>
-    <div class="field">
-      <input type="text" placeholder="Employees" name="Employees">
-    </div>
-		 <div class="field">
-      <input type="text" placeholder="Website" name="Website">
-    </div>
-    <div class="field">
-      <button type="button" onclick="postAccounts()">Submit</button>
-    </div>
-  
-	</div>
-  -->
-
-
-	<form class="lightbox">
+	<form class="add-lightbox">
 		<div class="form-header"> <h2>New Account</h2></div>
-		<div class="form-container">
+		<div class="form-container add-account-form">
 
 			
 			<div class="form-row">
@@ -126,7 +98,7 @@
 
 			</div>
 		</div>
-	</form><q></q>
+	</form>
 	
 	
 	
@@ -137,11 +109,12 @@
     <h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
   </header>
 		
-    <button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
+    <button class="w3-button w3-dark-grey add-button" data-featherlight=".add-lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
 	<button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+      <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
 
 	  <div class="w3-animate-left table-responsive" >
-			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="records-table-container">
 				<thead>
 					<th><input type="checkbox" class="selectAll"></th>
 					<th>Account Name</th>
