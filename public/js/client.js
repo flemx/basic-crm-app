@@ -104,12 +104,12 @@ $(document).ready(function() {
 // Account handlers
 
 
-// Function to add rows to #account-table-container from JSON accounts object
+// Function to add rows to #account-table-container from JSON accounts object - without refresing the whole page
 
 function accountTable(accounts){	
 	$('tbody').remove();
-	$.each(accounts, function(index, obj) {
-		$("#contact-table-container").append(
+	$.each(accounts, function(index, obj) { 
+		$("#contact-table-container").append( //appends objects
 			"<tr>" +
             		"<td><input type='checkbox' value='" + obj.Id + "' class='inputID'</td>"+
 					"<td><a href='/account/" + obj.Id + "'>" + obj.AccountName + "</a></td>"+
@@ -147,7 +147,7 @@ var loadAccounts = function() {
 var postAccount = function() {
     //$(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
     var $accountForm = {
-        "AccountName": $(".featherlight-content .add-account-form input[name='AccountName']").val(),
+        "AccountName": $(".featherlight-content .add-account-form input[name='AccountName']").val(),// creates an array with feat featherlight-content .add-account-form input[name='AccountName'
         "Industry": $(".featherlight-content .add-account-form input[name='Industry']").val(),
         "Employees": $(".featherlight-content .add-account-form input[name='Employees']").val(),
         "Revenue": $(".featherlight-content .add-account-form input[name='Revenue']").val(),
@@ -160,14 +160,14 @@ var postAccount = function() {
         "Country": $(".featherlight-content .add-account-form input[name='Country']").val(),
         "Description": $(".featherlight-content .add-account-form textarea[name='Description']").val()
     };
-    console.log("Adding Account information with Name : " + $accountForm.AccountName);
+    console.log("Adding Account information with Name : " + $accountForm.AccountName);// for debuging purposes
 	
-        $.ajax({
+        $.ajax({ // calling the ajax function and posting the object to server to the account json file
 		 type: "POST",
 		 url: "/post/account",
-		 data: $accountForm,
-		 success: function(accounts){
-		 	accountTable(accounts.account);
+		 data: $accountForm, // is the object it self 
+		 success: function(accounts){ // server sends successful respond
+		 	accountTable(accounts.account); // calls the accout table funciton which deletes the data and recreates the table with the new data
 		 	$('.featherlight-close').click();    // close pop-up form
 		 	$("input[type=text]").val("");  //remove input values after successfull response
 			$(':button[type="button"]').prop('disabled', false);  //Enable add button after succesfull return from server
