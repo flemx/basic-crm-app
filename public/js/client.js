@@ -4,67 +4,47 @@
 
 
 
+/* ------------------------------------------------------------------------ */
+// Event handlers
 
 
 
-// Function to populate
-var updateAccountForm = function(){
-    var id =  $('.inputID:checked').val();
-    console.log("Opening account ID: " + id);
 
-        $.ajax({
-        url: "/get/account/" + id,
-        cache: false,
-        success: function(account) {
-           console.log("Returned account: " + account.AccountName);
+$(document).ready(function(){
 
-           $(".update-account-form input[name='Id']").val(account.Id);
-           $(".update-account-form input[name='AccountName']").val(account.AccountName);
-           $(".update-account-form input[name='Industry']").val(account.Industry);
-           $(".update-account-form input[name='Employees']").val(account.Employees);
-           $(".update-account-form input[name='Revenue']").val(account.Revenue);
-           $(".update-account-form input[name='Phone']").val(account.Website);
-           $(".update-account-form  input[name='Website']").val(account.Website);
-           $(".update-account-form  input[name='Address']").val(account.Address);
-           $(".update-account-form  input[name='City']").val(account.City);
-           $(".update-account-form  input[name='State']").val(account.State);
-           $(".update-account-form  input[name='Zipcode']").val(account.Zipcode);
-           $(".update-account-form  input[name='Country']").val(account.Country);
-           $(".update-account-form  textarea[name='Description']").val(account.Description);
+
+
+    /*
+        Function to validate that only 1 record is selected when update button is clicked
+     */
+
+    $("#table-update-button").click(function(){
+        console.log("Checkboxes checked: " + $('.inputID:checked').length);
+        if ($('.inputID:checked').length > 1) {
+
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+
+        }
+        else if ($('.inputID:checked').length === 0) {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+        }
+        else if ($('.inputID:checked').length === 1) {
+            $.featherlight($('.update-lightbox'), {});
+            updateAccountForm()
         }
     });
-};
-
-
-var updateAccount = function(){
-
-    var $accountForm = {
-        "AccountName": $(".featherlight-content .update-account-form input[name='AccountName']").val(),
-        "Industry": $(".featherlight-content .update-account-form input[name='Industry']").val(),
-        "Employees": $(".featherlight-content .update-account-form input[name='Employees']").val(),
-        "Revenue": $(".featherlight-content .update-account-form input[name='Revenue']").val(),
-        "Phone": $(".featherlight-content .update-account-form input[name='Phone']").val(),
-        "Website": $(".featherlight-content .update-account-form input[name='Website']").val(),
-        "Address": $(".featherlight-content .update-account-form input[name='Address']").val(),
-        "City": $(".featherlight-content .update-account-form input[name='City']").val(),
-        "State": $(".featherlight-content .update-account-form input[name='State']").val(),
-        "Zipcode": $(".featherlight-content .update-account-form input[name='Zipcode']").val(),
-        "Country": $(".featherlight-content .update-account-form input[name='Country']").val(),
-        "Description": $(".featherlight-content .update-account-form textarea[name='Description']").val()
-    };
-
-    console.log("Updating account: " + $accountForm.AccountName);
-
-
-}
+});
 
 
 
 
 /* ------------------------------------------------------------------------ */
+// Multipage functions
+
+
 // Function to search in the table
-
-
 function searchFunction() {
     var input, filter, table, tr, td, i;
     input = document.getElementById("myInput");
@@ -82,6 +62,15 @@ function searchFunction() {
         }
     }
 }
+
+
+
+
+
+
+
+
+
 
 
 /* ------------------------------------------------------------------------ */
@@ -104,12 +93,13 @@ $(document).ready(function() {
 // Account handlers
 
 
-// Function to add rows to #account-table-container from JSON accounts object - without refresing the whole page
+// Function to add rows to #records-table-container from JSON accounts object - without refreshing the whole page
 
-function accountTable(accounts){	
+function accountTable(accounts){
 	$('tbody').remove();
 	$.each(accounts, function(index, obj) {
-		$("#records-table-container").append( //appends objects
+        console.log("Appending account: " + obj.AccountName);
+		$("#records-table-container").append(
 			"<tr>" +
             		"<td><input type='checkbox' value='" + obj.Id + "' class='inputID'</td>"+
 					"<td><a href='/account/" + obj.Id + "'>" + obj.AccountName + "</a></td>"+
@@ -117,7 +107,7 @@ function accountTable(accounts){
 					"<td>" + obj.Phone + "</td>"+
 					"<td>" + obj.Employees + "</td>"+
 					"<td>" + obj.Website + "</td>"+
-			"</tr>"	
+			"</tr>"
 		);
 	});
 }
@@ -199,6 +189,76 @@ var deleteAccounts = function() {
 
 
 
+
+
+// Function to populate update form in Accounts page
+var updateAccountForm = function(){
+    var id =  $('.inputID:checked').val();
+    console.log("Opening account ID: " + id);
+
+    $.ajax({
+        url: "/get/account/" + id,
+        cache: false,
+        success: function(account) {
+            console.log("Returned account: " + account.AccountName);
+
+            $(".update-account-form input[name='Id']").val(account.Id);
+            $(".update-account-form input[name='AccountName']").val(account.AccountName);
+            $(".update-account-form input[name='Industry']").val(account.Industry);
+            $(".update-account-form input[name='Employees']").val(account.Employees);
+            $(".update-account-form input[name='Revenue']").val(account.Revenue);
+            $(".update-account-form input[name='Phone']").val(account.Website);
+            $(".update-account-form  input[name='Website']").val(account.Website);
+            $(".update-account-form  input[name='Address']").val(account.Address);
+            $(".update-account-form  input[name='City']").val(account.City);
+            $(".update-account-form  input[name='State']").val(account.State);
+            $(".update-account-form  input[name='Zipcode']").val(account.Zipcode);
+            $(".update-account-form  input[name='Country']").val(account.Country);
+            $(".update-account-form  textarea[name='Description']").val(account.Description);
+        }
+    });
+};
+
+
+
+//This function will update the account with the information in the account update form
+var updateAccount = function(){
+
+    //creating account object from the information in the update form
+    var $accountForm = {
+        "Id": $(".featherlight-content .update-account-form input[name='Id']").val(),
+        "AccountName": $(".featherlight-content .update-account-form input[name='AccountName']").val(),
+        "Industry": $(".featherlight-content .update-account-form input[name='Industry']").val(),
+        "Employees": $(".featherlight-content .update-account-form input[name='Employees']").val(),
+        "Revenue": $(".featherlight-content .update-account-form input[name='Revenue']").val(),
+        "Phone": $(".featherlight-content .update-account-form input[name='Phone']").val(),
+        "Website": $(".featherlight-content .update-account-form input[name='Website']").val(),
+        "Address": $(".featherlight-content .update-account-form input[name='Address']").val(),
+        "City": $(".featherlight-content .update-account-form input[name='City']").val(),
+        "State": $(".featherlight-content .update-account-form input[name='State']").val(),
+        "Zipcode": $(".featherlight-content .update-account-form input[name='Zipcode']").val(),
+        "Country": $(".featherlight-content .update-account-form input[name='Country']").val(),
+        "Description": $(".featherlight-content .update-account-form textarea[name='Description']").val()
+    };
+
+
+    console.log("Updating account: " + $accountForm.AccountName);
+
+    //Send account object to server with Ajax to update the account
+    $.ajax({
+        type: "POST",
+        url: "/account/update",
+        data: $accountForm,
+        success: function(accounts){
+
+            accountTable(accounts.account);
+            $('.featherlight-close').click();
+            $("input[type=text]").val("");
+            $(':button[type="button"]').prop('disabled', false);
+        }
+    });
+
+};
 
 
 

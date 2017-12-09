@@ -27,34 +27,33 @@ myAccountData = new accountData(fs);
 
     // Get Account by id
     app.get('/get/account/:id', function(req, res) {
-        //Calling getAccount() function from models which returns the Account object by is
+        //Calling getAccount() function from models which returns the Account object by id
         var result = myAccountData.getAccount( req.params.id);
-        console.log("Will open Account: " + result.AccountName);
+        console.log("Will send Account to client: " + result.AccountName);
         //Sending requested account back to client
         res.send(result);
     });
 
 
     // Update Account
-    app.post('/post/account', function(req, res){
+    app.post('/account/update', function(req, res){
+        console.log("Controller router '/account/update' is executing ");
         var data = myAccountData.getAccounts();
         var updateData = req.body;
 
-        //Finding the
-        var indexNum;
+        //Finds the record to update by the id and updates with new account object
+        console.log("Looking for account id: " + updateData.Id);
         for(var j in data.account){
             if(updateData.Id === data.account[j].Id){
                     console.log("Updating account: " + data.account[j].Id);
-                    indexNum = j;
+                    data.account[j] = updateData;
+                    console.log("Successfully updated account: " + data.account[j].AccountName);
             }
         }
 
 
+        //myAccountData.setAccount(data);
 
-        //add new data to JSON and write it to the file
-        data.account.push(postData);
-        myAccountData.setAccount(data);
-        console.log("Controller router '/post/account' is executing ");
         res.send(data);
     });
 
