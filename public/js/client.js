@@ -81,7 +81,7 @@ var postAccount = function() {
         "State": $(".featherlight-content input[name='State']").val(),
         "Zipcode": $(".featherlight-content input[name='Zipcode']").val(),
         "Country": $(".featherlight-content input[name='Country']").val(),
-        "Description": $(".featherlight-content input[name='Description']").val()
+        "Description": $(".featherlight-content textarea[name='Description']").val()
     };
     console.log("Adding Account information with Name : " + $accountForm.AccountName);
 	
@@ -184,9 +184,9 @@ var postContact = function() {
         "State": $(".featherlight-content input[name='State']").val(),
         "Zipcode": $(".featherlight-content input[name='Zipcode']").val(),
         "Country": $(".featherlight-content input[name='Country']").val(),
-        "Description": $(".featherlight-content input[name='Description']").val()
+        "Description": $(".featherlight-content textarea[name='Description']").val()
     };
-    console.log("Adding Contact information with Name : " + $contactForm.FirstName);
+    console.log("Adding Contact information with Name : " + $contactForm.FirstName + "\n Desciption: " + $contactForm.Description);
 
 
     $.ajax({

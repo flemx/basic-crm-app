@@ -36,7 +36,6 @@
   margin-bottom: 3%;
 
 
-
 }
 .form-header h2{
   font-weight: 300;
@@ -66,6 +65,74 @@
   margin-bottom: -10px;
 }
 
+
+
+
+/*   Single record page   */
+
+.record-container{
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  width: 90%;
+  background-color: white;
+  border-radius: 6px;
+  /* Shadow */
+  -webkit-box-shadow: -4px -4px 18px -3px rgba(171,171,171,0.74);
+  -moz-box-shadow: -4px -4px 18px -3px rgba(171,171,171,0.74);
+  box-shadow: -4px -4px 18px -3px rgba(171,171,171,0.74);
+}
+
+
+.record-container .control-label{
+  color: rgb(112, 110, 107);
+  font-size: .80rem;
+  line-height: 1.5;
+  margin-bottom: .125rem;
+
+}
+
+.record-container .controls{
+  font-weight: 400;
+  color: rgb(43, 40, 38);
+  font-size: 1rem;
+}
+
+.record-container .col-sm-6 {
+  padding:1%;
+  padding-left: 2%;
+  margin-left: 3%;
+  width:47%;
+}
+
+
+.horizontal-line{
+  border: 1px solid rgb(221, 219, 218);
+  margin-top: 4%;
+  margin-bottom: 4%;
+
+}
+.horizontal-inline{
+  1px solid rgb(221, 219, 218);
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
+
+.glyphicon-user{
+  margin-right: 4%;
+}
+
+
+@media screen and (min-width: 1170px){
+  .record-container{
+    width:800px;
+  }
+}
+
+
+
+/*  Footer styling  */
 footer {
   text-align: center;
   

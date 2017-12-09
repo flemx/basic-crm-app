@@ -2,47 +2,10 @@
 <html>
 
 <head>
-	<title>Contacts</title>
+	<title>Account</title>
 
     <% include partials/head.ejs %>
 	<!-- Header with meta tags and references   -->
-
-
-	<style>
-
-		.contact-container{
-			margin-left: 4%;
-			width: 91.66666%;
-
-		}
-
-		@media (max-width: 500px){
-			.contact-container {
-				margin-left: 0.5%;
-				margin-right: 0.5%;
-				width: 99%;
-			}
-		}
-
-		.contact-container .contact-label{
-			display: inline-block;
-			color: rgb(112, 110, 107);
-			font-size: .80rem;
-			line-height: 1.5;
-			margin-right: .75rem;
-			margin-bottom: .125rem;
-
-		}
-
-		.contact-container .contact-data{
-			font-weight: 600;
-			color: rgb(43, 40, 38);
-			font-size: 1.2rem;
-		}
-
-
-	</style>
-
 </head>
 
 <body class="w3-light-grey">
@@ -59,130 +22,129 @@
 <div class="w3-main" style="margin-left:300px;margin-top:43px;" >
 
 	<header class="w3-container" style="padding-top:22px">
-		<h5><b><i class="fa fa-dashboard"></i> Contact </b></h5>
+		<h5><b><i class="fa fa-dashboard"></i> Account </b></h5>
 	</header>
 
 
 
 
 
-	<div class="w3-container w3-col m11 contact-container">
-		<div class="w3-card w3-round w3-white">
-			<div class="w3-container">
-				<h4 class="w3-center"><%= contact.FirstName + " " + contact.LastName %></h4>
-				<hr>
+	<div class="container record-container">
 
-				<div class="form-row">
-					<div class="form-group col-xs-6">
-						<div>
-							<div class="contact-label">First Name</div>
-							<div class="contact-data"><p><%= contact.FirstName %></p></div>
-						</div>
-					</div>
-					<div class="form-group col-xs-6">
-						<div class="contact-label">Last st Name</div>
-						<div class="contact-data"><p><%= contact.LastName %></p></div>
-					</div>
+
+		<h4 class="w3-center"><span class="glyphicon glyphicon-user"></span><%= contact.FirstName + " " + contact.LastName %></h4>
+
+		<div class="col-xs-12"><hr class="horizontal-line" /></div>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">First Name:</label>
+					<div class="col-xs-8 controls"><%= contact.FirstName %></div>
+
 				</div>
-
-				<div class="form-row">
-					<div class="form-group col-sm-6">
-						<div>
-							<div class="contact-label">Job Title</div>
-							<div class="contact-data"><p><%= contact.Title %></p></div>
-						</div>
-					</div>
-					<div class="form-group col-sm-6">
-						<div class="contact-label">Account working for</div>
-						<div class="contact-data"><p><%= contact.Account %></p></div>
-					</div>
-				</div>
-
 			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Last Name:</label>
+					<div class="col-xs-8 controls"><%= contact.LastName %></div>
+
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Title</label>
+					<div class="col-xs-8 controls"><%= contact.Title %></div>
+
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Account</label>
+					<div class="col-xs-8 controls"><%= contact.Account %></div>
+
+				</div>
+			</div>
+
+
+
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Phone</label>
+					<div class="col-xs-8 controls"><%= contact.Phone %></div>
+
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Email</label>
+					<div class="col-xs-8 controls"><%= contact.Email %></div>
+
+				</div>
+			</div>
+
+			<div class="col-xs-12"><hr class="horizontal-inline" /></div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Address:</label>
+					<div class="col-xs-8 controls">
+                        <%= contact.Address %> <%if(contact.Address !== ""){%>, <br /><%}%>
+                        <%= contact.Zipcode %> <%= contact.City %><%if(contact.City !== ""){%>, <br /><%}%>
+                        <%= contact.State %> <%if(contact.State !== ""){%>, <br /><%}%>
+                        <%= contact.Country %>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="row mgbt-xs-0">
+					<label class="col-xs-4 control-label">Description</label>
+					<div class="col-xs-8 controls"><%= contact.Description %></div>
+
+				</div>
+			</div>
+
 		</div>
+
 	</div>
 
 
-	<!--
-	<div class="w3-container w3-col m8">
-		<div class="w3-card w3-round w3-white">
-	<div class="profile-about">
-		<h4>Basic Information</h4>
-
-		<div class="table-responsive about-table">
-			<table class="table">
-				<tbody>
-				<tr>
-					<th>Web</th>
-					<td><a href="#">www.domain.com</a> <span class="icon-pencil pull-right"></span></td>
-				</tr>
-				<tr>
-					<th>Email</th>
-					<td><a href="#">jdoe@domain.com</a> <span class="icon-pencil pull-right"></span></td>
-				</tr>
-				<tr>
-					<th>Phone</th>
-					<td>+639-151-2345 <span class="icon-pencil pull-right"></span></td>
-				</tr>
-				<tr>
-					<th>Position</th>
-					<td>Web Designer <span class="icon-pencil pull-right"></span></td>
-				</tr>
-				<tr>
-					<th>Status</th>
-					<td>Employee <span class="icon-pencil pull-right"></span></td>
-				</tr>
-				<tr>
-					<th>Social</th>
-					<td>
-						<ul class="list-inline social">
-							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-google"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						</ul>
-					</td>
-				</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-		</div>
-	</div>
--->
 
 
-	<!--
 	<div class="w3-container">
 
 
 		<div class="w3-animate-left table-responsive">
-			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="account-table-container">
 				<thead>
 				<th><input type="checkbox" class="selectAll"></th>
-				<th>Name</th>
-				<th>Title</th>
-				<th>Account</th>
+				<th>Account Name</th>
+				<th>Industry</th>
 				<th>Phone</th>
-				<th>Email</th>
+				<th>Employees</th>
+				<th>Website</th>
 				</thead>
 
 				<tr>
-					<td><input type="checkbox" value="<%= contact.Id%>" class="inputID"></td>
-					<td><%= contact.FirstName + " " + contact.LastName %></td>
-					<td><%= contact.Title %></td>
-					<td><%= contact.Account %></td>
-					<td><%= contact.Phone %></td>
-					<td><%= contact.Email %></td>
+					<td><input type="checkbox" value="<%= account.Id%>" class="inputID"></td>
+					<td><%= account.AccountName %></td>
+					<td><%= account.Industry %></td>
+					<td><%= account.Phone %></td>
+					<td><%= account.Employees %></td>
+					<td><%= account.Website %></td>
+				</tr>
 				</tr>
 
 			</table>
 		</div>
 
 	</div>
--->
+
+
+
+
+
+
+
 
 
     <% include partials/footer.ejs %>
@@ -196,7 +158,7 @@
     $(document).ready(function() {
 
         //Highlights contacts button when active
-        $('#contacts-button').addClass('w3-blue');
+        //  $('#contacts-button').addClass('w3-blue');
     });
 </script>
 <script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>

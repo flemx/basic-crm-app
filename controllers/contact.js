@@ -16,21 +16,6 @@
     });
 
 
-    //Test Page
-    app.get('/test/:id', function(req, res) {
-        var data = myContacts.getContacts();
-        var result;
-        console.log("Id is: " + req.params.id);
-
-        for(var i in data.contact){
-            if(data.contact[i].Id ==  req.params.id){
-                console.log("Found name: " + data.contact[i].Name);
-                result = data.contact[i];
-            }
-        }
-        console.log("Opening Contact: " + result.Name);
-        res.render('test', {contact: result});
-    });
 
 
 
@@ -51,12 +36,12 @@
         console.log("Id is: " + req.params.id);
 
         for(var i in data.contact){
-            if(data.contact[i].Id ==  req.params.id){
-                console.log("Found name: " + data.contact[i].Name);
+            if(data.contact[i].Id ===  req.params.id){
+                console.log("Found name: " + data.contact[i].FirstName);
                 result = data.contact[i];
             }
         }
-        console.log("Opening Contact: " + result.Name);
+        console.log("Opening Contact: " + result.FirstName);
         res.render('contact', {contact: result});
     });
 
@@ -77,7 +62,7 @@
         console.log("Paramater = " + req.params.id);
         //var contact = lodash.filter(data.contact, { 'id': req.params.id } );
         var contact = data.contact.filter(function( obj ) {
-          return obj.id == req.params.id;
+          return obj.id === req.params.id;
         })
 
         console.log("Name  = " + contact[0].name);

@@ -12,6 +12,29 @@ app.get('/accounts', function(req, res) {
   res.render('accounts', {accounts: data});
 });
 
+
+    //Test Page
+    app.get('/test/:id', function(req, res) {
+        var data = myAccountData.getAccounts();
+        var result;
+        console.log("Id is: " + req.params.id);
+
+        for(var i in data.account){
+
+            //console.log("Name: " + data.contact[i].Name);
+
+            if(data.account[i].Id ===  req.params.id){
+                console.log("Found name: " + data.account[i].AccountName);
+                result = data.account[i];
+            }
+
+        }
+
+        console.log("Will open Account: " + result.AccountName);
+
+        res.render('account', {account: result});
+    });
+
   
   
 
@@ -26,7 +49,7 @@ app.get('/accounts', function(req, res) {
 
             //console.log("Name: " + data.contact[i].Name);
 
-            if(data.account[i].Id ==  req.params.id){
+            if(data.account[i].Id ===  req.params.id){
                 console.log("Found name: " + data.account[i].AccountName);
                 result = data.account[i];
             }
