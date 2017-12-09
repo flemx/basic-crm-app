@@ -6,12 +6,12 @@ myAccountData = new accountData(fs);
 
   
 
- //Render contact.ejs when opening /contacts URL
-app.get('/accounts', function(req, res) {
-  console.log("Controller router '/accounts' is executing ");
-  var data = myAccountData.getAccounts();
-  res.render('accounts', {accounts: data});
-});
+    //Render contact.ejs when opening /contacts URL
+    app.get('/accounts', function(req, res) {
+      console.log("Controller router '/accounts' is executing ");
+      var data = myAccountData.getAccounts();
+      res.render('accounts', {accounts: data});
+    });
 
 
     //Test Page
@@ -22,13 +22,38 @@ app.get('/accounts', function(req, res) {
     });
 
 
-    // Get account by id
+
+    // Get Account by id
     app.get('/get/account/:id', function(req, res) {
         //Calling getAccount() function from models which returns the Account object by is
         var result = myAccountData.getAccount( req.params.id);
         console.log("Will open Account: " + result.AccountName);
         //Sending requested account back to client
         res.send(result);
+    });
+
+
+    // Update Account
+    app.post('/post/account', function(req, res){
+        var data = myAccountData.getAccounts();
+        var updateData = req.body;
+
+        //Finding the
+        var indexNum;
+        for(var j in data.account){
+            if(updateData.Id === data.account[j].Id){
+                    console.log("Updating account: " + data.account[j].Id);
+                    indexNum = j;
+            }
+        }
+
+
+
+        //add new data to JSON and write it to the file
+        data.account.push(postData);
+        myAccountData.setAccount(data);
+        console.log("Controller router '/post/account' is executing ");
+        res.send(data);
     });
 
 
@@ -40,7 +65,6 @@ app.get('/accounts', function(req, res) {
         console.log("Will open Account: " + result.AccountName);
 
         res.render('account', {account: result});
-
     });
   
   
@@ -86,7 +110,7 @@ app.get('/accounts', function(req, res) {
                     }catch(err){
                         console.log("Error while deleting contact: \n" + err);
                     }
-                }
+            }
             }}
 
         myAccountData.setAccount(data);

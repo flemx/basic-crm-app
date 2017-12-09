@@ -109,7 +109,7 @@ $(document).ready(function() {
 function accountTable(accounts){	
 	$('tbody').remove();
 	$.each(accounts, function(index, obj) {
-		$("#contact-table-container").append(
+		$("#records-table-container").append(
 			"<tr>" +
             		"<td><input type='checkbox' value='" + obj.Id + "' class='inputID'</td>"+
 					"<td><a href='/account/" + obj.Id + "'>" + obj.AccountName + "</a></td>"+
@@ -145,7 +145,7 @@ var loadAccounts = function() {
 // Creating this function as a workaround to prevent the page from reloading by a normal form post
 
 var postAccount = function() {
-    //$(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
+    $(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
     var $accountForm = {
         "AccountName": $(".featherlight-content .add-account-form input[name='AccountName']").val(),
         "Industry": $(".featherlight-content .add-account-form input[name='Industry']").val(),
@@ -218,7 +218,7 @@ var deleteAccounts = function() {
 function contactTable(contacts){
     $('tbody').remove();
     $.each(contacts, function(index, obj) {
-        $("#contact-table-container").append(
+        $("#records-table-container").append(
             "<tr>" +
             "<td><input type='checkbox' value='" + obj.Id + "'  class='inputID'</td>"+
             "<td><a href='/contact/" + obj.Id + "'>" + obj.FirstName + " " + obj.LastName + " </a></td>"+
@@ -315,7 +315,7 @@ var loadGames = function() {
 		cache: false,
 		success: function(html) {
 			
-			$("#customer-table-container").append(html);
+			$("#records-table-container").append(html);
 		}
 	});
 };
