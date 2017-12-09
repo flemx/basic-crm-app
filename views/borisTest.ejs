@@ -25,41 +25,43 @@
 			font-family: "Raleway", sans-serif
 		}
 
-* {
-  box-sizing: border-box;
-}
+		* {
+			box-sizing: border-box;
+		}
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
+		#myInput {
+			background-image: url('/images/searchicon.png');
+			background-position: 10px 10px;
+			background-repeat: no-repeat;
+			width: 100% auto;
+			font-size: 11px;
+			padding: 12px 16px 12px 60px;
+			border: 1px solid #ddd;
+			margin-bottom: 12px;
+		}
 
-#myTable {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
-}
+		#contact-table-container {
+			border-collapse: collapse;
+			width: 100%;
+			border: 1px solid #ddd;
+			font-size: 18px;
+		}
 
-#myTable th, #myTable td {
-  text-align: left;
-  padding: 12px;
-}
+		#myTable th,
+		#myTable td {
+			text-align: left;
+			padding: 12px;
+		}
 
-#myTable tr {
-  border-bottom: 1px solid #ddd;
-}
+		#myTable tr {
+			border-bottom: 1px solid #ddd;
+		}
 
-#myTable tr.header, #myTable tr:hover {
-  background-color: #f1f1f1;
-}
-</style>
+		#myTable tr.header,
+		#myTable tr:hover {
+			background-color: #f1f1f1;
+		}
+	</style>
 </head>
 
 <body class="w3-light-grey">
@@ -199,9 +201,11 @@
 
 
 		<div class="w3-container">
+
 			<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Contact &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
 			<button class="w3-button w3-dark-grey delete-button" onclick="deleteContacts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
 			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
 
 			<div class="w3-animate-left table-responsive">
 				<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
@@ -231,32 +235,32 @@
 						<td></td>
 						<td>871932517</td>
 						<td>damien@fleminks.com</td>
-					</tr>			
+					</tr>
 				</table>
 			</div>
 
 		</div>
 
-		
+
 		<script>
-function myFunction() {
-  var input, filter, table, tr, td, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("contact-table-container");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
+			function myFunction() {
+				var input, filter, table, tr, td, i;
+				input = document.getElementById("myInput");
+				filter = input.value.toUpperCase();
+				table = document.getElementById("contact-table-container");
+				tr = table.getElementsByTagName("tr");
+				for (i = 0; i < tr.length; i++) {
+					td = tr[i].getElementsByTagName("td")[1]; //skips the first field and gets the second with the name
+					if (td) {
+						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+							tr[i].style.display = "";
+						} else {
+							tr[i].style.display = "none";
+						}
+					}
+				}
+			}
+		</script>
 
 		<!--
 <h2>My Customers</h2>
@@ -302,13 +306,6 @@ function myFunction() {
   </tr>
 </table>
 -->
-
-
-
-
-
-
-
 
 
 		<footer class="w3-container w3-padding-16 w3-light-grey">
