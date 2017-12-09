@@ -32,7 +32,7 @@ app.get('/accounts', function(req, res) {
 
         console.log("Will open Account: " + result.AccountName);
 
-        res.render('account', {account: result});
+        res.render('test', {account: result});
     });
 
   
