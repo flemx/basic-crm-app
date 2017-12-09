@@ -8,43 +8,7 @@
 	<!-- Header with meta tags and references -->
 
 
-<style>
-* {
-  box-sizing: border-box;
-}
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
-</style>
 </head>
 
 <body class="w3-light-grey">
@@ -155,9 +119,10 @@
 	<div class="w3-container">
 		<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Contact &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
 		<button class="w3-button w3-dark-grey delete-button" onclick="deleteContacts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
 
 		<div class="w3-animate-left table-responsive">
-			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="records-table-container">
 				<thead>
 				<th><input type="checkbox" class="selectAll"></th>
 				<th>Name</th>

@@ -62,6 +62,29 @@ var updateAccount = function(){
 
 
 /* ------------------------------------------------------------------------ */
+// Function to search in the table
+
+
+function searchFunction() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("records-table-container");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1]; //skips the first field and gets the second with the name
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+
+
+/* ------------------------------------------------------------------------ */
 // General javascript
 
 //Select all checkboxes in tables

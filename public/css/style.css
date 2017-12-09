@@ -25,6 +25,22 @@
 
 
 
+/* Search function  */
+
+#myInput {
+    background-image: url('/images/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100% auto;
+    font-size: 13px;
+    padding: 8px 10px 8px 50px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+
+}
+
+
+
 /* Form styling for adding new records */
 
 .form-container{
