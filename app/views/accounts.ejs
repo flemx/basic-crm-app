@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Accounts</title>
+
+    <% include partials/head.ejs %>
+	<!-- Header with meta tags and references -->
+
+
+
+
+</head>
+
+<body class="w3-light-grey">
+
+
+<% include partials/nav.ejs %>
+<!-- Top container -->
+<!-- Sidebar/menu -->
+<!-- Overlay effect when opening sidebar on small screens -->
+
+<script>
+    //Highlights Account button when active
+    $('#accounts-button').addClass('w3-blue');
+
+    //Variable to identify as accounts page
+    //o = Accounts page, 1 = Contacts page
+    var $pageId = 0;
+</script>
+
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+
+
+
+	<form class="add-lightbox">
+		<div class="form-header"> <h2>New Account</h2></div>
+		<div class="form-container add-account-form">
+
+
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputAccountName"><span class="required-input">*</span>Account Name</label>
+					<input type="text" class="form-control" id="inputAccountName" name="AccountName" placeholder="Account Name">
+				</div>
+				<div class="form-group col-sm-6">
+					<label for="inputIndustry">Industry</label>
+					<input type="text" class="form-control" id="inputIndustry" name="Industry" placeholder="Industry">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputEmployees">Number of Employees</label>
+					<input type="text" class="form-control" id="inputEmployees" name="Employees" placeholder="Employees">
+				</div>
+				<div class="form-group col-sm-6">
+					<label for="inputRevenue">Annual Revenue</label>
+					<input type="text" class="form-control" id="inputRevenue" name="Revenue" placeholder="Revenue">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputPhone">Phone number</label>
+					<input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
+				</div>
+				<div class="form-group col-sm-6">
+					<label for="inputWebsite">Website</label>
+					<input type="text" class="form-control" id="inputWebsite" name="Website" placeholder="Website">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputAddress">Address</label>
+					<input type="text" class="form-control" id="inputAddress" name="Address" placeholder="Address">
+				</div>
+				<div class="form-group col-sm-6">
+					<label for="inputCity">City</label>
+					<input type="text" class="form-control" id="inputCity" name="City" placeholder="City">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputState">State/County</label>
+					<input type="text" class="form-control" id="inputState" name="State" placeholder="State/County">
+				</div>
+				<div class="form-group col-sm-2">
+					<label for="inputZip">Zip Code</label>
+					<input type="text" class="form-control" id="inputZip" name="Zipcode" placeholder="Zip">
+
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="inputCountry">Country</label>
+					<input type="text" class="form-control" id="inputCountry" name="Country" placeholder="Country">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-12">
+					<label for="inputDescription">Description</label>
+					<textarea class="form-control" rows="3" id="inputDescription" name="Description"></textarea>
+				</div>
+
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-2">
+					<button type="button" class="btn btn-primary" onclick="postAccount()">Submit</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
+
+
+
+
+	<form class="update-lightbox">
+		<div class="form-header"> <h2>update Account</h2></div>
+		<div class="form-container update-account-form">
+
+			<input type="hidden" name="Id" value="">
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputAccountName"><span class="required-input">*</span>Account Name</label>
+					<input type="text" class="form-control" id="inputAccountName" name="AccountName" placeholder="Account Name" value="">
+				</div>
+				<div class="form-group col-sm-6">
+					<label for="inputIndustry">Industry</label>
+					<input type="text" class="form-control" id="inputIndustry" name="Industry" placeholder="Industry">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputEmployees">Number of Employees</label>
+					<input type="text" class="form-control" id="inputEmployees" name="Employees" placeholder="Employees">
+				</div>
+				<div class="form-group col-sm-6">
+					<label for="inputRevenue">Annual Revenue</label>
+					<input type="text" class="form-control" id="inputRevenue" name="Revenue" placeholder="Revenue">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputPhone">Phone number</label>
+					<input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
+				</div>
+				<div class="form-group col-sm-6">
+					<label for="inputWebsite">Website</label>
+					<input type="text" class="form-control" id="inputWebsite" name="Website" placeholder="Website">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputAddress">Address</label>
+					<input type="text" class="form-control" id="inputAddress" name="Address" placeholder="Address">
+				</div>
+				<div class="form-group col-sm-6">
+					<label for="inputCity">City</label>
+					<input type="text" class="form-control" id="inputCity" name="City" placeholder="City">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-6">
+					<label for="inputState">State/County</label>
+					<input type="text" class="form-control" id="inputState" name="State" placeholder="State/County">
+				</div>
+				<div class="form-group col-sm-2">
+					<label for="inputZip">Zip Code</label>
+					<input type="text" class="form-control" id="inputZip" name="Zipcode" placeholder="Zip">
+
+				</div>
+				<div class="form-group col-sm-4">
+					<label for="inputCountry">Country</label>
+					<input type="text" class="form-control" id="inputCountry" name="Country" placeholder="Country">
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-12">
+					<label for="inputDescription">Description</label>
+					<textarea class="form-control" rows="3" id="inputDescription" name="Description"></textarea>
+				</div>
+
+			</div>
+			<div class="form-row">
+				<div class="form-group col-sm-2">
+					<button type="button" class="btn btn-primary" onclick="updateAccount()">Update</button>
+				</div>
+
+			</div>
+		</div>
+	</form>
+
+
+	<div class="export-lightbox">
+		<h4>Exporting all accounts to XML</h4>
+		<hr class="horizontal-line" />
+		<div class="hide-export-download showme">
+			<p> <i class="glyphicon glyphicon-ok"></i>Export finished</p> <br/>
+			<p><a id="export-href" href="/exports/Accounts-export.xml" download> Download here </a></p>
+		</div>
+
+	</div>
+
+
+
+	<div class="w3-container">
+		<header class="w3-container" style="padding-top:22px">
+			<h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
+		</header>
+
+		<button class="w3-button w3-dark-grey add-button" data-featherlight=".add-lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
+		<div class="popup">
+			<span class="popuptext" id="updatePopup">Select only one record!</span>
+			<button class="w3-button w3-dark-grey add-button"  id="table-update-button">Update  <i class="glyphicon glyphicon-pencil"></i></button>
+		</div>
+
+		<div class="popup">
+			<span class="popuptext" id="delPopup">Select minimum 1 record!</span>
+			<button class="w3-button w3-dark-grey delete-button" id="table-del-button">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+		</div>
+		<button class="w3-button w3-dark-grey" id="table-export-button" data-featherlight=".export-lightbox" onclick="exportAccounts()">export  <i class="glyphicon glyphicon-export"></i></button>
+
+		<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
+
+		<div class="w3-animate-left table-responsive" >
+			<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="records-table-container">
+				<thead>
+				<th><input type="checkbox" class="selectAll"></th>
+				<th>Account Name</th>
+				<th>Industry</th>
+				<th>Phone</th>
+				<th>Employees</th>
+				<th>Website</th>
+				</thead>
+                <% for(i=0;i<accounts.account.length;i++){  %>
+				<tr>
+					<td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
+					<td><a href="/account/<%=accounts.account[i].Id%>"><%= accounts.account[i].AccountName %></a></td>
+					<td><%= accounts.account[i].Industry %></td>
+					<td><%= accounts.account[i].Phone %></td>
+					<td><%= accounts.account[i].Employees %></td>
+					<td><%= accounts.account[i].Website %></td>
+				</tr>
+                <% } %>
+			</table>
+		</div>
+		<br>
+	</div>
+
+
+
+    <% include partials/footer.ejs %>
+	<!-- Footer -->
+
+
+</div>
+
+
+<script src="/vendor/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

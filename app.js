@@ -4,18 +4,18 @@ var http = require('http'),
     express = require('express'),
     bodyParser = require('body-parser'),
     fs = require('fs'),
-    js2xmlparser = require('js2xmlparser'),
-    urlencodedParser = bodyParser.urlencoded({extended: false});
+    js2xmlparser = require('js2xmlparser');
 
-var multer = require('multer');
 
 
 var app = express();
 var server = http.createServer(app);
-//var urlencodedParser = bodyParser.urlencoded({extended: false});
-var contactController = require('./controllers/contact');
-var accountsController = require('./controllers/account');
-var gamesController = require('./controllers/Games');
+var contactController = require('./app/controllers/contact');
+var accountsController = require('./app/controllers/account');
+
+
+var viewPath = path.join(__dirname, 'app/views');
+app.set('views', viewPath);
 
 //set up template egine
 app.set('view engine', 'ejs');
@@ -37,25 +37,10 @@ app.get('/', function(req, res) {
 
 
 
-
-
-
-//Test router Boris
-app.get('/boris', function(req, res) {
-   //Reading JSON data from the data file and assigning it in a variable names readJson
-   var readJson =  fs.readFileSync('./data/location.json', 'utf8');
-   // Parsing the json data into a json object and assigning to variable data so it can be interpret by javascript as json object
-   var data = JSON.parse(readJson);
-   //When rendering the borisTest.ejs to html it will also send the data variable with the json object to the page
-  res.render('borisTest' , {location: data});
-});
-
-
-
 //Fire controllers
-contactController(app,fs,bodyParser,multer,js2xmlparser);
-accountsController(app,fs,bodyParser);
-gamesController(app,fs,js2xmlparser,bodyParser);
+contactController(app,fs,bodyParser,js2xmlparser);
+accountsController(app,fs,bodyParser,js2xmlparser);
+
 
 
 

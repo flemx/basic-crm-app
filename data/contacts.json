@@ -1,49 +1,19 @@
 {
     "contact": [
         {
-            "FirstName": "Damien",
-            "LastName": "Fleminks",
-            "Title": "Engineer",
-            "Account": "Salesforce",
-            "Phone": "871932517",
-            "Email": "damien@fleminks.com",
-            "Address": "14 Temple Square",
-            "City": "Dublin",
-            "State": "",
-            "Zipcode": "",
-            "Country": "Ireland",
-            "Description": "Working as salesforce in enterprise department",
-            "Id": "con12"
-        },
-        {
+            "Id": "con15",
             "FirstName": "Peter",
             "LastName": "Bloomberg",
             "Title": "Project Manager",
             "Account": "",
             "Phone": "871gdg2517",
             "Email": "Peter@gmail.com",
-            "Address": "Wallstreet, Level 1 Atrium A, Sandyford Business Park",
+            "Address": "Level 1 Atrium A, Sandyford Business Park",
             "City": "Dublin",
             "State": "",
             "Zipcode": "",
             "Country": "Ireland",
-            "Description": "Peter is responsible for managing CRM integrations",
-            "Id": "con15"
-        },
-        {
-            "FirstName": "ddffdg",
-            "LastName": "",
-            "Title": "",
-            "Account": "",
-            "Phone": "",
-            "Email": "",
-            "Address": "",
-            "City": "",
-            "State": "",
-            "Zipcode": "",
-            "Country": "",
-            "Description": "",
-            "Id": "con26"
+            "Description": "Peter is responsible for managing CRM integrations"
         },
         {
             "Id": "con28",
@@ -61,5 +31,5 @@
             "Description": "Salesforce Engineer"
         }
     ],
-    "index": 28
+    "index": 29
 }

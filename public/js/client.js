@@ -445,6 +445,9 @@ var updateContactForm = function(){
     });
 };
 
+
+
+
 //This function will update the contact with the information in the contact update form
 var updateContact = function(){
     var $updateContact =  $(".featherlight-content .update-contact-form");

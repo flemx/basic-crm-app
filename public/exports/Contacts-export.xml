@@ -1,0 +1,33 @@
+<?xml version='1.0'?>
+<Contacts>
+    <Contacts>
+        <FirstName>Peter</FirstName>
+        <LastName>Bloomberg</LastName>
+        <Title>Project Manager</Title>
+        <Account></Account>
+        <Phone>871gdg2517</Phone>
+        <Email>Peter@gmail.com</Email>
+        <Address>Wallstreet, Level 1 Atrium A, Sandyford Business Park</Address>
+        <City>Dublin</City>
+        <State></State>
+        <Zipcode></Zipcode>
+        <Country>Ireland</Country>
+        <Description>Peter is responsible for managing CRM integrations</Description>
+        <Id>con15</Id>
+    </Contacts>
+    <Contacts>
+        <Id>con28</Id>
+        <FirstName>Damien</FirstName>
+        <LastName>Fleminks</LastName>
+        <Title>Engineer</Title>
+        <Account>Salesforce</Account>
+        <Phone>871932517</Phone>
+        <Email>damien@fleminks.com</Email>
+        <Address>Salesforce, Level 1 Atrium A, Sandyford Business Park</Address>
+        <City>Dublin 18</City>
+        <State>Dublin</State>
+        <Zipcode>D18 F5X2</Zipcode>
+        <Country>Ireland</Country>
+        <Description>Salesforce Engineer</Description>
+    </Contacts>
+</Contacts>

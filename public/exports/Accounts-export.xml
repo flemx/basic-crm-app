@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<Accounts>
+    <Accounts>
+        <Id>acc31</Id>
+        <AccountName>Salesforce</AccountName>
+        <Industry>Software</Industry>
+        <Employees>1000+</Employees>
+        <Revenue> $6.67 billion</Revenue>
+        <Phone>Salesforce.com</Phone>
+        <Website>Salesforce.com</Website>
+        <Address>Sandyford</Address>
+        <City>Dublin</City>
+        <State></State>
+        <Zipcode></Zipcode>
+        <Country>Ireland</Country>
+        <Description></Description>
+    </Accounts>
+    <Accounts>
+        <AccountName>BMW</AccountName>
+        <Industry>Cardealer</Industry>
+        <Employees>1000+</Employees>
+        <Revenue> $3.67 billion</Revenue>
+        <Phone>+1 (0)1786783</Phone>
+        <Website>bmw.com</Website>
+        <Address>Borg 300</Address>
+        <City>San Francisco</City>
+        <State>CA</State>
+        <Zipcode>78943</Zipcode>
+        <Country>USA</Country>
+        <Id>acc32</Id>
+    </Accounts>
+    <Accounts>
+        <Id>acc45</Id>
+        <AccountName>test2</AccountName>
+        <Industry></Industry>
+        <Employees></Employees>
+        <Revenue></Revenue>
+        <Phone></Phone>
+        <Website></Website>
+        <Address></Address>
+        <City></City>
+        <State></State>
+        <Zipcode></Zipcode>
+        <Country></Country>
+        <Description></Description>
+    </Accounts>
+</Accounts>
