@@ -7,6 +7,8 @@ var http = require('http'),
     js2xmlparser = require('js2xmlparser'),
     urlencodedParser = bodyParser.urlencoded({extended: false});
 
+var Busboy = require('busboy');
+
 var app = express();
 var server = http.createServer(app);
 //var urlencodedParser = bodyParser.urlencoded({extended: false});
@@ -31,6 +33,34 @@ app.get('/', function(req, res) {
 });
 
 
+
+
+
+app.get('/uploadTest', function(req, res) {
+    res.render('uploadTest');
+});
+
+app.post('/upload', function (req, res) {
+    var busboy = new Busboy({ headers: req.headers });
+    busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+        var saveTo = path.join('./files/', filename);
+        console.log('Uploading: ' + saveTo);
+        file.pipe(fs.createWriteStream(saveTo));
+    });
+    busboy.on('finish', function() {
+        console.log('Upload complete');
+        res.writeHead(200, { 'Connection': 'close' });
+        res.end("That's all folks!");
+    });
+    return req.pipe(busboy);
+
+});
+
+
+
+
+
+
 //Test router Boris
 app.get('/boris', function(req, res) {
    //Reading JSON data from the data file and assigning it in a variable names readJson
@@ -47,6 +77,28 @@ app.get('/boris', function(req, res) {
 customerController(app,fs,bodyParser);
 accountsController(app,fs,bodyParser);
 gamesController(app,fs,js2xmlparser,bodyParser);
+
+
+
+app.post('/upload', function (req, res) {
+    var busboy = new Busboy({ headers: req.headers });
+    busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+        var saveTo = path.join('./files/', filename);
+        console.log('Uploading: ' + saveTo);
+        file.pipe(fs.createWriteStream(saveTo));
+    });
+    busboy.on('finish', function() {
+        console.log('Upload complete');
+        res.writeHead(200, { 'Connection': 'close' });
+        res.end("That's all folks!");
+    });
+    return req.pipe(busboy);
+
+});
+
+
+
+
 
 
 
