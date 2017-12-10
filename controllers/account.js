@@ -1,6 +1,6 @@
 // controller
 
-module.exports = function(app,fs,bodyParser){
+module.exports = function(app,fs,bodyParser, js2xmlparser){
 var accountData = require('../models/accounts.js');
 myAccountData = new accountData(fs);
 
@@ -14,6 +14,28 @@ myAccountData = new accountData(fs);
       var data = myAccountData.getAccounts();
       res.render('accounts', {accounts: data});
     });
+
+
+
+
+    //Test Page
+    app.get('/test', function (req, res) {
+        console.log("Controller router '/accounts' is executing ");
+        var data = myAccountData.getAccounts();
+        res.render('test', {accounts: data});
+    });
+
+
+    // Exports function which parses contacts JSON file to XML format and writeß it to the public folder for download
+    app.get('/export/accounts',function(req,res){
+        var data = myAccountData.getAccounts();
+        var JSONformated = JSON.stringify(data.account, null, 4);
+        var XMLformated = js2xmlparser.parse("Accounts", JSON.parse(JSONformated));
+        fs.writeFileSync('./public/exports/Accounts-export.xml', XMLformated);
+        res.send("Exported succesfully to: /public/exports/Accounts-export.xml");
+    });
+
+
 
 
 

@@ -302,6 +302,20 @@ var updateAccount = function(){
 
 
 
+//Export Accounts to XMl
+var exportAccounts = function() {
+    $.ajax({
+        url: "/export/accounts",
+        cache: false,
+        success: function(success) {
+            console.log(success);
+            $('.hide-export-download').removeClass('showme');
+
+        }
+    });
+};
+
+
 
 
 
@@ -472,7 +486,7 @@ var updateContact = function(){
 //Export contacts to XMl
 var exportContacts = function() {
     $.ajax({
-        url: "/export",
+        url: "/export/contacts",
         cache: false,
         success: function(success) {
             console.log(success);

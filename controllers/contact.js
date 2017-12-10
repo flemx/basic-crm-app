@@ -1,14 +1,14 @@
 
-module.exports = function (app, fs, bodyParser, multer,js2xmlparser) {
+module.exports = function (app, fs, bodyParser, js2xmlparser) {
     var contactData = require('../models/contacts.js');
-    var x2j = require( 'xml2js' );
+
 
     myContacts = new contactData(fs);
 
 
     //Render contact.ejs when opening /contacts URL
     app.get('/contacts', function (req, res) {
-        console.log("Controller router '/contacts' is executing ");
+        console.log("Controller router '/contacts' is executing");
         var data = myContacts.getContacts();
         res.render('contacts', {contacts: data});
     });
@@ -17,33 +17,15 @@ module.exports = function (app, fs, bodyParser, multer,js2xmlparser) {
 
 
 
-    //Test Page
-    app.get('/test', function (req, res) {
-        console.log("Controller router '/contacts' is executing ");
+
+    // Exports function which parses contacts JSON file to XML format and write it to the public folder for download
+    app.get('/export/contacts',function(req,res){
         var data = myContacts.getContacts();
-        res.render('test', {contacts: data});
-    });
-    //Test Page
-    app.get('/test2', function (req, res) {
-        console.log("Controller router '/contacts' is executing ");
-        var data = myContacts.getContacts();
-        res.render('uploadTest', {contacts: data});
-    });
-
-
-
-
-
-    app.get('/export',function(req,res){
-        var data = myContacts.getContacts();
-        // Parse the JSON file in order to be able to edit it
         var JSONformated = JSON.stringify(data.contact, null, 4);
         var XMLformated = js2xmlparser.parse("Contacts", JSON.parse(JSONformated));
         fs.writeFileSync('./public/exports/Contacts-export.xml', XMLformated);
         res.send("Exported succesfully to: /public/exports/Contacts-export.xml");
     });
-
-
 
 
 
