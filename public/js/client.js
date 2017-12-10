@@ -19,23 +19,53 @@ $(document).ready(function(){
 
      */
 
-    $("#table-update-button").click(function(){
+    $("#table-update-button").click(function () {
+        var $popup = $("#updatePopup");
         console.log("Checkboxes checked: " + $('.inputID:checked').length);
-        if ($('.inputID:checked').length > 1) {
-            var popup = document.getElementById("myPopup");
-            popup.classList.toggle("show");
-        }
-        else if ($('.inputID:checked').length === 0) {
-            var popup = document.getElementById("myPopup");
-            popup.classList.toggle("show");
+        if ($('.inputID:checked').length > 1 || $('.inputID:checked').length === 0) {
+            $popup.toggleClass("show");
         }
         else if ($('.inputID:checked').length === 1) {
             $.featherlight($('.update-lightbox'), {});
-            updateAccountForm();
-            var popup = document.getElementById("myPopup");
-            popup.remove("show");
+            if ($('title:contains(Contacts)')) {
+                console.log("Open contact update form");
+                updateContactForm();
+                $popup.removeClass("show");
+            }
+            else if ($('title:contains(Accounts)')) {
+                console.log("Open Account update form");
+                updateAccountForm();
+                $popup.removeClass("show");
+            }
         }
     });
+
+
+    $("#table-del-button").click(function () {
+        var $popup = $("#delPopup");
+        console.log("Checkboxes checked: " + $('.inputID:checked').length);
+        if ($('.inputID:checked').length === 0) {
+            $popup.toggleClass("show");
+        }
+        else if ($('.inputID:checked').length > 0){
+            $popup.removeClass("show");
+            deleteContacts();
+        }
+    });
+
+    /*
+     *  Remove update/del popup if other buttons are pressed
+     */
+
+    $('#table-add-button').add('#table-del-button').click( function () {
+        $("#updatePopup").removeClass("show");
+        }
+    )
+    $('#table-add-button').add('#table-update-button').click( function () {
+            $("#delPopup").removeClass("show");
+        }
+    )
+
 });
 
 
@@ -307,6 +337,42 @@ var loadContacts = function() {
 };
 
 
+
+// Function to populate update form in Accounts page
+var updateContactForm = function(){
+    var id =  $('.inputID:checked').val();
+    console.log("Opening contact ID: " + id);
+
+    $.ajax({
+        url: "/get/contact/" + id,
+        cache: false,
+        success: function(account) {
+            console.log("Returned account: " + account.AccountName);
+
+            $(".update-contact-form input[name='Id']").val(account.Id);
+            /*
+            $(".update-account-form input[name='AccountName']").val(account.AccountName);
+            $(".update-account-form input[name='Industry']").val(account.Industry);
+            $(".update-account-form input[name='Employees']").val(account.Employees);
+            $(".update-account-form input[name='Revenue']").val(account.Revenue);
+            $(".update-account-form input[name='Phone']").val(account.Website);
+            $(".update-account-form  input[name='Website']").val(account.Website);
+            $(".update-account-form  input[name='Address']").val(account.Address);
+            $(".update-account-form  input[name='City']").val(account.City);
+            $(".update-account-form  input[name='State']").val(account.State);
+            $(".update-account-form  input[name='Zipcode']").val(account.Zipcode);
+            $(".update-account-form  input[name='Country']").val(account.Country);
+            $(".update-account-form  textarea[name='Description']").val(account.Description);
+            */
+        }
+    });
+};
+
+
+
+
+
+
 // Ajax function to post text from input fields to update contacts JSON obejct and rebuild table with new data
 var postContact = function() {
     $(':button[type="button"]').prop('disabled', true);  // Disable add until successful return from server to prevent duplicate records
@@ -322,6 +388,7 @@ var postContact = function() {
         "State": $(".featherlight-content .add-contact-form input[name='State']").val(),
         "Zipcode": $(".featherlight-content .add-contact-form input[name='Zipcode']").val(),
         "Country": $(".featherlight-content .add-contact-form input[name='Country']").val(),
+        "Description": $(".featherlight-content .update-contact-form textarea[name='Description']").val()
     };
     console.log("Adding Contact information with Name : " + $contactForm.FirstName + "\n Desciption: " + $contactForm.Description);
 
@@ -345,7 +412,7 @@ var postContact = function() {
 
 
 
-// Delete accounts
+// Delete contacts
 // Collects the record id's assigned of the selected checkboxes and post them with ajax to be server and deleted
 
 var deleteContacts = function() {
@@ -363,6 +430,52 @@ var deleteContacts = function() {
         }
     });
 };
+
+
+
+//Update contacts
+
+
+
+//This function will update the account with the information in the account update form
+var updateContact = function(){
+
+    //creating account object from the information in the update form
+    var $contactForm = {
+        "Id": $(".featherlight-content .update-contact-form input[name='Id']").val(),
+        "FirstName": $(".featherlight-content .add-contact-form input[name='FirstName']").val(),
+        "LastName": $(".featherlight-content .add-contact-form input[name='LastName']").val(),
+        "Title": $(".featherlight-content .add-contact-form input[name='Title']").val(),
+        "Account": $(".featherlight-content .add-contact-form input[name='Account']").val(),
+        "Phone": $(".featherlight-content .add-contact-form input[name='Phone']").val(),
+        "Email": $(".featherlight-content .add-contact-form input[name='Email']").val(),
+        "Address": $(".featherlight-content .add-contact-form input[name='Address']").val(),
+        "City": $(".featherlight-content .add-contact-form input[name='City']").val(),
+        "State": $(".featherlight-content .add-contact-form input[name='State']").val(),
+        "Zipcode": $(".featherlight-content .add-contact-form input[name='Zipcode']").val(),
+        "Country": $(".featherlight-content .add-contact-form input[name='Country']").val(),
+        "Description": $(".featherlight-content .update-contact-form textarea[name='Description']").val()
+    };
+
+
+    console.log("Updating contact: " + $contactForm.Id);
+
+    //Send account object to server with Ajax to update the account
+    $.ajax({
+        type: "POST",
+        url: "/contact/update",
+        data: $contactForm,
+        success: function(contacts){
+            contactTable(contacts.contact);
+            $('.featherlight-close').click();
+            $("input[type=text]").val("");
+            $(':button[type="button"]').prop('disabled', false);
+        }
+    });
+
+};
+
+
 
 
 

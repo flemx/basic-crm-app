@@ -2,89 +2,31 @@
 <html>
 
 <head>
-    <title>Accounts</title>
+    <title>Contacts</title>
 
     <% include partials/head.ejs %>
     <!-- Header with meta tags and references -->
 
 
 
-    <style>
-        /* Popup container - can be anything you want */
-        .popup {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        /* The actual popup */
-        .popup .popuptext {
-            visibility: hidden;
-            width: 140px;
-            background-color: #cb3a1d;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -50px;
-            font-size: 85%;
-        }
-
-        /* Popup arrow */
-        .popup .popuptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
-        }
-
-        /* Toggle this class - hide and show the popup */
-        .popup .show {
-            visibility: visible;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s;
-        }
-
-        /* Add animation (fade in the popup) */
-        @-webkit-keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity:1 ;}
-        }
-    </style>
-
-
-
-
 </head>
+
+<script>
+
+    $(document).ready(function() {
+
+        //Highlights contacts button when active
+        $('#contacts-button').addClass('w3-blue');
+
+        //Created variable to identify page
+
+    });
+</script>
 
 <body class="w3-light-grey">
 
 
 <% include partials/nav.ejs %>
-<script>
-    //Highlights Account button when active
-    $('#accounts-button').addClass('w3-blue');
-
-
-
-</script>
 
 <!-- Top container -->
 <!-- Sidebar/menu -->
@@ -94,31 +36,39 @@
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
+    <header class="w3-container" style="padding-top:22px">
+        <h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
+    </header>
+
+
+
+
+
 
 
     <form class="add-lightbox">
-        <div class="form-header"> <h2>New Account</h2></div>
-        <div class="form-container add-account-form">
+        <div class="form-header"> <h2>New Contact</h2></div>
+        <div class="form-container add-contact-form">
 
 
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="inputAccountName"><span class="required-input">*</span>Account Name</label>
-                    <input type="text" class="form-control" id="inputAccountName" name="AccountName" placeholder="Account Name">
+                    <label for="inputFirstName">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" name="FirstName" placeholder="First Name">
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="inputIndustry">Industry</label>
-                    <input type="text" class="form-control" id="inputIndustry" name="Industry" placeholder="Industry">
+                    <label for="inputLastName"> <span class="required-input">*</span>Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" name="LastName" placeholder="Last Name">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="inputEmployees">Number of Employees</label>
-                    <input type="text" class="form-control" id="inputEmployees" name="Employees" placeholder="Employees">
+                    <label for="inputTitle">Title</label>
+                    <input type="text" class="form-control" id="inputTitle" name="Title" placeholder="Title">
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="inputRevenue">Annual Revenue</label>
-                    <input type="text" class="form-control" id="inputRevenue" name="Revenue" placeholder="Revenue">
+                    <label for="inputAccount">Account</label>
+                    <input type="text" class="form-control" id="inputAccount" name="Account" placeholder="Account">
                 </div>
             </div>
             <div class="form-row">
@@ -127,8 +77,8 @@
                     <input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="inputWebsite">Website</label>
-                    <input type="text" class="form-control" id="inputWebsite" name="Website" placeholder="Website">
+                    <label for="inputEmail">Email</label>
+                    <input type="text" class="form-control" id="inputEmail" name="Email" placeholder="Email">
                 </div>
             </div>
             <div class="form-row">
@@ -165,38 +115,39 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-2">
-                    <button type="button" class="btn btn-primary" onclick="postAccount()">Submit</button>
+                    <button type="button" class="btn btn-primary" onclick="postContact()">Submit</button>
                 </div>
 
             </div>
         </div>
     </form>
+
 
 
 
     <form class="update-lightbox">
-        <div class="form-header"> <h2>update Account</h2></div>
-        <div class="form-container update-account-form">
+        <div class="form-header"> <h2>update Contact</h2></div>
+        <div class="form-container update-contact-form">
 
             <input type="hidden" name="Id" value="">
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="inputAccountName"><span class="required-input">*</span>Account Name</label>
-                    <input type="text" class="form-control" id="inputAccountName" name="AccountName" placeholder="Account Name" value="">
+                    <label for="inputFirstName">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName" name="FirstName" placeholder="First Name">
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="inputIndustry">Industry</label>
-                    <input type="text" class="form-control" id="inputIndustry" name="Industry" placeholder="Industry">
+                    <label for="inputLastName"> <span class="required-input">*</span>Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" name="LastName" placeholder="Last Name">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <label for="inputEmployees">Number of Employees</label>
-                    <input type="text" class="form-control" id="inputEmployees" name="Employees" placeholder="Employees">
+                    <label for="inputTitle">Title</label>
+                    <input type="text" class="form-control" id="inputTitle" name="Title" placeholder="Title">
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="inputRevenue">Annual Revenue</label>
-                    <input type="text" class="form-control" id="inputRevenue" name="Revenue" placeholder="Revenue">
+                    <label for="inputAccount">Account</label>
+                    <input type="text" class="form-control" id="inputAccount" name="Account" placeholder="Account">
                 </div>
             </div>
             <div class="form-row">
@@ -205,8 +156,8 @@
                     <input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="inputWebsite">Website</label>
-                    <input type="text" class="form-control" id="inputWebsite" name="Website" placeholder="Website">
+                    <label for="inputEmail">Email</label>
+                    <input type="text" class="form-control" id="inputEmail" name="Email" placeholder="Email">
                 </div>
             </div>
             <div class="form-row">
@@ -243,54 +194,61 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-2">
-                    <button type="button" class="btn btn-primary" onclick="updateAccount()">Update</button>
+                    <button type="button" class="btn btn-primary" onclick="postContact()">Submit</button>
                 </div>
 
             </div>
         </div>
     </form>
+
 
 
 
 
 
     <div class="w3-container">
-        <header class="w3-container" style="padding-top:22px">
-            <h5><b><i class="fa fa-dashboard"></i>Accounts</b></h5>
-        </header>
-
-        <button class="w3-button w3-dark-grey add-button" data-featherlight=".add-lightbox">Add  <i class="glyphicon glyphicon-plus"></i></button>
+        <button class="w3-button w3-dark-grey add-button" data-featherlight=".add-lightbox" id="table-add-button">Add <i class="glyphicon glyphicon-plus"></i></button>
         <div class="popup">
-            <span class="popuptext" id="myPopup">Select only one record!</span>
-            <button class="w3-button w3-dark-grey add-button"  id="table-update-button">Update  <i class="glyphicon glyphicon-plus"></i></button>
+            <span class="popuptext" id="updatePopup">Select only one record!</span>
+            <button class="w3-button w3-dark-grey add-button"  id="table-update-button">Update  <i class="glyphicon glyphicon-pencil"></i></button>
         </div>
+        <div class="popup">
+            <span class="popuptext" id="delPopup">Select minimum 1 record!</span>
+            <button class="w3-button w3-dark-grey delete-button" id="table-del-button">Delete  <i class="glyphicon glyphicon-minus"></i></button>
+        </div>
+        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
 
-        <button class="w3-button w3-dark-grey delete-button" onclick="deleteAccounts()">Delete <i class="glyphicon glyphicon-minus"></i></button>
-
-        <div class="w3-animate-left table-responsive" >
+        <div class="w3-animate-left table-responsive">
             <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="records-table-container">
                 <thead>
                 <th><input type="checkbox" class="selectAll"></th>
-                <th>Account Name</th>
-                <th>Industry</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Account</th>
                 <th>Phone</th>
-                <th>Employees</th>
-                <th>Website</th>
+                <th>Email</th>
+
                 </thead>
-                <% for(i=0;i<accounts.account.length;i++){  %>
+                <% for(i=0;i<contacts.contact.length;i++){  %>
                 <tr>
-                    <td><input type="checkbox" value="<%= accounts.account[i].Id%>" class="inputID"></td>
-                    <td><a href="/account/<%=accounts.account[i].Id%>"><%= accounts.account[i].AccountName %></a></td>
-                    <td><%= accounts.account[i].Industry %></td>
-                    <td><%= accounts.account[i].Phone %></td>
-                    <td><%= accounts.account[i].Employees %></td>
-                    <td><%= accounts.account[i].Website %></td>
+                    <td><input type="checkbox" value="<%= contacts.contact[i].Id%>" class="inputID"></td>
+                    <td><a href="/contact/<%=contacts.contact[i].Id%>"><%= contacts.contact[i].FirstName + " " + contacts.contact[i].LastName %></a></td>
+                    <td><%= contacts.contact[i].Title %></td>
+                    <td><%= contacts.contact[i].Account %></td>
+                    <td><%= contacts.contact[i].Phone %></td>
+                    <td><%= contacts.contact[i].Email %></td>
                 </tr>
                 <% } %>
+
             </table>
         </div>
-        <br>
+
     </div>
+
+
+
+
+
 
 
 
@@ -300,16 +258,7 @@
 
 </div>
 
-<script>
 
-    $(document).ready(function() {
-
-
-        //Highlights contacts button when active
-        $('#accounts-button').addClass('w3-blue');
-
-    });
-</script>
 <script src="/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
