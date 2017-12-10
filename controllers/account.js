@@ -16,14 +16,6 @@ myAccountData = new accountData(fs);
     });
 
 
-    //Test Page
-    app.get('/test', function(req, res) {
-        console.log("Controller router '/accounts' is executing ");
-        var data = myAccountData.getAccounts();
-        res.render('test', {accounts: data});
-    });
-
-
 
     // Get Account by id
     app.get('/get/account/:id', function(req, res) {
@@ -50,10 +42,7 @@ myAccountData = new accountData(fs);
                     console.log("Successfully updated account: " + data.account[j].AccountName);
             }
         }
-
-
-        //myAccountData.setAccount(data);
-
+        myAccountData.setAccount(data);
         res.send(data);
     });
 
