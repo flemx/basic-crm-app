@@ -24,44 +24,13 @@
 		h5 {
 			font-family: "Raleway", sans-serif
 		}
-
-		* {
-			box-sizing: border-box;
-		}
-
-		#myInput {
-			background-image: url('/images/searchicon.png');
-			background-position: 10px 10px;
-			background-repeat: no-repeat;
-			width: 100% auto;
-			font-size: 11px;
-			padding: 12px 16px 12px 60px;
-			border: 1px solid #ddd;
-			margin-bottom: 12px;
-		}
-
-		#contact-table-container {
-			border-collapse: collapse;
-			width: 100%;
-			border: 1px solid #ddd;
-			font-size: 18px;
-		}
-
-		#myTable th,
-		#myTable td {
-			text-align: left;
-			padding: 12px;
-		}
-
-		#myTable tr {
-			border-bottom: 1px solid #ddd;
-		}
-
-		#myTable tr.header,
-		#myTable tr:hover {
-			background-color: #f1f1f1;
-		}
+    #map{
+      height:400px;
+      width:100%;
+    }
 	</style>
+	<!-- Header with meta tags and references   -->
+
 </head>
 
 <body class="w3-light-grey">
@@ -108,11 +77,11 @@
 	<!-- Overlay effect when opening sidebar on small screens -->
 
 
-	<!-- !PAGE CONTENT! -->
+	<!-- !PAGE CONTENT!   -->
 	<div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
 		<header class="w3-container" style="padding-top:22px">
-			<h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
+			<h5><b><i class="fa fa-dashboard"></i> Contact </b></h5>
 		</header>
 
 
@@ -120,192 +89,104 @@
 
 
 
+		<div class="container record-container">
 
-		<form class="lightbox add-lightbox">
-			<div class="form-header">
-				<h2>New Contact</h2>
+
+			<h4 class="w3-center"><span class="glyphicon glyphicon-user record-icon"></span>Damien Fleminks</h4>
+
+			<div class="col-xs-12">
+				<hr class="horizontal-line" />
 			</div>
-			<div class="form-container">
-
-
-				<div class="form-row">
-					<div class="form-group col-sm-6">
-						<label for="inputFirstName">First Name</label>
-						<input type="text" class="form-control" id="inputFirstName" name="FirstName" placeholder="First Name">
-					</div>
-					<div class="form-group col-sm-6">
-						<label for="inputLastName"> <span class="required-input">*</span>Last Name</label>
-						<input type="text" class="form-control" id="inputLastName" name="LastName" placeholder="Last Name">
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-sm-6">
-						<label for="inputTitle">Title</label>
-						<input type="text" class="form-control" id="inputTitle" name="Title" placeholder="Title">
-					</div>
-					<div class="form-group col-sm-6">
-						<label for="inputAccount">Account</label>
-						<input type="text" class="form-control" id="inputAccount" name="Account" placeholder="Account">
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-sm-6">
-						<label for="inputPhone">Phone number</label>
-						<input type="text" class="form-control" id="inputPhone" name="Phone" placeholder="Phone">
-					</div>
-					<div class="form-group col-sm-6">
-						<label for="inputEmail">Email</label>
-						<input type="text" class="form-control" id="inputEmail" name="Email" placeholder="Email">
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-sm-6">
-						<label for="inputAddress">Address</label>
-						<input type="text" class="form-control" id="inputAddress" name="Address" placeholder="Address">
-					</div>
-					<div class="form-group col-sm-6">
-						<label for="inputCity">City</label>
-						<input type="text" class="form-control" id="inputCity" name="City" placeholder="City">
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-sm-6">
-						<label for="inputState">State/County</label>
-						<input type="text" class="form-control" id="inputState" name="State" placeholder="State/County">
-					</div>
-					<div class="form-group col-sm-2">
-						<label for="inputZip">Zip Code</label>
-						<input type="text" class="form-control" id="inputZip" name="Zipcode" placeholder="Zip">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="row mgbt-xs-0">
+						<label class="col-xs-4 control-label">First Name:</label>
+						<div class="col-xs-8 controls">Damien</div>
 
 					</div>
-					<div class="form-group col-sm-4">
-						<label for="inputCountry">Country</label>
-						<input type="text" class="form-control" id="inputCountry" name="Country" placeholder="Country">
-					</div>
 				</div>
-				<div class="form-row">
-					<div class="form-group col-sm-12">
-						<label for="inputDescription">Description</label>
-						<textarea class="form-control" rows="3" id="inputDescription" name="Description"></textarea>
-					</div>
+				<div class="col-sm-6">
+					<div class="row mgbt-xs-0">
+						<label class="col-xs-4 control-label">Last Name:</label>
+						<div class="col-xs-8 controls">Fleminks</div>
 
-				</div>
-				<div class="form-row">
-					<div class="form-group col-sm-2">
-						<button type="button" class="btn btn-primary" onclick="postContact()">Submit</button>
 					</div>
-
 				</div>
+				<div class="col-sm-6">
+					<div class="row mgbt-xs-0">
+						<label class="col-xs-4 control-label">Title</label>
+						<div class="col-xs-8 controls">Engineer</div>
+
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="row mgbt-xs-0">
+						<label class="col-xs-4 control-label">Account</label>
+						<div class="col-xs-8 controls">Salesforce</div>
+
+					</div>
+				</div>
+
+
+
+				<div class="col-sm-6">
+					<div class="row mgbt-xs-0">
+						<label class="col-xs-4 control-label">Phone</label>
+						<div class="col-xs-8 controls">871932517</div>
+
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="row mgbt-xs-0">
+						<label class="col-xs-4 control-label">Email</label>
+						<div class="col-xs-8 controls">damien@fleminks.com</div>
+
+					</div>
+				</div>
+
+				<div class="col-xs-12">
+					<hr class="horizontal-inline" />
+				</div>
+				<div class="col-sm-6">
+					<div class="row mgbt-xs-0">
+						<label class="col-xs-4 control-label">Address:</label>
+						<div class="col-xs-8 controls">
+							14 Temple Square , <br /> Dublin, <br /> Ireland
+						</div>
+
+					</div>
+				</div>
+				<div class="col-sm-6">
+					<div class="row mgbt-xs-0">
+						<label class="col-xs-4 control-label">Description</label>
+						<div class="col-xs-8 controls">Working as salesforce in enterprise department</div>
+
+					</div>
+				</div>
+
 			</div>
-		</form>
+			<!--Map fuctionality-->
+		
 
+</head>
+<body>
+  <h3>Your location</h3>
+  <div id="map"></div>
 
-		<div class="w3-container">
-
-			<button class="w3-button w3-dark-grey add-button" data-featherlight=".lightbox">Add Contact &nbsp;<i class="glyphicon glyphicon-plus"></i></button>
-			<button class="w3-button w3-dark-grey delete-button" onclick="deleteContacts()">Delete  <i class="glyphicon glyphicon-minus"></i></button>
-			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-
-
-			<div class="w3-animate-left table-responsive">
-				<table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="contact-table-container">
-					<thead>
-						<th><input type="checkbox" class="selectAll"></th>
-						<th style="width: 20%;"> Name</th>
-						<th style="width: 20%;">Title</th>
-						<th style="width: 20%;">Account</th>
-						<th style="width: 20%;">Phone</th>
-						<th style="width: 20%;">Email</th>
-
-					</thead>
-
-					<tr>
-						<td><input type="checkbox" value="con12" class="inputID"></td>
-						<td><a href="/contact/con12">Damien Fleminks</a></td>
-						<td>Engineer</td>
-						<td>Salesforce</td>
-						<td>871932517</td>
-						<td>damien@fleminks.com</td>
-					</tr>
-
-					<tr>
-						<td><input type="checkbox" value="con15" class="inputID"></td>
-						<td><a href="/contact/con15">Damien Fleminks</a></td>
-						<td></td>
-						<td></td>
-						<td>871932517</td>
-						<td>damien@fleminks.com</td>
-					</tr>
-				</table>
-			</div>
+<!--end of map-->
+			
+			
+			
+			
 
 		</div>
 
 
-		<script>
-			function myFunction() {
-				var input, filter, table, tr, td, i;
-				input = document.getElementById("myInput");
-				filter = input.value.toUpperCase();
-				table = document.getElementById("contact-table-container");
-				tr = table.getElementsByTagName("tr");
-				for (i = 0; i < tr.length; i++) {
-					td = tr[i].getElementsByTagName("td")[1]; //skips the first field and gets the second with the name
-					if (td) {
-						if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-							tr[i].style.display = "";
-						} else {
-							tr[i].style.display = "none";
-						}
-					}
-				}
-			}
-		</script>
 
-		<!--
-<h2>My Customers</h2>
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
-<table id="myTable">
-  <tr class="header">
-    <th style="width:60%;">Name</th>
-    <th style="width:40%;">Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Berglunds snabbkop</td>
-    <td>Sweden</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Koniglich Essen</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>North/South</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Paris specialites</td>
-    <td>France</td>
-  </tr>
-</table>
--->
+
+
 
 
 		<footer class="w3-container w3-padding-16 w3-light-grey">
@@ -317,7 +198,172 @@
 
 	</div>
 
+		<!--MAP script-->	
+			
+	  <script>
+    function initMap(){
+      // Map options
+      var options = {
+        zoom:8,
+        center:{lat:53.3330556,lng:-6.2488889}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Listen for click on map
+      google.maps.event.addListener(map, 'click', function(event){
+        // Add marker
+        addMarker({coords:event.latLng});
+      });
+
+      /*
+      // Add marker
+      var marker = new google.maps.Marker({
+        position:{lat:42.4668,lng:-70.9495},
+        map:map,
+        icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      });
+
+      var infoWindow = new google.maps.InfoWindow({
+        content:'<h1>Lynn MA</h1>'
+      });
+
+      marker.addListener('click', function(){
+        infoWindow.open(map, marker);
+      });
+      */
+  
+			
+			/*
+      // Array of markers
+      var markers = [
+        {
+          coords:{lat:42.4668,lng:-70.9495},
+          iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          content:'<h1>Lynn MA</h1>'
+        },
+        {
+          coords:{lat:42.8584,lng:-70.9300},
+          content:'<h1>Amesbury MA</h1>'
+        },
+        {
+          coords:{lat:42.7762,lng:-71.0773}
+        }
+      ];
+      
+			*/
+			var markers = [
+					{
+				
+           "FirstName": "Damien",
+
+           "LastName": "Fleminks",
+
+           "Title": "Engineer",
+
+           "Account": "Salesforce",
+
+           "Phone": "871932517",
+
+           "Email": "damien@fleminks.com",
+
+           "Address": "14 Temple Square",
+
+           "City": "Dublin",
+
+           "State": "",
+
+           "Zipcode": "",
+
+           "Country": "Ireland",
+
+           "Description": "Working as salesforce in enterprise department",
+
+           "Id": "con12",
+					 coords:{lat:53.345679,lng:-6.262960}
+           },
+				   {
+				   "FirstName": "Boris",
+
+           "LastName": "Figeczky",
+
+           "Title": "CRM manager",
+
+           "Account": "NP ltd",
+
+           "Phone": "87193000",
+
+           "Email": "figeczky@pens.com",
+
+           "Address": "114 Holywell Park",
+
+           "City": "Swords",
+
+           "State": "",
+
+           "Zipcode": "",
+
+           "Country": "Ireland",
+
+           "Description": "Working as CRM manager for NP ltd.",
+
+           "Id": "con12",
+					 coords:{lat:53.444073,lng:-6.211989}
+				
+				}
+			];
+			
+			
+			
+			
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+          //icon:props.iconImage
+        });
+
+        // Check for customicon
+        if(props.iconImage){
+          // Set icon image
+          marker.setIcon(props.iconImage);
+        }
+
+        // Check content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3m_4_-3nSH9_JrDQN621VvNfpNF7NQpg&callback=initMap">
+    </script>
+			
+			<!--end map stcript-->
+			
+			
+			
+			
 	<script>
+		//Adding contact object in variable for easy editing
+		var contactRecord = [object Object];
+		console.log("Saving Contact in variable,\n Adding Contact: " + contact.FirstName);
+
 		$(document).ready(function() {
 
 			//Highlights contacts button when active
