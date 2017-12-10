@@ -202,6 +202,15 @@
 	</form>
 
 
+	<div class="export-lightbox">
+		<h4>Exporting all contacts to XML</h4>
+		<hr class="horizontal-line" />
+		<div class="hide-export-download showme">
+			<p> <i class="glyphicon glyphicon-ok"></i>Export finished</p> <br/>
+			<p><a id="export-href" href="/exports/Contacts-export.xml" download> Download here </a></p>
+		</div>
+
+	</div>
 
 
 
@@ -216,6 +225,8 @@
 			<span class="popuptext" id="delPopup">Select minimum 1 record!</span>
 			<button class="w3-button w3-dark-grey delete-button" id="table-del-button">Delete  <i class="glyphicon glyphicon-minus"></i></button>
 		</div>
+		<button class="w3-button w3-dark-grey" id="table-export-button" data-featherlight=".export-lightbox" onclick="exportContacts()">export  <i class="glyphicon glyphicon-export"></i></button>
+
 		<input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
 
 		<div class="w3-animate-left table-responsive">
