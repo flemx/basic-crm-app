@@ -24,6 +24,10 @@
 		h5 {
 			font-family: "Raleway", sans-serif
 		}
+    #map{
+      height:400px;
+      width:100%;
+    }
 	</style>
 	<!-- Header with meta tags and references   -->
 
@@ -163,15 +167,10 @@
 			</div>
 			<!--Map fuctionality-->
 		
-		 <style>
-    #map{
-      height:400px;
-      width:100%;
-    }
-  </style>
+
 </head>
 <body>
-  <h1>My Google Map</h1>
+  <h3>Your location</h3>
   <div id="map"></div>
 
 <!--end of map-->
@@ -206,7 +205,7 @@
       // Map options
       var options = {
         zoom:8,
-        center:{lat:42.3601,lng:-71.0589}
+        center:{lat:53.3330556,lng:-6.2488889}
       }
 
       // New map
@@ -234,7 +233,9 @@
         infoWindow.open(map, marker);
       });
       */
-
+  
+			
+			/*
       // Array of markers
       var markers = [
         {
@@ -250,7 +251,43 @@
           coords:{lat:42.7762,lng:-71.0773}
         }
       ];
+      
+			*/
+			var markers = [
+					{
+				
+           "FirstName": "Damien",
 
+           "LastName": "Fleminks",
+
+           "Title": "Engineer",
+
+           "Account": "Salesforce",
+
+           "Phone": "871932517",
+
+           "Email": "damien@fleminks.com",
+
+           "Address": "14 Temple Square",
+
+           "City": "Dublin",
+
+           "State": "",
+
+           "Zipcode": "",
+
+           "Country": "Ireland",
+
+           "Description": "Working as salesforce in enterprise department",
+
+           "Id": "con12",
+					 coords:{lat:53.345679,lng:-6.262960}
+
+       }];
+			
+			
+			
+			
       // Loop through markers
       for(var i = 0;i < markers.length;i++){
         // Add marker
