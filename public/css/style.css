@@ -27,7 +27,7 @@
 .selected-row{background-color:#ccc}
 
 /* Lightbox Styling  */
-.add-lightbox, .update-lightbox {display: none;};
+.add-lightbox, .update-lightbox, .export-lightbox {display: none;};
 
 /* Make tables mobile friendly*/
 .table-responsive{overflow-x: auto;}
@@ -51,6 +51,30 @@
 /* ------------------------------------------------------------------------ *
  * Styling for adding/update records forms
  * ------------------------------------------------------------------------ */
+
+
+.showme{
+  display:none;
+}
+
+
+.export-lightbox h3{
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  color: rgb(112, 110, 107);
+}
+.export-lightbox {
+  color: rgb(112, 110, 107);
+}
+.export-lightbox a{
+  text-decoration: underline;
+}
+
+.glyphicon-ok{
+  color: #499249;
+}
+
 
 
 .form-container{

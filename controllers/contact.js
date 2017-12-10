@@ -1,5 +1,8 @@
-module.exports = function (app, fs, bodyParser) {
+
+module.exports = function (app, fs, bodyParser, multer,js2xmlparser) {
     var contactData = require('../models/contacts.js');
+    var x2j = require( 'xml2js' );
+
     myContacts = new contactData(fs);
 
 
@@ -13,12 +16,39 @@ module.exports = function (app, fs, bodyParser) {
 
 
 
+
     //Test Page
     app.get('/test', function (req, res) {
         console.log("Controller router '/contacts' is executing ");
         var data = myContacts.getContacts();
         res.render('test', {contacts: data});
     });
+    //Test Page
+    app.get('/test2', function (req, res) {
+        console.log("Controller router '/contacts' is executing ");
+        var data = myContacts.getContacts();
+        res.render('uploadTest', {contacts: data});
+    });
+
+
+
+
+
+    app.get('/export',function(req,res){
+        var data = myContacts.getContacts();
+        // Parse the JSON file in order to be able to edit it
+        var JSONformated = JSON.stringify(data.contact, null, 4);
+        var XMLformated = js2xmlparser.parse("Contacts", JSON.parse(JSONformated));
+        fs.writeFileSync('./public/exports/Contacts-export.xml', XMLformated);
+        res.send("Exported succesfully to: /public/exports/Contacts-export.xml");
+    });
+
+
+
+
+
+
+
 
     // Get Contact by id
     app.get('/get/contact/:id', function (req, res) {
@@ -87,19 +117,6 @@ module.exports = function (app, fs, bodyParser) {
         res.send(data);
     });
 
-    /*
-    //Get contact ID
-    app.get('/contact/:id', function (req, res) {
-        var data = myContacts.getContacts();
-        console.log("Paramater = " + req.params.id);
-        //var contact = lodash.filter(data.contact, { 'id': req.params.id } );
-        var contact = data.contact.filter(function (obj) {
-            return obj.id === req.params.id;
-        })
-
-        console.log("Name  = " + contact[0].name);
-    });
-    */
 
 
     // Post router to add new record to contacts.json

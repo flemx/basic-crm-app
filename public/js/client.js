@@ -84,7 +84,7 @@ $(document).ready(function(){
 
 
 // Function to search in the table
-function searchFunction() {
+var searchFunction = function () {
     var input, filter, table, tr, td, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -100,7 +100,7 @@ function searchFunction() {
             }
         }
     }
-}
+};
 
 
 
@@ -334,17 +334,6 @@ function contactTable(contacts){
 
 
 
-//Ajax function to load contacts and build table from contacts JSON object
-var loadContacts = function() {
-	$.ajax({
-		url: "/get/contacts",
-		cache: false,
-		success: function(contacts) {
-			contactTable(contacts.contact);
-		}
-	});
-};
-
 
 
 // Ajax function to post text from input fields to update contacts JSON object and rebuild table with new data
@@ -480,23 +469,21 @@ var updateContact = function(){
 };
 
 
+//Export contacts to XMl
+var exportContacts = function() {
+    $.ajax({
+        url: "/export",
+        cache: false,
+        success: function(success) {
+            console.log(success);
+            $('.hide-export-download').removeClass('showme');
 
-
-
-/* ------------------------------------------------------------------------ */
-//Games handler
-
-
-var loadGames = function() {
-	$.ajax({
-		url: "/get/games",
-		cache: false,
-		success: function(html) {
-			
-			$("#records-table-container").append(html);
-		}
-	});
+        }
+    });
 };
+
+
+
 
 
 

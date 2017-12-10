@@ -7,12 +7,13 @@ var http = require('http'),
     js2xmlparser = require('js2xmlparser'),
     urlencodedParser = bodyParser.urlencoded({extended: false});
 
-var Busboy = require('busboy');
+var multer = require('multer');
+
 
 var app = express();
 var server = http.createServer(app);
 //var urlencodedParser = bodyParser.urlencoded({extended: false});
-var customerController = require('./controllers/contact');
+var contactController = require('./controllers/contact');
 var accountsController = require('./controllers/account');
 var gamesController = require('./controllers/Games');
 
@@ -36,28 +37,6 @@ app.get('/', function(req, res) {
 
 
 
-app.get('/uploadTest', function(req, res) {
-    res.render('uploadTest');
-});
-
-app.post('/upload', function (req, res) {
-    var busboy = new Busboy({ headers: req.headers });
-    busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-        var saveTo = path.join('./files/', filename);
-        console.log('Uploading: ' + saveTo);
-        file.pipe(fs.createWriteStream(saveTo));
-    });
-    busboy.on('finish', function() {
-        console.log('Upload complete');
-        res.writeHead(200, { 'Connection': 'close' });
-        res.end("That's all folks!");
-    });
-    return req.pipe(busboy);
-
-});
-
-
-
 
 
 
@@ -74,28 +53,9 @@ app.get('/boris', function(req, res) {
 
 
 //Fire controllers
-customerController(app,fs,bodyParser);
+contactController(app,fs,bodyParser,multer,js2xmlparser);
 accountsController(app,fs,bodyParser);
 gamesController(app,fs,js2xmlparser,bodyParser);
-
-
-
-app.post('/upload', function (req, res) {
-    var busboy = new Busboy({ headers: req.headers });
-    busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-        var saveTo = path.join('./files/', filename);
-        console.log('Uploading: ' + saveTo);
-        file.pipe(fs.createWriteStream(saveTo));
-    });
-    busboy.on('finish', function() {
-        console.log('Upload complete');
-        res.writeHead(200, { 'Connection': 'close' });
-        res.end("That's all folks!");
-    });
-    return req.pipe(busboy);
-
-});
-
 
 
 

@@ -9,17 +9,19 @@
 
 
 
+
+
 </head>
 
 <script>
 
 
 
-        //Highlights contacts button when active
-        $('#contacts-button').addClass('w3-blue');
+    //Highlights contacts button when active
+    $('#contacts-button').addClass('w3-blue');
 
-        //Created variable to identify page
-        var $pageId = 1;
+    //Created variable to identify page
+    var $pageId = 1;
 
 </script>
 
@@ -33,8 +35,11 @@
 <!-- Overlay effect when opening sidebar on small screens -->
 
 
+
+
+
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<hr class="w3-main" style="margin-left:300px;margin-top:43px;">
 
     <header class="w3-container" style="padding-top:22px">
         <h5><b><i class="fa fa-dashboard"></i> Contacts</b></h5>
@@ -203,6 +208,39 @@
 
 
 
+    <div class="export-lightbox">
+        <h4>Exporting all contacts to XML</h4>
+        <hr class="horizontal-line" />
+        <div class="hide-export-download showme">
+            <p> <i class="glyphicon glyphicon-ok"></i>Export finished</p> <br/>
+            <p><a id="export-href" href="/exports/Contacts-export.xml" download> Download here </a></p>
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+
+
+
+        var exportContacts = function() {
+            $.ajax({
+                url: "/export",
+                cache: false,
+                success: function(success) {
+                    console.log(success);
+                    $('.hide-export-download').removeClass('showme');
+
+                }
+            });
+        };
+
+
+    </script>
+
+
 
 
 
@@ -216,7 +254,8 @@
             <span class="popuptext" id="delPopup">Select minimum 1 record!</span>
             <button class="w3-button w3-dark-grey delete-button" id="table-del-button">Delete  <i class="glyphicon glyphicon-minus"></i></button>
         </div>
-        <input type="text" id="myInput" onkeyup="searchFunction()" placeholder="Search for names..">
+        <button class="w3-button w3-dark-grey" id="table-export-button" data-featherlight=".export-lightbox" onclick="exportContacts()">export  <i class="glyphicon glyphicon-export"></i></button>
+        <input type="text" id="myInput" onkeyup="searchFunction()"  placeholder="Search for names..">
 
         <div class="w3-animate-left table-responsive">
             <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white" id="records-table-container">
