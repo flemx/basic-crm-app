@@ -23,10 +23,13 @@ module.exports = function (app, fs, bodyParser) {
     // Get Contact by id
     app.get('/get/contact/:id', function (req, res) {
         //Calling getContact() function from models which returns the contact object by id
-        var result = contactData.getContact(req.params.id);
-        console.log("Will send Contact to client: " + data.contact[i].Id);
+        console.log("Controller router '/get/contact/:id' is executing ");
+
+        var result = myContacts.getContact(req.params.id);
+        console.log("Will send Contact to client: " + result.Id);
         //Sending requested account back to client
         res.send(result);
+
     });
 
 
@@ -42,10 +45,10 @@ module.exports = function (app, fs, bodyParser) {
             if (updateData.Id === data.contact[j].Id) {
                 console.log("Updating account: " + data.contact[j].Id);
                 data.contact[j] = updateData;
-                console.log("Successfully updated contact: " + data.contact[i].Id);
+                console.log("Successfully updated contact: " + data.contact[j].Id);
             }
         }
-        //myContacts.setContacts(data);
+        myContacts.setContacts(data);
         res.send(data);
     });
 

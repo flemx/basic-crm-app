@@ -1,16 +1,20 @@
 
-/* Lightbox Styling  */
-.add-lightbox, .update-lightbox {display: none;};
 
-/* Make tables mobile friendly*/
-.table-responsive{overflow-x: auto;}
+
 
 /* CRM logo mobile friendly */
 @media screen and (max-width: 500px) {
   .crm-logo{
     display:none;  
   }
-} 
+}
+
+
+
+/* ------------------------------------------------------------------------ *
+ * Styling for record table pages
+ * ------------------------------------------------------------------------ */
+
 
 /* Object tables and buttons */
 .add-button{
@@ -22,7 +26,11 @@
 /* test CSS for highlighting selected row */
 .selected-row{background-color:#ccc}
 
+/* Lightbox Styling  */
+.add-lightbox, .update-lightbox {display: none;};
 
+/* Make tables mobile friendly*/
+.table-responsive{overflow-x: auto;}
 
 
 /* Search function  */
@@ -40,8 +48,10 @@
 }
 
 
+/* ------------------------------------------------------------------------ *
+ * Styling for adding/update records forms
+ * ------------------------------------------------------------------------ */
 
-/* Form styling for adding new records */
 
 .form-container{
   font-weight: 300;
@@ -71,9 +81,12 @@
 .required-input{
   color: rgb(194, 57, 52);
   font-weight: 700;
+
+  /* Make required star unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+
   user-select: none;
   font-size: 1.4em;
   float: left;
@@ -83,8 +96,11 @@
 
 
 
+/* ------------------------------------------------------------------------ *
+ *   Single record page styling
+ * ------------------------------------------------------------------------ */
 
-/*   Single record page   */
+
 
 .record-container{
   margin-left: 5%;
@@ -147,9 +163,80 @@
 }
 
 
+/* ------------------------------------------------------------------------ *
+ *  Footer styling
+ * ------------------------------------------------------------------------ */
 
-/*  Footer styling  */
+
 footer {
   text-align: center;
   
+}
+
+
+
+
+/* ------------------------------------------------------------------------ *
+ * Pop-up styling - used mainly for validation notifications
+ * CSS used from W3School:
+ * https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_popup
+ * ------------------------------------------------------------------------ */
+
+
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #cb3a1d;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -50px;
+  font-size: 85%;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
 }

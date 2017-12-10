@@ -20,7 +20,7 @@ myAccountData = new accountData(fs);
     // Get Account by id
     app.get('/get/account/:id', function(req, res) {
         //Calling getAccount() function from models which returns the Account object by id
-        var result = myAccountData.getAccount( req.params.id);
+        var result = myAccountData.getAccount(req.params.id);
         console.log("Will send Account to client: " + result.AccountName);
         //Sending requested account back to client
         res.send(result);

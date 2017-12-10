@@ -15,6 +15,22 @@ module.exports = function (fs) {
    var JSONformated = JSON.stringify(data, null, 4);
    fs.writeFileSync('./data/contacts.json', JSONformated);
   }
+
+
+    module.getContact = function(id){
+        var readJson =  fs.readFileSync('./data/contacts.json', 'utf8');
+        var data = JSON.parse(readJson);
+        var result;
+
+        //Loops through accounts to find the account and return the account object
+        for(var i in data.contact){
+            if(data.contact[i].Id ===  id){
+                console.log("Found contact in databse: " + data.contact[i].Id);
+                result = data.contact[i];
+            }
+        }
+        return result;
+    }
   
   
   
