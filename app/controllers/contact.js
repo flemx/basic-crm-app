@@ -103,10 +103,12 @@ module.exports = function (app, fs, bodyParser, js2xmlparser) {
     app.post('/post/contact', function (req, res) {
         var data = myContacts.getContacts();
         var postData = req.body;
+
         // Add unique Id to record from index integer in JSON file
         postData.Id = "con" + (data.index + 1);
         data.index = data.index + 1;
         console.log("Adding new record with ID: " + postData.Id);
+
         //add new data to JSON and write it to the file
         data.contact.push(postData);
         myContacts.setContacts(data);
